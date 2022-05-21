@@ -21,7 +21,25 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div>Header</div>
+        <div className={styles.header}>
+          <div>
+            <p style={{ color: 'gold', fontSize: '25px' }}>StoreLogo</p>
+          </div>
+          <div className={styles.searchBar}>
+            <div style={{ backgroundColor: 'black', borderTopLeftRadius: '12px', borderBottomLeftRadius: '12px' }}>
+              <p style={{ color: 'white', margin: '15px' }}>All Products</p>
+            </div>
+            <div style={{ display: 'flex', backgroundColor: 'white', borderBottomRightRadius: '12px', borderTopRightRadius: '12px' }}>
+              <div>
+                <input placeholder='Enter keywords' className={styles.input} />
+              </div>
+              <div style={{ paddingRight: '25px', alignItems: 'center' }}>
+                Icon
+              </div>
+            </div>
+          </div>
+          <div>Account</div>
+        </div>
       </div>
     </div>
   )

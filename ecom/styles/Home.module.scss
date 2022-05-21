@@ -29,7 +29,23 @@
   display: flex;
   justify-content: space-around;
 }
+.header {
+  background-color: rgb(77, 36, 226);
+  display: flex;
+  justify-content: space-around;
+}
+.input {
+  border: 0px solid transparent;
+  height: 50px;
+}
+.input:focus {
+  outline: none;
+}
 
+.searchBar {
+  display: flex;
+  align-items: center;
+}
 @media only screen and (max-width: 800px) {
   .discountSection {
     flex-direction: column;
