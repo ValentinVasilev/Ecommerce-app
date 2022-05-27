@@ -105,6 +105,19 @@
   font-weight: 400;
   cursor: pointer;
 }
+.productsWrapper {
+  border: 1px solid red;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.productsCarousel {
+  width: 68%;
+  display: flex;
+  height: 200px;
+  border: 1px solid brown;
+}
 @media only screen and (max-width: 800px) {
   .discountSection {
     flex-direction: column;

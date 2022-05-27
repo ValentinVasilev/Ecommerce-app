@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.scss'
 import Link from 'next/link'
 import Find from '../assets/icons/find.png';
 import Brand from '../assets/icons/brand.jpg';
+import { CategoryCard } from '../components/category-card.component'
 
 const Home: NextPage = () => {
   return (
@@ -67,6 +68,11 @@ const Home: NextPage = () => {
                 <Image src={Brand} width={1200} height={800} alt="brand picture" />
               </div>
             </div>
+          </div>
+        </div>
+        <div className={styles.productsWrapper}>
+          <div className={styles.productsCarousel}>
+            <CategoryCard title={'Test obj'} subTitle={'alt sub title'} />
           </div>
         </div>
       </div>
