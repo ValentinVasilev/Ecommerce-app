@@ -1,11 +1,16 @@
 .categoryCard {
-  border: 1px solid greenyellow;
-  width: 400px;
+  border: 1px solid transparent;
+  background-color: #f6f5fd;
   height: 200px;
+  border-radius: 10px;
+  // background-image: url("../assets/icons/shoe.png");
+}
+.contentWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  border-radius: 2px;
-  margin: 2vh;
-  padding-bottom: 2vh;
+  margin: 2vh 0vh 2vh 2vh;
+}
+
+.title {
+  color: #3a2c6c;
 }

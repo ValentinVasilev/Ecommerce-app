@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Find from '../assets/icons/find.png';
 import Brand from '../assets/icons/brand.jpg';
 import { CategoryCard } from '../components/category-card.component'
+import CarouselComponent from '../components/carousel.component'
 
 const Home: NextPage = () => {
   return (
@@ -72,9 +73,10 @@ const Home: NextPage = () => {
         </div>
         <div className={styles.productsWrapper}>
           <div className={styles.productsCarousel}>
-            <CategoryCard title={'Test obj'} subTitle={'alt sub title'} />
+            <CarouselComponent />
           </div>
         </div>
+        <div style={{ margin: '20px' }}>123</div>
       </div>
     </div >
   )

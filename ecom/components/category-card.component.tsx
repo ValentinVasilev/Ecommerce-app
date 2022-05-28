@@ -11,8 +11,11 @@ type CategoryCardProps = {
 export const CategoryCard = (props: CategoryCardProps) => {
   return (
     <div className={style.categoryCard}>
-      <p>{props.title}</p>
-      <p>{props.subTitle}</p>
+      <div className={style.contentWrapper}>
+        <p className={style.title}>{props.title}</p>
+        <p>{props.subTitle}</p>
+      </div>
+
     </div>
   )
 }
