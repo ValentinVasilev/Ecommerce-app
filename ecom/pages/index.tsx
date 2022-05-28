@@ -82,7 +82,9 @@ const Home: NextPage = () => {
             <div>
               <p style={{ fontSize: '40px', fontFamily: 'Montserrat', fontWeight: 'bold', color: '#3a2c6c' }}>Recenent Descounts</p>
             </div>
-            <DiscountCarouselComponent />
+            <div>
+              <DiscountCarouselComponent />
+            </div>
           </div>
         </div>
       </div>

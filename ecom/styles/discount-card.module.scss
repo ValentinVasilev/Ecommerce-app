@@ -1,0 +1,47 @@
+.cardWrapper {
+  border: 1px solid white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  // width: 25%;
+  // min-width: fit-content;
+  // min-height: fit-content;
+  // height: 500px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+}
+.cardDiscount {
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vh;
+  margin-bottom: 2vh;
+}
+.brand {
+  font-size: 17px;
+  color: gray;
+  margin-bottom: -5px;
+}
+.model {
+  font-size: 20px;
+  color: #2f2947;
+  margin-top: 5px;
+}
+
+.rate {
+  color: orange;
+  margin-top: -15px;
+  margin-bottom: 5px;
+}
+.discount {
+  color: #2f2947;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 25px;
+}
+.price {
+  align-self: center;
+  color: gray;
+  text-decoration: line-through;
+}

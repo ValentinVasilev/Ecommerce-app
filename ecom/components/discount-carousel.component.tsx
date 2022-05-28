@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Laptop from '../assets/icons/laptop-asus.png'
-
+import { DiscountCard } from "./discount-card.component";
 import styles from '../styles/carouselStyles.module.scss'
 
 // Import Swiper styles
@@ -25,7 +25,7 @@ export default function DiscountCarouselComponent() {
         }}
         slidesPerView={4}
         navigation={true}
-        spaceBetween={30}
+        spaceBetween={50}
         loopFillGroupWithBlank={false}
         // loop={true}
         pagination={{
@@ -33,15 +33,74 @@ export default function DiscountCarouselComponent() {
 
         }}
         modules={[Pagination, Navigation]}
-        className={styles.mySwiper}
+        className={styles.mySwiper2}
       >
         <SwiperSlide
-        // style={{
-        //   paddingBottom: 50,
-        //   height: 'auto',
-        // }}
         >
-          {/* <CategoryCard title={'Shoes'} subTitle={'Best brands in one place! We have all you need!'} bgImg={ShoeImg} linkTo="/" /> */}
+          <DiscountCard
+            totalSave={'100'}
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate="3"
+            actualPrice="3,000"
+            discountPrice="2,899.99"
+            inStock={50}
+          />
+        </SwiperSlide>
+        <SwiperSlide
+        >
+          <DiscountCard
+            totalSave={'100'}
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate="3"
+            actualPrice="3000"
+            discountPrice="2,899.99"
+            inStock={40}
+          />
+        </SwiperSlide>
+        <SwiperSlide
+        >
+          <DiscountCard
+            totalSave={'100'}
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate="3"
+            actualPrice="3000"
+            discountPrice="2,899.99"
+            inStock={25}
+
+          />
+        </SwiperSlide>
+        <SwiperSlide
+        >
+          <DiscountCard
+            totalSave={'100'}
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate="3"
+            actualPrice="3000"
+            discountPrice="2,899.99"
+            inStock={20}
+
+          />
+        </SwiperSlide>
+        <SwiperSlide
+        >
+          <DiscountCard
+            totalSave={'100'}
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate="3"
+            actualPrice="3000"
+            discountPrice="2,899.99"
+            inStock={5}
+          />
         </SwiperSlide>
       </Swiper>
     </>
