@@ -106,7 +106,6 @@
   cursor: pointer;
 }
 .productsWrapper {
-  // border: 1px solid red;
   background-color: white;
   padding-top: 2vh;
   display: flex;
@@ -116,9 +115,25 @@
 .productsCarousel {
   width: 68%;
   display: flex;
-  height: 200px;
+  max-height: 220px;
   justify-content: space-around;
-  // border: 1px solid brown;
+}
+
+.discountWrapper {
+  background-color: white;
+  padding-top: 2vh;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid red;
+  margin-top: 100px;
+}
+
+.discountCarousel {
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  max-height: 220px;
+  justify-content: space-around;
 }
 @media only screen and (max-width: 800px) {
   .discountSection {

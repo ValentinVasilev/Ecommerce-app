@@ -7,6 +7,7 @@ import Find from '../assets/icons/find.png';
 import Brand from '../assets/icons/brand.jpg';
 import { CategoryCard } from '../components/category-card.component'
 import CarouselComponent from '../components/carousel.component'
+import DiscountCarouselComponent from '../components/discount-carousel.component'
 
 const Home: NextPage = () => {
   return (
@@ -76,7 +77,14 @@ const Home: NextPage = () => {
             <CarouselComponent />
           </div>
         </div>
-        <div style={{ margin: '20px' }}>123</div>
+        <div className={styles.discountWrapper}>
+          <div className={styles.discountCarousel}>
+            <div>
+              <p style={{ fontSize: '40px', fontFamily: 'Montserrat', fontWeight: 'bold', color: '#3a2c6c' }}>Recenent Descounts</p>
+            </div>
+            <DiscountCarouselComponent />
+          </div>
+        </div>
       </div>
     </div >
   )

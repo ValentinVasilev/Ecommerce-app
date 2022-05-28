@@ -1,16 +1,46 @@
 .categoryCard {
   border: 1px solid transparent;
   background-color: #f6f5fd;
-  height: 200px;
+  max-height: 220px;
   border-radius: 10px;
-  // background-image: url("../assets/icons/shoe.png");
+  display: flex;
+  justify-content: space-between;
 }
 .contentWrapper {
   display: flex;
   flex-direction: column;
-  margin: 2vh 0vh 2vh 2vh;
+  margin: 0vh 0vh 2vh 2vh;
 }
 
 .title {
   color: #3a2c6c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+.subTitle {
+  color: #9593a3;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: -1vh;
+  font-weight: 400;
+  width: 70%;
+}
+.btnWrapper {
+  display: flex;
+  align-self: flex-start;
+  margin-top: 2vh;
+}
+.btnStyle {
+  border: 1px solid transparent;
+  background-color: white;
+  border-radius: 10px;
+  justify-self: center;
+  font-size: 15px;
+  color: #3a2c6c;
+  font-weight: 600;
+  width: 170px;
+  height: 40px;
+  cursor: pointer;
 }
