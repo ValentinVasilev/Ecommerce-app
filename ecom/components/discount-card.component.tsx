@@ -1,21 +1,21 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
+import DiscountImg from '../assets/icons/discount.png';
 import style from '../styles/discount-card.module.scss';
 
 type DiscountCardProps = {
-  totalSave: string,
   cardImg: StaticImageData,
   brand: string,
   model: string,
   rate?: string,
-  actualPrice: string,
-  discountPrice: string,
+  actualPrice: number,
+  discountPrice: number,
   inStock: number,
 }
 
 export const DiscountCard = (props: DiscountCardProps) => {
 
-  let instockColor = '';
+  let instockColor: string = '';
 
 
   if (props.inStock >= 50) {
@@ -28,7 +28,10 @@ export const DiscountCard = (props: DiscountCardProps) => {
 
   return (
     <div className={style.cardWrapper}>
-      <p className={style.cardDiscount}>{props.totalSave}</p>
+      <div className={style.discountWrapper}>
+        <Image src={DiscountImg} width={25} height={25} alt="discount image" />
+        <p>Save ${props.actualPrice - props.discountPrice}</p>
+      </div>
       <div className={style.cardContent}>
         <div>
           <Image src={props.cardImg} alt="image of the card" />
@@ -40,8 +43,13 @@ export const DiscountCard = (props: DiscountCardProps) => {
           <p className={style.discount}>${props.discountPrice}</p>
           <p className={style.price}>$ {props.actualPrice}</p>
         </div>
-        <p style={{ color: instockColor, fontWeight: 500 }}>{props.inStock} Available in stock</p>
+        {props.inStock < 2 ? (
+          <p style={{ color: instockColor, fontWeight: 500 }}>Last product in stock</p>
+
+        ) : (
+          <p style={{ color: instockColor, fontWeight: 500 }}>{props.inStock} Available in stock</p>
+        )}
       </div>
-    </div>
+    </div >
   )
 }

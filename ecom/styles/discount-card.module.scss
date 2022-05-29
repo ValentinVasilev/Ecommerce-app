@@ -1,16 +1,26 @@
 .cardWrapper {
-  border: 1px solid white;
+  // border: 1px solid white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  // width: 25%;
-  // min-width: fit-content;
-  // min-height: fit-content;
-  // height: 500px;
+  // border: 1px solid gray;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
 }
-.cardDiscount {
+.discountWrapper {
+  display: flex;
+  width: 60%;
+  place-items: center;
+  justify-content: space-between;
+  // border: 1px solid black;
+  border-radius: 12px;
+  margin: 1vh;
+  padding-right: 1vh;
+  padding-left: 1vh;
+  background-color: rgb(47, 255, 92);
+  color: gray;
+  font-weight: 500;
+  // height: 40x;
 }
 .cardContent {
   display: flex;

@@ -80,7 +80,7 @@ const Home: NextPage = () => {
         <div className={styles.discountWrapper}>
           <div className={styles.discountCarousel}>
             <div>
-              <p style={{ fontSize: '40px', fontFamily: 'Montserrat', fontWeight: 'bold', color: '#3a2c6c' }}>Recenent Descounts</p>
+              <p style={{ fontSize: '40px', fontFamily: 'Montserrat', fontWeight: 'bold', color: '#3a2c6c' }}>Recent Descounts</p>
             </div>
             <div>
               <DiscountCarouselComponent />

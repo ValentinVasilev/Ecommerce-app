@@ -21,56 +21,70 @@ export default function DiscountCarouselComponent() {
     <>
       <Swiper
         style={{
-          padding: 0
+          padding: 10
         }}
-        slidesPerView={4}
+        // slidesPerView={4}
         navigation={true}
         spaceBetween={50}
         loopFillGroupWithBlank={false}
         // loop={true}
         pagination={{
           clickable: true,
-
         }}
         modules={[Pagination, Navigation]}
         className={styles.mySwiper2}
+        breakpoints={{
+          1700: {
+            slidesPerGroup: 4,
+            slidesPerView: 4,
+          },
+          1520: {
+            slidesPerGroup: 3,
+            slidesPerView: 3,
+          },
+          1000: {
+            slidesPerGroup: 2,
+            slidesPerView: 2,
+          },
+          700: {
+            slidesPerGroup: 2,
+            slidesPerView: 2,
+          }
+        }}
       >
         <SwiperSlide
         >
           <DiscountCard
-            totalSave={'100'}
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
             rate="3"
-            actualPrice="3,000"
-            discountPrice="2,899.99"
+            actualPrice={3000}
+            discountPrice={2899}
             inStock={50}
           />
         </SwiperSlide>
         <SwiperSlide
         >
           <DiscountCard
-            totalSave={'100'}
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
             rate="3"
-            actualPrice="3000"
-            discountPrice="2,899.99"
+            actualPrice={3000}
+            discountPrice={2899}
             inStock={40}
           />
         </SwiperSlide>
         <SwiperSlide
         >
           <DiscountCard
-            totalSave={'100'}
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
             rate="3"
-            actualPrice="3000"
-            discountPrice="2,899.99"
+            actualPrice={3000}
+            discountPrice={2899}
             inStock={25}
 
           />
@@ -78,27 +92,25 @@ export default function DiscountCarouselComponent() {
         <SwiperSlide
         >
           <DiscountCard
-            totalSave={'100'}
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
             rate="3"
-            actualPrice="3000"
-            discountPrice="2,899.99"
-            inStock={20}
+            actualPrice={3000}
+            discountPrice={2899}
+            inStock={1}
 
           />
         </SwiperSlide>
         <SwiperSlide
         >
           <DiscountCard
-            totalSave={'100'}
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
             rate="3"
-            actualPrice="3000"
-            discountPrice="2,899.99"
+            actualPrice={3000}
+            discountPrice={2899}
             inStock={5}
           />
         </SwiperSlide>
