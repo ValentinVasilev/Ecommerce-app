@@ -8,6 +8,13 @@ import Brand from '../assets/icons/brand.jpg';
 import { CategoryCard } from '../components/category-card.component'
 import CarouselComponent from '../components/carousel.component'
 import DiscountCarouselComponent from '../components/discount-carousel.component'
+import { PromotionCard } from '../components/promotions-card.component'
+import SweaterImg from '../assets/pictures/sweater.png';
+import SweaterIcon from '../assets/icons/sweater-icon.png';
+import CosmeticIcon from '../assets/pictures/cosmetic.png';
+import BeautyImg from '../assets/icons/beauty2.png';
+import BikeIcon from '../assets/pictures/bike.png'
+import BikeImg from '../assets/icons/bikePicture2.jpg'
 
 const Home: NextPage = () => {
   return (
@@ -80,10 +87,26 @@ const Home: NextPage = () => {
         <div className={styles.discountWrapper}>
           <div className={styles.discountCarousel}>
             <div>
-              <p style={{ fontSize: '40px', fontFamily: 'Montserrat', fontWeight: 'bold', color: '#3a2c6c' }}>Recent Descounts</p>
+              <p className={styles.sectionsTitles}>Recent Discounts</p>
             </div>
             <div>
               <DiscountCarouselComponent />
+            </div>
+          </div>
+        </div>
+        <div className={styles.activePromotionsWrapper}>
+          <div className={styles.activePromotions}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <p className={styles.sectionsTitles}>Active Promotions</p>
+              <Link href='/' passHref>
+                <a className={styles.sectionsTitles2}>View All Promotions</a>
+              </Link>
+            </div>
+            <div className={styles.cardContainer}>
+              <PromotionCard title='Up to 25% off on all casual sweaters' img={SweaterImg} icon={SweaterIcon} isReverse={false} />
+              <PromotionCard title='Up to 20% off on all beauty products' img={BeautyImg} icon={CosmeticIcon} isReverse={true} />
+              <PromotionCard title='Exciting bike rides with amazing equipment' img={BikeImg} icon={BikeIcon} isReverse={false} />
+              {/* <PromotionCard title='Just a test title' /> */}
             </div>
           </div>
         </div>
