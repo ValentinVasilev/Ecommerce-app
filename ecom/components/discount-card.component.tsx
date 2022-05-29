@@ -1,13 +1,15 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import DiscountImg from '../assets/icons/discount.png';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 import style from '../styles/discount-card.module.scss';
 
 type DiscountCardProps = {
   cardImg: StaticImageData,
   brand: string,
   model: string,
-  rate?: string,
+  rate?: number,
   actualPrice: number,
   discountPrice: number,
   inStock: number,
@@ -38,9 +40,13 @@ export const DiscountCard = (props: DiscountCardProps) => {
         </div>
         <p className={style.brand}>{props.brand}</p>
         <p className={style.model}>{props.model}</p>
-        <p className={style.rate}>{props.rate}</p>
-        <div style={{ display: 'flex' }}>
-          <p className={style.discount}>${props.discountPrice}</p>
+        <div className={style.rate}>
+          <Rating name="half-rating-read" defaultValue={props.rate} precision={0.5} readOnly />
+          <p className={style.rateNumber}>{props.rate}</p>
+        </div>
+
+        <div style={{ display: 'flex', marginBottom: '-2vh' }}>
+          <p className={style.discount}>${props.discountPrice.toFixed(2)}</p>
           <p className={style.price}>$ {props.actualPrice}</p>
         </div>
         {props.inStock < 2 ? (

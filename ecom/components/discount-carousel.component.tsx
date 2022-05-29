@@ -58,7 +58,7 @@ export default function DiscountCarouselComponent() {
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
-            rate="3"
+            rate={3}
             actualPrice={3000}
             discountPrice={2899}
             inStock={50}
@@ -70,7 +70,7 @@ export default function DiscountCarouselComponent() {
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
-            rate="3"
+            rate={3}
             actualPrice={3000}
             discountPrice={2899}
             inStock={40}
@@ -82,7 +82,7 @@ export default function DiscountCarouselComponent() {
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
-            rate="3"
+            rate={3.5}
             actualPrice={3000}
             discountPrice={2899}
             inStock={25}
@@ -95,7 +95,7 @@ export default function DiscountCarouselComponent() {
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
-            rate="3"
+            rate={5}
             actualPrice={3000}
             discountPrice={2899}
             inStock={1}
@@ -108,7 +108,7 @@ export default function DiscountCarouselComponent() {
             cardImg={Laptop}
             brand="Asus"
             model="ASUS ZenBook Pro Duo UX581GV"
-            rate="3"
+            rate={1}
             actualPrice={3000}
             discountPrice={2899}
             inStock={5}

@@ -16,8 +16,8 @@
   margin: 1vh;
   padding-right: 1vh;
   padding-left: 1vh;
-  background-color: #44d77c;
-  color: red;
+  background-color: rgba(68, 215, 124, 1);
+  color: white;
   font-weight: 600;
 }
 .cardContent {
@@ -35,16 +35,25 @@
   font-size: 20px;
   color: #2f2947;
   margin-top: 5px;
+  font-weight: 500;
 }
 
 .rate {
-  color: orange;
-  margin-top: -15px;
-  margin-bottom: 5px;
+  color: #2f2947;
+  margin-top: -4vh;
+  margin-bottom: -2vh;
+  display: flex;
+  align-items: center;
+}
+.rateNumber {
+  align-self: center;
+  padding-left: 15px;
+  font-size: 18px;
+  font-weight: bold;
 }
 .discount {
   color: #2f2947;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   padding-right: 25px;
 }
