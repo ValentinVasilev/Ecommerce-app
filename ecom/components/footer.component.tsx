@@ -20,19 +20,19 @@ export const Footer = () => {
           <p style={{ fontSize: '25px' }}>Social Media Sharing</p>
           <div className={styles.socialContainer}>
             <div>
-              <Image src={FaceBookIcon} alt="facebook icon" width={32} height={32}/>
+              <Image src={FaceBookIcon} alt="facebook icon" width={40} height={40} />
             </div>
             <div>
-              <Image src={LinkedInIcon} alt="linkedin icon" width={32} height={32}/>
+              <Image src={LinkedInIcon} alt="linkedin icon" width={40} height={40} />
             </div>
             <div>
-              <Image src={TwitterIcon} alt="twitter icon" width={32} height={32}/>
+              <Image src={TwitterIcon} alt="twitter icon" width={40} height={40} />
             </div>
             <div>
-              <Image src={SkypeIcon} alt="skype icon" width={32} height={32}/>
+              <Image src={SkypeIcon} alt="skype icon" width={40} height={40} />
             </div>
             <div>
-              <Image src={InstagramIcon} alt="instagram icon" width={32} height={32}/>
+              <Image src={InstagramIcon} alt="instagram icon" width={40} height={40} />
             </div>
           </div>
         </div>
