@@ -11,5 +11,28 @@
 }
 .carouselContainer {
   display: flex;
-  width: 45%;
+  width: 49%;
+}
+.productInfoContainer {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+.productTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: gray;
+}
+.addButton {
+  border: 0px solid gray;
+  border-radius: 5px;
+  background-color: rgb(56, 187, 56);
+  color: white;
+  font-size: 20px;
+  padding: 10px 35px 10px 35px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
