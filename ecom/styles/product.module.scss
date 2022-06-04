@@ -1,0 +1,15 @@
+.productContainer {
+  border: 1px solid red;
+  display: flex;
+  // width: 95%;
+  justify-content: space-around;
+}
+.productWrapper {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+.carouselContainer {
+  display: flex;
+  width: 45%;
+}

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Laptop from '../assets/icons/laptop-asus.png'
 import { DiscountCard } from "./discount-card.component";
 import styles from '../styles/carouselStyles.module.scss'
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +22,8 @@ export default function ProductCarouselComponent() {
     <>
       <Swiper
         style={{
-          padding: 10
+          padding: 10,
+          width: '100%',
         }}
         // slidesPerView={4}
         navigation={true}
@@ -32,26 +34,41 @@ export default function ProductCarouselComponent() {
           clickable: true,
         }}
         modules={[Pagination, Navigation]}
-        className={styles.mySwiper2}
+        className={styles.mySwiper3}
         breakpoints={{
           1700: {
-            slidesPerGroup: 4,
-            slidesPerView: 4,
+            slidesPerGroup: 1,
+            slidesPerView: 1,
           },
-          1520: {
-            slidesPerGroup: 3,
-            slidesPerView: 3,
-          },
-          1000: {
-            slidesPerGroup: 2,
-            slidesPerView: 2,
-          },
-          700: {
-            slidesPerGroup: 2,
-            slidesPerView: 2,
-          }
+          // 1520: {
+          //   slidesPerGroup: 3,
+          //   slidesPerView: 3,
+          // },
+          // 1000: {
+          //   slidesPerGroup: 2,
+          //   slidesPerView: 2,
+          // },
+          // 700: {
+          //   slidesPerGroup: 2,
+          //   slidesPerView: 2,
+          // }
         }}
       >
+        <SwiperSlide
+        >
+          {/* <DiscountCard
+            cardImg={Laptop}
+            brand="Asus"
+            model="ASUS ZenBook Pro Duo UX581GV"
+            rate={3}
+            actualPrice={3000}
+            discountPrice={2899}
+            inStock={50}
+          /> */}
+          <div style={{ border: '1px solid brown' }}>
+            <Image src={Laptop} />
+          </div>
+        </SwiperSlide>
         <SwiperSlide
         >
           <DiscountCard
@@ -61,7 +78,7 @@ export default function ProductCarouselComponent() {
             rate={3}
             actualPrice={3000}
             discountPrice={2899}
-            inStock={50}
+            inStock={40}
           />
         </SwiperSlide>
         <SwiperSlide
