@@ -12,6 +12,7 @@
 .carouselContainer {
   display: flex;
   width: 49%;
+  flex-direction: column;
 }
 .productInfoContainer {
   border: 1px solid red;
@@ -35,4 +36,10 @@
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+}
+.socialContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  align-self: center;
 }
