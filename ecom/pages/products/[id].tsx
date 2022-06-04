@@ -9,6 +9,7 @@ import LinkedInIcon from '../../assets/icons/linkedin.png';
 import TwitterIcon from '../../assets/icons/twitter.png';
 import SkypeIcon from '../../assets/icons/skype.png';
 import InstagramIcon from '../../assets/icons/instagram.png';
+import ShieldIcon from '../../assets/icons/shield.png';
 
 const Product = () => {
 
@@ -20,35 +21,44 @@ const Product = () => {
         <div className={styles.carouselContainer}>
           <ProductCarouselComponent />
           <div className={styles.socialContainer}>
-            <div>
+            <a className={styles.socialLinks}>
               <Image src={FaceBookIcon} alt="facebook icon" width={40} height={40} />
-            </div>
-            <div>
+            </a>
+            <a className={styles.socialLinks}>
               <Image src={LinkedInIcon} alt="linkedin icon" width={40} height={40} />
-            </div>
-            <div>
+            </a>
+            <a className={styles.socialLinks}>
               <Image src={TwitterIcon} alt="twitter icon" width={40} height={40} />
-            </div>
-            <div>
+            </a>
+            <a className={styles.socialLinks}>
               <Image src={SkypeIcon} alt="skype icon" width={40} height={40} />
-            </div>
-            <div>
+            </a>
+            <a className={styles.socialLinks}>
               <Image src={InstagramIcon} alt="instagram icon" width={40} height={40} />
-            </div>
+            </a>
           </div>
         </div>
         <div className={styles.productInfoContainer}>
-          <p className={styles.productTitle}>Product Title</p>
-          <div style={{ display: 'flex', marginTop: '-3vh' }}>
-            <div style={{ alignSelf: 'center' }}>
-              <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-            </div>
-            <p style={{ alignSelf: 'center', fontFamily: 'Montserrat', color: 'gray' }}>(3 Reviews) </p>
-          </div>
-          <p style={{ color: 'green', fontFamily: 'Montserrat', fontSize: '25px', marginTop: '-3px', fontWeight: 'bold' }}>$$ Price tag</p>
-          <p>Quantity ={">"} Must be dropdown</p>
           <div>
-            <button className={styles.addButton}>Add to Cart</button>
+            <p className={styles.productTitle}>Product Title</p>
+            <div style={{ display: 'flex', marginTop: '-3vh' }}>
+              <div style={{ alignSelf: 'center' }}>
+                <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+              </div>
+              <p style={{ alignSelf: 'center', fontFamily: 'Montserrat', color: 'gray' }}>(3 Reviews) </p>
+            </div>
+            <p style={{ color: 'green', fontFamily: 'Montserrat', fontSize: '25px', marginTop: '-3px', fontWeight: 'bold' }}>$$ Price tag</p>
+            <p>Quantity ={">"} Must be dropdown</p>
+            <div>
+              <button className={styles.addButton}>Add to Cart</button>
+            </div>
+          </div>
+          <div className={styles.additionalInfo}>
+            <div style={{ display: 'flex' }}>
+              <Image src={ShieldIcon} alt="shield icon" height={50} width={50}/>
+              <p>Secure shopping, free returns.</p>
+            </div>
+            <div>2</div>
           </div>
         </div>
       </div>

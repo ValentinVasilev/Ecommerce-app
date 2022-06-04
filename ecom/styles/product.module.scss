@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   width: 49%;
+  justify-content: space-between;
 }
 .productTitle {
   font-family: "Montserrat", sans-serif;
@@ -26,6 +27,7 @@
   font-weight: 700;
   color: gray;
 }
+
 .addButton {
   border: 0px solid gray;
   border-radius: 5px;
@@ -42,4 +44,12 @@
   justify-content: space-around;
   width: 50%;
   align-self: center;
+}
+.socialLinks {
+  cursor: pointer;
+}
+.additionalInfo {
+  border: 1px solid pink;
+  display: flex;
+  flex-direction: column;
 }
