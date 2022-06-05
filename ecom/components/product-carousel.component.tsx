@@ -65,21 +65,15 @@ export default function ProductCarouselComponent() {
             discountPrice={2899}
             inStock={50}
           /> */}
-          <div style={{ border: '1px solid brown' }}>
+          <div style={{ boxShadow: 'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px' }}>
             <Image src={Laptop} />
           </div>
         </SwiperSlide>
         <SwiperSlide
         >
-          <DiscountCard
-            cardImg={Laptop}
-            brand="Asus"
-            model="ASUS ZenBook Pro Duo UX581GV"
-            rate={3}
-            actualPrice={3000}
-            discountPrice={2899}
-            inStock={40}
-          />
+          <div style={{ boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset' }}>
+            <Image src={Laptop} />
+          </div>
         </SwiperSlide>
         <SwiperSlide
         >

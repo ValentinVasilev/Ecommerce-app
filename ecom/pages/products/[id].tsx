@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import ProductCarouselComponent from "../../components/product-carousel.component";
 import styles from '../../styles/product.module.scss';
@@ -9,9 +9,31 @@ import LinkedInIcon from '../../assets/icons/linkedin.png';
 import TwitterIcon from '../../assets/icons/twitter.png';
 import SkypeIcon from '../../assets/icons/skype.png';
 import InstagramIcon from '../../assets/icons/instagram.png';
-import ShieldIcon from '../../assets/icons/shield.png';
+import ShieldIcon from '../../assets/icons/shield2.png';
+import AddedToWishlist from '../../assets/icons/added-to-wishlist.png'
+import AddToWishlist from '../../assets/icons/add-to-favorites.png'
+import CompareIcon from '../../assets/icons/compare.png';
 
 const Product = () => {
+
+  const [isAdded, setIsAdded] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const AddToWish = () => {
+
+    setIsLoading(!isLoading)
+
+    if (!isLoading) {
+      setTimeout(() => {
+        setIsAdded(!isAdded);
+      }, 2000)
+
+    } else {
+      setIsAdded(!isAdded);
+
+    }
+
+  }
 
   const router = useRouter();
 
@@ -45,9 +67,9 @@ const Product = () => {
               <div style={{ alignSelf: 'center' }}>
                 <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
               </div>
-              <p style={{ alignSelf: 'center', fontFamily: 'Montserrat', color: 'gray' }}>(3 Reviews) </p>
+              <p className={styles.reviewStyle}>(3 Reviews) </p>
             </div>
-            <p style={{ color: 'green', fontFamily: 'Montserrat', fontSize: '25px', marginTop: '-3px', fontWeight: 'bold' }}>$$ Price tag</p>
+            <p className={styles.priceTagStyle}>$$ Price tag</p>
             <p>Quantity ={">"} Must be dropdown</p>
             <div>
               <button className={styles.addButton}>Add to Cart</button>
@@ -55,14 +77,75 @@ const Product = () => {
           </div>
           <div className={styles.additionalInfo}>
             <div style={{ display: 'flex' }}>
-              <Image src={ShieldIcon} alt="shield icon" height={50} width={50}/>
-              <p>Secure shopping, free returns.</p>
+              <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
+                <Image src={ShieldIcon} alt="shield icon" />
+              </div>
+              <p className={styles.secureShipping}>Secure shopping, free returns.</p>
             </div>
-            <div>2</div>
+            <div className={styles.productManagementContainer}>
+              <div className={styles.addToWishlist}>
+                <button className={styles.addToWishBtn} onClick={() => AddToWish()}>
+                  {isAdded ? (
+                    <>
+                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
+                        <Image src={AddedToWishlist} alt="added to wishlist" />
+                      </div>
+                      <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>This product is in your wishlist</p></>
+                  ) : (
+                    <>
+                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
+                        <Image src={AddToWishlist} alt="add to wishlist" />
+                      </div>
+                      {
+                        isLoading ? (
+                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Loading ...</p>
+
+                        ) : (
+                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Add to wishlist</p>
+                        )
+                      }
+                    </>
+                  )}
+
+                </button>
+              </div>
+              <div className={styles.comparePoduct}>
+                {/* <button className={styles.addToWishBtn} onClick={() => AddToWish()}>
+                  {isAdded ? (
+                    <>
+                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
+                        <Image src={AddedToWishlist} alt="added to wishlist" />
+                      </div>
+                      <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>This product is in your wishlist</p></>
+                  ) : (
+                    <>
+                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
+                        <Image src={AddToWishlist} alt="add to wishlist" />
+                      </div>
+                      {
+                        isLoading ? (
+                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Loading ...</p>
+
+                        ) : (
+                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Add to wishlist</p>
+                        )
+                      }
+                    </>
+                  )}
+
+                </button> */}
+                <button className={styles.compareBtn}>
+                  <div style={{ alignSelf: 'center', paddingRight: '2vh', paddingLeft: '2vh' }}>
+                    <Image src={CompareIcon} alt="compare icon" />
+                  </div>
+                  <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Compare Products</p>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
   )
 }
 
