@@ -110,30 +110,6 @@ const Product = () => {
                 </button>
               </div>
               <div className={styles.comparePoduct}>
-                {/* <button className={styles.addToWishBtn} onClick={() => AddToWish()}>
-                  {isAdded ? (
-                    <>
-                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
-                        <Image src={AddedToWishlist} alt="added to wishlist" />
-                      </div>
-                      <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>This product is in your wishlist</p></>
-                  ) : (
-                    <>
-                      <div style={{ alignSelf: 'center', paddingRight: '2vh' }}>
-                        <Image src={AddToWishlist} alt="add to wishlist" />
-                      </div>
-                      {
-                        isLoading ? (
-                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Loading ...</p>
-
-                        ) : (
-                          <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Add to wishlist</p>
-                        )
-                      }
-                    </>
-                  )}
-
-                </button> */}
                 <button className={styles.compareBtn}>
                   <div style={{ alignSelf: 'center', paddingRight: '2vh', paddingLeft: '2vh' }}>
                     <Image src={CompareIcon} alt="compare icon" />
@@ -145,6 +121,7 @@ const Product = () => {
           </div>
         </div >
       </div >
+      <div><p>123</p></div>
     </div >
   )
 }
