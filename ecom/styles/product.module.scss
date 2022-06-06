@@ -103,3 +103,16 @@
   border-bottom-color: skyblue;
   border-right-color: skyblue;
 }
+.relatedCardsContainer {
+  border: 1px solid blueviolet;
+  display: flex;
+  justify-content: space-around;
+  // width: 95%;
+}
+.cardsWrapper {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // padding: 5px;
+}
