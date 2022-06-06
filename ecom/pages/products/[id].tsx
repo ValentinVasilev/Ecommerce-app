@@ -13,14 +13,15 @@ import ShieldIcon from '../../assets/icons/shield2.png';
 import AddedToWishlist from '../../assets/icons/added-to-wishlist.png'
 import AddToWishlist from '../../assets/icons/add-to-favorites.png'
 import CompareIcon from '../../assets/icons/compare.png';
-import { prepareServerlessUrl } from "next/dist/server/base-server";
 
 const Product = () => {
 
+  const productTitle = 'Product Title'
+
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const [compareProducts, setCompareProducts] = useState<[]>([]);
-  let compareProducts = [''];
+  const [items, setItems] = useState([]);
+  const [numberId, setNumberId] = useState<number>(0);
 
   const AddToWish = () => {
 
@@ -40,12 +41,17 @@ const Product = () => {
 
   const addToCompare = () => {
     // setCompareProducts(['1'])
-    compareProducts.push('test product');
+    // compareProducts.push({ id: 123, value: 'test product2' });
+    // setItems((pervState: any) => ({ ...pervState, 'new' }))
+    setNumberId(() => numberId + 1);
+    setItems((prevState: any) => ([...prevState, `${productTitle} ${numberId}`]))
+    // items?.push('test!')
   }
 
   useEffect(() => {
-    compareProducts
-  }, [compareProducts])
+    console.log('Items Changed! ==>', items);
+
+  }, [items])
 
   const router = useRouter();
 
@@ -74,7 +80,7 @@ const Product = () => {
         </div>
         <div className={styles.productInfoContainer}>
           <div>
-            <p className={styles.productTitle}>Product Title</p>
+            <p className={styles.productTitle}>{productTitle}</p>
             <div style={{ display: 'flex', marginTop: '-3vh' }}>
               <div style={{ alignSelf: 'center' }}>
                 <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
@@ -139,12 +145,16 @@ const Product = () => {
               Why do we use it?
               It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
             </p></div>
-          {compareProducts.length <= 0 ? (<p>Nothing to compare!</p>) : (
+          {items.length <= 0 ? (<p>Nothing to compare!</p>) : (
+
             <div>
               <p>Compare Products:</p>
-              <div>{compareProducts.length}</div>
-              {compareProducts.map((item) => {
+              <div>{items.length}</div>
+              {/* {compareProducts.map((item) => {
                 <div>{item}</div>
+              })} */}
+              {items?.map((product: any) => {
+                return <p key={product}>{product}</p>
               })}
             </div>
           )}
