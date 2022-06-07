@@ -18,6 +18,11 @@ import BikeImg from '../assets/icons/bikePicture2.jpg'
 import { Footer } from '../components/footer.component'
 
 const Home: NextPage = () => {
+
+  function test(title: string, somethingElse: boolean) {
+    return { title, somethingElse }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
@@ -113,8 +118,10 @@ const Home: NextPage = () => {
         </div>
       </div>
       <Footer />
+
     </div >
   )
 }
 
 export default Home
+
