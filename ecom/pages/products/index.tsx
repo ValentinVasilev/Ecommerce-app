@@ -5,7 +5,7 @@ import Image from "next/image";
 const Products = () => {
   return (<div style={{ display: 'flex', flexWrap: 'wrap' }}>
     {Allproducts
-      .slice(0, 3)
+      // .slice(0, 3)
       .map(product => {
         return (
           <div key={product.id} style={{ border: '2px solid red', padding: '1vh', flex: '0 1 25%', flexBasis: '25%' }}>
