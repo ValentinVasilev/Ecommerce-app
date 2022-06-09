@@ -25,7 +25,6 @@ const Home: NextPage = () => {
     return { title, somethingElse }
   }
 
-
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
