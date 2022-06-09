@@ -16,12 +16,15 @@ import BeautyImg from '../assets/icons/beauty2.png';
 import BikeIcon from '../assets/pictures/bike.png'
 import BikeImg from '../assets/icons/bikePicture2.jpg'
 import { Footer } from '../components/footer.component'
+import Allproducts from '../assets/data/products';
+
 
 const Home: NextPage = () => {
 
   function test(title: string, somethingElse: boolean) {
     return { title, somethingElse }
   }
+
 
   return (
     <div className={styles.container}>
