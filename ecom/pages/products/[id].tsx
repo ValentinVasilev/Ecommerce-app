@@ -14,15 +14,46 @@ import AddedToWishlist from '../../assets/icons/added-to-wishlist.png'
 import AddToWishlist from '../../assets/icons/add-to-favorites.png'
 import CompareIcon from '../../assets/icons/compare.png';
 import RelatedProductsCard from "../../components/related-products-card.component";
+import AllProducts from '../../assets/data/products';
+
+type ProductType = {
+  id: number,
+  title: string,
+  description: string,
+  price: number,
+  discountPercentage: number,
+  rating: number,
+  stock: number,
+  brand: string,
+  category: string,
+  thumbnail: string,
+  images: string[]
+}
+
 
 const Product = () => {
+  const router = useRouter();
 
-  const productTitle = 'Product Title'
+  let id = Number(router.query.id);
 
+  const [getProductById, setGetProductById] = useState<ProductType>();
+
+  const product = getProductById;
+
+  useEffect(() => {
+    setGetProductById(AllProducts?.find(productTitle => productTitle.id === id));
+  }, [id])
+
+  // console.log('product', getProductById)
+
+  console.log('single product =>', getProductById);
+  console.log('rating', Number(product?.rating.toPrecision(2)))
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState([]);
   const [numberId, setNumberId] = useState<number>(0);
+
+  let rating = product?.rating;
 
   const AddToWish = () => {
 
@@ -54,7 +85,6 @@ const Product = () => {
 
   }, [items])
 
-  const router = useRouter();
 
   return (
     <>
@@ -82,10 +112,16 @@ const Product = () => {
           </div>
           <div className={styles.productInfoContainer}>
             <div>
-              <p className={styles.productTitle}>{productTitle}</p>
+              <p className={styles.productTitle}>{product?.title}</p>
               <div style={{ display: 'flex', marginTop: '-3vh' }}>
                 <div style={{ alignSelf: 'center' }}>
-                  <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+                  {/* <Rating name="half-rating-read" defaultValue=={rating} precision={0.5} readOnly /> */}
+                  <Rating
+                    name="simple-controlled"
+                    value={product?.rating}
+                    readOnly
+                  />
+                  {/* <p>{Number(product?.rating.toPrecision(2))}</p> */}
                 </div>
                 <p className={styles.reviewStyle}>(3 Reviews) </p>
               </div>
@@ -135,7 +171,7 @@ const Product = () => {
                       <Image src={CompareIcon} alt="compare icon" />
                     </div>
                     {
-                      items.includes(productTitle) ? (
+                      items.includes(product?.title) ? (
                         <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>In compare list</p>
                       ) : (
                         <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Compare Products</p>

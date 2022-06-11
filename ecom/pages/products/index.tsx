@@ -1,6 +1,7 @@
 import React from "react";
 import Allproducts from '../../assets/data/products'
 import Image from "next/image";
+import Link from "next/link";
 
 const Products = () => {
   return (<div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -9,7 +10,7 @@ const Products = () => {
       .map(product => {
         return (
           <div key={product.id} style={{ border: '2px solid red', padding: '1vh', flex: '0 1 25%', flexBasis: '25%' }}>
-            <p>{product.id || product["Product ID"]}</p>
+            <p>{product.id}</p>
             <p>{product.Name || product.title}</p>
             <p>{product.description || product.Description}</p>
             <p>{product.price}</p>
@@ -26,10 +27,23 @@ const Products = () => {
             {/* <div>
             <Image src={product?.thumbnail} alt="product img" width={300} height={200} />
           </div> */}
+            <Link href={
+              // `/products/${product.id || product["Product ID"]}`
+              {
+                pathname: "/products/[id]",
+                query: {
+                  id: product.id,
+                }
+              }
+            } as={`/products/${product.id}`} key={product.id}
+              passHref
+            >
+              <button>View More</button>
+            </Link>
           </div>
         )
       })}
-  </div>)
+  </div >)
 }
 
 export default Products;
