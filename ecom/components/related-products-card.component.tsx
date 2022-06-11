@@ -5,6 +5,7 @@ import Laptop from '../assets/icons/laptop-asus.png';
 
 type RelatedProductsCardProps = {
   image?: StaticImageData,
+  // image?: string | undefined,
   title?: string,
   info?: string,
   price?: number,
@@ -12,17 +13,23 @@ type RelatedProductsCardProps = {
 }
 
 const RelatedProductsCard = (props: RelatedProductsCardProps) => {
+
+
+  const { title, price, info, image } = props;
+
+  console.log('Related PRODUCT IMG =>', image)
   return (
     <div className={styles.cardContainer}>
       <div>
-        <Image src={Laptop} width={400} height={300} alt="product image" />
+        <Image src={image} width={400} height={300} alt="product image" />
+        {/* <img src={image} /> */}
       </div>
       <div className={styles.cardInfoStyle}>
-        <p className={styles.title}>Title</p>
-        <p className={styles.info}>Info</p>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.info}>{info}</p>
         <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
           <p style={{ fontFamily: 'Montserrat', fontSize: '25px', color: 'green' }}>$</p>
-          <p style={{ fontFamily: 'Montserrat', fontSize: '22px', color: 'gray' }}>Price</p>
+          <p style={{ fontFamily: 'Montserrat', fontSize: '22px', color: 'gray' }}>{price}</p>
         </div>
       </div>
       <div>

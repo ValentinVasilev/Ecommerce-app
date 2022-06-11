@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ProductCarouselComponent from "../../components/product-carousel.component";
 import styles from '../../styles/product.module.scss';
 import { Rating } from "@mui/material";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import FaceBookIcon from '../../assets/icons/facebook.png';
 import LinkedInIcon from '../../assets/icons/linkedin.png';
 import TwitterIcon from '../../assets/icons/twitter.png';
@@ -30,6 +30,14 @@ type ProductType = {
   images: string[]
 }
 
+type RelatedProductsCardProps = {
+  image?: StaticImageData,
+  title?: string,
+  info?: string,
+  price?: number,
+  isLiked?: boolean
+}
+
 
 const Product = () => {
   const router = useRouter();
@@ -37,12 +45,28 @@ const Product = () => {
   let id = Number(router.query.id);
 
   const [getProductById, setGetProductById] = useState<ProductType>();
-
   const product = getProductById;
+
+  const [productRating, setProductRating] = useState<number | undefined>(product?.rating);
+  const [relatedProducts, setRelatedProducts] = useState<string | undefined>();
+
+  console.log('related products', relatedProducts)
+
 
   useEffect(() => {
     setGetProductById(AllProducts?.find(productTitle => productTitle.id === id));
-  }, [id])
+    setRelatedProducts(
+      AllProducts
+        .filter(items => items.category === product?.category)
+        .filter(prod => prod?.title != product?.title)
+        .slice(0, 4));
+    // setProductRating(product?.rating)
+  }, [id, product?.category])
+
+  // useEffect(() => {
+  //   setRelatedProducts(AllProducts?.filter(pr => pr.category === product?.category)
+  // }, [product?.category])
+
 
   // console.log('product', getProductById)
 
@@ -91,7 +115,7 @@ const Product = () => {
       <div className={styles.productContainer}>
         <div className={styles.productWrapper}>
           <div className={styles.carouselContainer}>
-            <ProductCarouselComponent />
+            <ProductCarouselComponent link={product?.images} />
             <div className={styles.socialContainer}>
               <a className={styles.socialLinks}>
                 <Image src={FaceBookIcon} alt="facebook icon" width={40} height={40} />
@@ -113,20 +137,17 @@ const Product = () => {
           <div className={styles.productInfoContainer}>
             <div>
               <p className={styles.productTitle}>{product?.title}</p>
+              <p>{product?.brand}</p>
               <div style={{ display: 'flex', marginTop: '-3vh' }}>
                 <div style={{ alignSelf: 'center' }}>
-                  {/* <Rating name="half-rating-read" defaultValue=={rating} precision={0.5} readOnly /> */}
-                  <Rating
-                    name="simple-controlled"
-                    value={product?.rating}
-                    readOnly
-                  />
+                  <Rating name="half-rating-read" value={productRating} precision={0.5} readOnly />
+
                   {/* <p>{Number(product?.rating.toPrecision(2))}</p> */}
                 </div>
                 <p className={styles.reviewStyle}>(3 Reviews) </p>
               </div>
-              <p className={styles.priceTagStyle}>$$ Price tag</p>
-              <p>Quantity ={">"} Must be dropdown</p>
+              <p className={styles.priceTagStyle}>$$ {product?.price}</p>
+              <p>Quantity ={">"} {product?.stock}</p>
               <div>
                 <button className={styles.addButton}>Add to Cart</button>
               </div>
@@ -185,10 +206,7 @@ const Product = () => {
             <div>
               <p>DESCRIPTION</p>
               <p>
-                What is Lorem Ipsum?
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                Why do we use it?
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                {product?.description}
               </p></div>
             {items.length <= 0 ? (<p>Nothing to compare!</p>) : (
 
@@ -208,11 +226,26 @@ const Product = () => {
       </div >
       <div className={styles.relatedCardsContainer}>
         <div className={styles.cardsWrapper}>
+          {/* <RelatedProductsCard />
           <RelatedProductsCard />
           <RelatedProductsCard />
           <RelatedProductsCard />
-          <RelatedProductsCard />
-          <RelatedProductsCard />
+          <RelatedProductsCard /> */}
+          {
+            // AllProducts?.filter.map(pr => pr.category === product?.category) => {
+            // return (<RelatedProductsCard />)
+
+            // }
+            //   AllProducts.filter(pr => pr.category === product?.category)
+            //     .map(item => item.category) => {
+            //  return <RelatedProductsCard />
+            //   }
+            relatedProducts?.map(item => {
+              return (
+                <RelatedProductsCard key={item.id} title={item.title} price={item.price} info={item.description} image={item.thumbnail} />
+              )
+            })
+          }
         </div>
       </div>
     </>

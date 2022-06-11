@@ -10,7 +10,10 @@ const Header = () => {
           <Link href='/' passHref>
             <p className={styles.storeTitle}>Store Name</p>
           </Link>
-          <p className={styles.titles}>Products</p>
+          <Link href='/products' passHref>
+            <p className={styles.titles}>Products</p>
+          </Link>
+
           <p className={styles.titles}>About us</p>
           <p className={styles.titles}>Portfolio</p>
         </div>
