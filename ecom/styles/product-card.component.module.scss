@@ -1,0 +1,18 @@
+.cardContainer {
+  border: 1px solid red;
+  // max-width: 20%;
+  // min-width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+.cardWrapper {
+  padding: 1vh;
+  flex: 0 1 25%;
+  flex-basis: 25%;
+}
+// @media only screen and (max-width: 1400px) {
+//   .cardContainer {
+//     max-width: 40%;
+//     min-width: 40%;
+//   }
+// }
