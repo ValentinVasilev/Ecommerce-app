@@ -50,9 +50,6 @@ const Product = () => {
   const [productRating, setProductRating] = useState<number | undefined>(product?.rating);
   const [relatedProducts, setRelatedProducts] = useState<string | undefined>();
 
-  console.log('related products', relatedProducts)
-
-
   useEffect(() => {
     setGetProductById(AllProducts?.find(productTitle => productTitle.id === id));
     setRelatedProducts(
@@ -61,14 +58,8 @@ const Product = () => {
         .filter(prod => prod?.title != product?.title)
         .slice(0, 4));
     // setProductRating(product?.rating)
-  }, [id, product?.category])
+  }, [id, product?.category, product?.title])
 
-  // useEffect(() => {
-  //   setRelatedProducts(AllProducts?.filter(pr => pr.category === product?.category)
-  // }, [product?.category])
-
-
-  // console.log('product', getProductById)
 
   console.log('single product =>', getProductById);
   console.log('rating', Number(product?.rating.toPrecision(2)))
@@ -100,7 +91,7 @@ const Product = () => {
     // compareProducts.push({ id: 123, value: 'test product2' });
     // setItems((pervState: any) => ({ ...pervState, 'new' }))
     setNumberId(() => numberId + 1);
-    setItems((prevState: any) => ([...prevState, `${productTitle} ${numberId}`]))
+    setItems((prevState: any) => ([...prevState, `${product?.title} ${numberId}`]))
     // items?.push('test!')
   }
 
@@ -192,7 +183,7 @@ const Product = () => {
                       <Image src={CompareIcon} alt="compare icon" />
                     </div>
                     {
-                      items.includes(product?.title) ? (
+                      items.includes(product?.title as never) ? (
                         <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>In compare list</p>
                       ) : (
                         <p style={{ fontFamily: 'Montserrat', fontSize: '17px', paddingRight: '2vh' }}>Compare Products</p>
@@ -240,9 +231,15 @@ const Product = () => {
             //     .map(item => item.category) => {
             //  return <RelatedProductsCard />
             //   }
-            relatedProducts?.map(item => {
+            relatedProducts?.map((item: any) => {
               return (
-                <RelatedProductsCard key={item.id} title={item.title} price={item.price} info={item.description} image={item.thumbnail} />
+                <RelatedProductsCard
+                  key={item.id}
+                  title={item.title}
+                  price={item.price}
+                  info={item.description}
+                  image={item.thumbnail}
+                />
               )
             })
           }
