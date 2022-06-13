@@ -6,12 +6,13 @@ import CategoryList from '../assets/data/categories';
 const CategoryPanel = () => {
 
   const [isActive, setIsActive] = useState<boolean>(false);
-  let activeCategory = [''];
+  let activeCategory: any = [];
 
 
   const CategoryIsActive = (cat: string) => {
     setIsActive(!isActive)
     activeCategory?.push(cat);
+    console.log(activeCategory)
   }
 
   return (
