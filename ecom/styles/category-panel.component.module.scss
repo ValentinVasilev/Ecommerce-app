@@ -1,0 +1,20 @@
+.wrapper {
+  border: 1px solid red;
+}
+.btnCategory {
+  border: none;
+  background-color: transparent;
+  text-transform: capitalize;
+  cursor: pointer;
+  display: flex;
+  text-align: start;
+  margin: 1vh;
+  font-size: 17px;
+}
+
+.btnContainer {
+  background-color: transparent;
+}
+.btnContainerIsActive {
+  background-color: skyblue;
+}
