@@ -1,5 +1,9 @@
 .wrapper {
-  border: 1px solid red;
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  // padding: 2vh;
 }
 .btnCategory {
   border: none;
@@ -8,13 +12,40 @@
   cursor: pointer;
   display: flex;
   text-align: start;
-  margin: 1vh;
-  font-size: 17px;
+  // margin: 1vh;
+  padding: 1vh;
+  font-size: 19px;
 }
 
-.btnContainer {
-  background-color: transparent;
+// .btnContainer {
+//   background-color: transparent;
+// }
+// .btnIsNotActive {
+//   background-color: #f3f3f3;
+//   // border: 3px solid transparent;
+//   border-left-color: white;
+//   border: 3px;
+// }
+// .btnContainerIsActive {
+//   border-left-color: peru;
+//   color: peru;
+//   border: 3px solid;
+
+//   // background-color: white;
+//   background-color: red;
+// }
+// // .btnContainerIsActive:hover {
+
+// // }
+
+.btnIsNotActive {
+  background-color: rgb(206, 200, 200);
+  border-left-color: white;
+  border: 5px solid transparent;
+  color: black;
 }
-.btnContainerIsActive {
-  background-color: skyblue;
+.btnIsNotActive:hover {
+  border-left-color: peru;
+  color: peru;
+  background-color: white;
 }

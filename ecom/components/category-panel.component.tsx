@@ -6,6 +6,7 @@ import CategoryList from '../assets/data/categories';
 const CategoryPanel = () => {
 
   const [isActive, setIsActive] = useState<boolean>(false);
+
   let activeCategory: any = [];
 
 
@@ -19,7 +20,7 @@ const CategoryPanel = () => {
     <div className={styles.wrapper}>
       {CategoryList.map(category => {
         return (
-          <div key={category} className={isActive && activeCategory.includes(category) ? styles.btnContainerIsActive : styles.btnContainer}>
+          <div key={category} className={styles.btnIsNotActive} >
             <button className={styles.btnCategory} onClick={() => CategoryIsActive(category)}>{category}</button>
           </div>
         )

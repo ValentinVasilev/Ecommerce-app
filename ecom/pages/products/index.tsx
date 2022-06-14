@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Allproducts from '../../assets/data/products'
 import Image from "next/image";
 import Link from "next/link";
 import ProductCard from '../../components/product-card.component';
 import CategoryPanel from "../../components/category-panel.component";
+import categories from "../../assets/data/categories";
+
 
 const Products = () => {
+
+  const [filterCategory, setFilterCategory] = useState(false);
+  let activeCategory = 'laptops';
+
+
+  const CategoryIsActive = (cat: string) => {
+    setFilterCategory(!filterCategory)
+    // activeCategory?.push(cat);
+    activeCategory = cat;
+    console.log(activeCategory)
+    // console.log(activeCategory[0])
+  }
+
   return (<div style={{ display: 'flex' }}>
     <div>
-      <CategoryPanel />
+      {/* <CategoryPanel /> */}
+      {categories.map(category => {
+        return (
+          <div key={category}  >
+            <button onClick={() => CategoryIsActive(category)}>{category}</button>
+          </div>
+        )
+      })}
     </div>
     <div style={{ display: 'flex' }}>
       {Allproducts
-        .slice(0, 4)
+        // .slice(0, 4)
+        .filter(cat => cat.category === activeCategory)
         .map(product => {
           return (
             <div key={product.id} style={{ border: '2px solid red', padding: '1vh', flex: '0 1 25%', flexBasis: '25%' }}>
