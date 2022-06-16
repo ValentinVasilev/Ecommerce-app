@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import ProductCarouselComponent from "../../components/product-carousel.component";
+import ProductCarouselComponent from "../../../components/product-carousel.component";
 import styles from '../../styles/product.module.scss';
 import { Rating } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
@@ -13,8 +13,8 @@ import ShieldIcon from '../../assets/icons/shield2.png';
 import AddedToWishlist from '../../assets/icons/added-to-wishlist.png'
 import AddToWishlist from '../../assets/icons/add-to-favorites.png'
 import CompareIcon from '../../assets/icons/compare.png';
-import RelatedProductsCard from "../../components/related-products-card.component";
-import AllProducts from '../../assets/data/products';
+import RelatedProductsCard from "../../../components/related-products-card.component";
+import AllProducts from '../../../assets/data/products';
 
 type ProductType = {
   id: number,

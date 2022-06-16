@@ -8,7 +8,7 @@ const categories = [
   'shoes',
   'electronics',
   'furniture',
-  'cloths'
+  'cloths',
 ]
 
 export default categories;

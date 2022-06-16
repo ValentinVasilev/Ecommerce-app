@@ -86,17 +86,39 @@ const Products = () => {
   //   </div>
   // </div >)
   return (
-    <>
-      <Grid container>
-        <Grid item sm={2} style={{ border: '1px solid red' }}>
-          <Tab link="/products" title="products" />
-          <Tab link="/" title="home" />
-          <Tab link="/" title="home" />
-          <Tab link="/" title="home" />
-        </Grid>
-        <Grid item sm={10} style={{ border: '1px solid green' }}>right</Grid>
-      </Grid>
-    </>
+    // <>
+    //   <Grid container>
+    //     <Grid item sm={2} style={{ border: '1px solid red' }}>
+    //       <Tab link="/products" title="products" />
+    //       <Tab link="/" title="home" />
+    //       <Tab link="/" title="home" />
+    //       <Tab link="/" title="home" />
+    //     </Grid>
+    //     <Grid item sm={10} style={{ border: '1px solid green' }}>right</Grid>
+    //   </Grid>
+    // </>
+    <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      {categories.map(category => {
+        return (
+          <div key={category} style={{ border: '1px solid red', margin: '1vh' }}>
+            <p>{category}</p>
+            <Link href={
+              // `/products/${product.id || product["Product ID"]}`
+              {
+                pathname: "products/category",
+                query: {
+                  id: category,
+                }
+              }
+            } as={`products/${category}`} key={category}
+              passHref
+            >
+              <button>View More</button>
+            </Link>
+          </div>
+        )
+      })}
+    </div>
   )
 
 }
