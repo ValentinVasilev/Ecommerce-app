@@ -20,7 +20,6 @@ const Category = () => {
             <div key={product.id}>
               <p>{product.title}</p>
               <Link href={
-                // `/products/${product.id || product["Product ID"]}`
                 {
                   pathname: "category/[id]",
                   query: {
