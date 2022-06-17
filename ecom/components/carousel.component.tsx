@@ -46,16 +46,16 @@ export default function CarouselComponent() {
         //   height: 'auto',
         // }}
         >
-          <CategoryCard title={'Shoes'} subTitle={'Best brands in one place. We have all you need! Your feet deserve it.'} bgImg={ShoeImg} linkTo="/" />
+          <CategoryCard title={'Shoes'} subTitle={'Best brands in one place. We have all you need! Your feet deserve it.'} bgImg={ShoeImg} linkTo="shoes" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryCard title={'Electronics'} subTitle={'World is full of electronics! Just pick one!'} bgImg={ElectronicsImg} linkTo="/" />
+          <CategoryCard title={'Electronics'} subTitle={'World is full of electronics! Just pick one!'} bgImg={ElectronicsImg} linkTo="laptops" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryCard title={'Furniture'} subTitle={'Home, is the best place to be! Make it comfy and style!'} bgImg={FurnitureImg} linkTo="/" />
+          <CategoryCard title={'Furniture'} subTitle={'Home, is the best place to be! Make it comfy and style!'} bgImg={FurnitureImg} linkTo="furniture" />
         </SwiperSlide>
         <SwiperSlide>
-          <CategoryCard title={'Cloths'} subTitle={'Dress yourself well, you deserve it! Best Cloths in one place.'} bgImg={ClothsImg} linkTo="/" />
+          <CategoryCard title={'Cloths'} subTitle={'Dress yourself well, you deserve it! Best Cloths in one place.'} bgImg={ClothsImg} linkTo="cloths" />
         </SwiperSlide>
         {/* <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>

@@ -19,7 +19,7 @@ export const CategoryCard = (props: CategoryCardProps) => {
         <p className={style.title}>{props.title}</p>
         <p className={style.subTitle}>{props.subTitle}</p>
         <div className={style.btnWrapper}>
-          <Link href={`${props.linkTo}`} passHref>
+          <Link href={`/products/${props.linkTo}`} passHref>
             <button className={style.btnStyle}>Shop Now</button>
           </Link>
         </div>
