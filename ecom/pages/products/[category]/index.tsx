@@ -21,8 +21,9 @@ const Category = () => {
               <p>{product.title}</p>
               <Link href={
                 {
-                  pathname: "category/[id]",
+                  pathname: "[category]/[id]",
                   query: {
+                    category: productCategory,
                     id: product.id,
                   }
                 }

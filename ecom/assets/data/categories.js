@@ -28,10 +28,30 @@ const categories = [
     img: LaptopsImg
   },
   {
-    id: 5,
+    id: 6,
     title: 'home-decoration',
     img: LaptopsImg
   },
+  {
+    id: 7,
+    title: 'shoes',
+    img: LaptopsImg
+  },
+  {
+    id: 8,
+    title: 'electronics',
+    img: LaptopsImg
+  },
+  {
+    id: 9,
+    title: 'furniture',
+    img: LaptopsImg
+  },
+  {
+    id: 10,
+    title: 'cloths',
+    img: LaptopsImg
+  }
   // 'laptops',
   // 'fragrances',
   // 'skincare',

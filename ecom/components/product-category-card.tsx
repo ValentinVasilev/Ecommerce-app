@@ -24,16 +24,19 @@ const ProductCategoryCard = (props: CardProps) => {
         <div style={{ textAlign: 'center', margin: '1vh' }}>
           <Link href={
             {
-              pathname: "products/category",
+              pathname: "products/[category]",
               query: {
-                id: category,
+                category: category,
               }
             }
-          } as={`products/${category}`} key={category}
+          } as={`/products/${encodeURIComponent(category)}`} key={category}
             passHref
           >
             <button className={styles.button}>View More</button>
           </Link>
+          {/* <Link href="">
+            <button className={styles.button}>View More</button>
+          </Link> */}
         </div>
       </div>
 
