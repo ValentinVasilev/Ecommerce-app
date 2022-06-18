@@ -4,12 +4,12 @@
   width: 30%;
   min-width: 500px;
   justify-content: center;
-  background-color: gray;
+  background-color: white;
   flex-direction: column;
 }
 .title {
   font-family: monospace;
-  color: yellow;
+  color: black;
   font-size: 25px;
   align-self: center;
 }
@@ -21,4 +21,22 @@
 }
 .inputFields {
   margin: 2vh;
+}
+.buttonContainer {
+  align-self: center;
+  margin: 2vh;
+}
+.registerButton {
+  cursor: pointer;
+  min-width: 200px;
+  height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid;
+  font-family: "Montserrat";
+  font-size: 15px;
+  font-weight: 500;
+}
+.registerButton:hover {
+  background-color: greenyellow;
 }
