@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import type { NextPage } from 'next'
 import Box from '../assets/icons/box.png'
 import Image from 'next/image'
@@ -17,13 +18,19 @@ import BikeIcon from '../assets/pictures/bike.png'
 import BikeImg from '../assets/icons/bikePicture2.jpg'
 import { Footer } from '../components/footer.component'
 import Allproducts from '../assets/data/products';
+import { Backdrop } from '@mui/material'
+import Register from '../components/sub-components/register.component'
 
 
 const Home: NextPage = () => {
+  const [open, setOpen] = useState<boolean>(false)
 
-  function test(title: string, somethingElse: boolean) {
-    return { title, somethingElse }
-  }
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className={styles.container}>
@@ -60,7 +67,17 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className={styles.account}>
-              <div style={{ borderRight: '1px solid gray', fontSize: '20px', color: 'white', fontWeight: '400', paddingRight: '15px', height: '30px', alignSelf: 'center' }}>Account</div>
+              <div style={{ borderRight: '1px solid gray', fontSize: '20px', color: 'white', fontWeight: '400', paddingRight: '15px', height: '30px', alignSelf: 'center' }}>
+                <button onClick={handleToggle}>Account</button>
+                <Backdrop
+                  sx={{ zIndex: '999', display: 'flex', flexDirection: 'column' }}
+                  open={open}
+                // onClick={handleClose}
+                >
+                  <Register />
+                  <button onClick={handleClose} style={{ border: '2px solid red', fontSize: '20px', borderRadius: '100px', backgroundColor: 'red', marginTop: '2vh', color: 'white' }}>Close</button>
+                </Backdrop>
+              </div>
               <div style={{ fontSize: '20px', color: 'white', fontWeight: '400', paddingLeft: '15px', height: '30px', alignSelf: 'center' }}>Right</div>
             </div>
           </div>
