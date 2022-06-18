@@ -75,9 +75,11 @@ const Home: NextPage = () => {
                 <p className={styles.promotionSemitext}>Beauty has no price! Whit this bundle we offer you the best price available at the market right now ! Do not miss it !</p>
               </div>
               <div>
-                <button className={styles.btnStyle}>
-                  Brows Products
-                </button>
+                <Link href="/products" passHref>
+                  <button className={styles.btnStyle}>
+                    Brows Products
+                  </button>
+                </Link>
               </div>
             </div>
             <div style={{ paddingTop: '5vh', paddingBottom: '5vh' }}>

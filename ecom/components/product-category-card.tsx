@@ -17,8 +17,8 @@ const ProductCategoryCard = (props: CardProps) => {
       <div>
         <Image src={categoryImage} alt="category image" width={300} height={200} />
       </div>
-      <div style={{ textAlign: 'center', fontFamily: 'Montserrat', fontSize: '20px', textTransform: 'capitalize', fontWeight: '500' }}>
-        <p>{category}</p>
+      <div style={{ textAlign: 'center', fontFamily: 'Montserrat', fontSize: '25px', textTransform: 'capitalize', fontWeight: '500' }}>
+        <p className={styles.productTitle}>{category}</p>
       </div>
       <div>
         <div style={{ textAlign: 'center', margin: '1vh' }}>

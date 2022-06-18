@@ -87,10 +87,10 @@ const Products = () => {
   //   </div>
   // </div >)
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', width: '90%', justifyContent: 'center', alignItems: 'flex-start', backgroundColor: 'black' }}>
       {categories.map(category => {
         return (
-          <div key={category.id}>
+          <div key={category.id} >
             <ProductCategoryCard
               category={category.title}
               categoryImage={category.img}

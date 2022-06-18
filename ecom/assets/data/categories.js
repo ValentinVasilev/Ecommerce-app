@@ -12,6 +12,26 @@ const categories = [
     title: 'laptops',
     img: LaptopsImg
   },
+  {
+    id: 3,
+    title: 'fragrances',
+    img: LaptopsImg
+  },
+  {
+    id: 4,
+    title: 'skincare',
+    img: LaptopsImg
+  },
+  {
+    id: 5,
+    title: 'groceries',
+    img: LaptopsImg
+  },
+  {
+    id: 5,
+    title: 'home-decoration',
+    img: LaptopsImg
+  },
   // 'laptops',
   // 'fragrances',
   // 'skincare',
