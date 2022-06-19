@@ -27,7 +27,6 @@ export default function ProductCarouselComponent(props: SomeProps) {
 
   const { link } = props;
 
-  console.log(link)
   return (
     <>
       <Swiper

@@ -70,12 +70,14 @@ const Home: NextPage = () => {
               <div style={{ borderRight: '1px solid gray', fontSize: '20px', color: 'white', fontWeight: '400', paddingRight: '15px', height: '30px', alignSelf: 'center' }}>
                 <button onClick={handleToggle}>Account</button>
                 <Backdrop
-                  sx={{ zIndex: '999', display: 'flex', flexDirection: 'column' }}
+                  sx={{ zIndex: '999', display: 'flex', flexDirection: 'row' }}
                   open={open}
                 // onClick={handleClose}
                 >
                   <Register />
-                  <button onClick={handleClose} style={{ border: '2px solid red', fontSize: '20px', borderRadius: '100px', backgroundColor: 'red', marginTop: '2vh', color: 'white' }}>Close</button>
+                  <div style={{ marginTop: '-50vh' }}>
+                    <button onClick={handleClose} style={{ border: '2px solid red', fontSize: '20px', borderRadius: '100px', backgroundColor: 'red', marginTop: '2vh', color: 'white', cursor: 'pointer' }}>X</button>
+                  </div>
                 </Backdrop>
               </div>
               <div style={{ fontSize: '20px', color: 'white', fontWeight: '400', paddingLeft: '15px', height: '30px', alignSelf: 'center' }}>Right</div>

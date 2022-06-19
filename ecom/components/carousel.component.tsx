@@ -6,7 +6,9 @@ import ShoeImg from '../assets/icons/shoe3.png'
 import ElectronicsImg from '../assets/icons/headset.png'
 import FurnitureImg from '../assets/icons/furniture.png'
 import ClothsImg from '../assets/icons/cloths.png'
+import SmartphonesImg from '../assets/icons/smarthopnes.jpg'
 import styles from '../styles/carouselStyles.module.scss'
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -57,9 +59,11 @@ export default function CarouselComponent() {
         <SwiperSlide>
           <CategoryCard title={'Cloths'} subTitle={'Dress yourself well, you deserve it! Best Cloths in one place.'} bgImg={ClothsImg} linkTo="cloths" />
         </SwiperSlide>
+        <SwiperSlide>
+          <CategoryCard title={'Smartphones'} subTitle={'Brows the world! Connect to the world!'} bgImg={SmartphonesImg} linkTo="smartphones" />
+        </SwiperSlide>
         {/* <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+               <SwiperSlide>Slide 5</SwiperSlide>
         <SwiperSlide>Slide 6</SwiperSlide>
         <SwiperSlide>Slide 7</SwiperSlide>
         <SwiperSlide>Slide 8</SwiperSlide>
