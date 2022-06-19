@@ -1,5 +1,9 @@
 import ClotshImg from '../icons/smarthopnes.jpg';
-import LaptopsImg from '../icons/laptop-asus.png';
+import LaptopsImg from '../icons/laptops.png';
+import FragrancesImg from '../icons/fragrances.jpg';
+import SkincareImg from '../icons/skincare.jpg';
+import GrociriesImg from '../icons/grociries.jpg';
+import HomeDecorationImg from '../icons/home-decoration.jpg';
 
 const categories = [
   {
@@ -17,25 +21,25 @@ const categories = [
   {
     id: 3,
     title: 'fragrances',
-    img: LaptopsImg,
+    img: FragrancesImg,
     count: 5,
   },
   {
     id: 4,
     title: 'skincare',
-    img: LaptopsImg,
+    img: SkincareImg,
     count: 5,
   },
   {
     id: 5,
     title: 'groceries',
-    img: LaptopsImg,
+    img: GrociriesImg,
     count: 5,
   },
   {
     id: 6,
     title: 'home-decoration',
-    img: LaptopsImg,
+    img: HomeDecorationImg,
     count: 5,
   },
   {
