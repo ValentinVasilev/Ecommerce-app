@@ -6,6 +6,7 @@ import { Request, Response } from 'express';
 
 const handler = nc();
 
+
 handler.post(async (req: Request, res: Response) => {
   await db.connect();
 

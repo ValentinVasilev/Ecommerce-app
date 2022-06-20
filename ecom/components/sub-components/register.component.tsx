@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import styles from '../../styles/sub-components/register.component.module.scss';
 import { useRouter } from "next/router";
+import axios from "axios";
 
 // type RegisterProps = {
 //   open: boolean,
@@ -21,15 +22,22 @@ const Register = () => {
   const RegisterUser = () => {
 
     if (password != confirmPassword) {
-      alert('Password don`t match')
-    } else {
-      alert('User successfully registered!')
-
-      setTimeout(() => {
-        router.push('/products')
-      }, 1000)
+      alert('Passwords dont match');
+    } else if (!password) {
+      alert('Passwords is required!');
     }
+    else if (!confirmPassword) {
+      alert('Confirm password is required!');
+    } else {
+      axios.post('/api/user/register', {
+        email: email,
+        password: password,
+        cart: [''],
+      })
 
+      alert('User successfully created!')
+      router.push('/products')
+    }
 
   }
 
