@@ -6,7 +6,7 @@ interface User {
   isAdmin?: boolean,
 }
 
-const secretKey: any = process.env.JWT_SECRET_TOKEN;
+const secretKey: string = "test123";
 
 // Asign token to the user
 const signToken = (user: User) => {
