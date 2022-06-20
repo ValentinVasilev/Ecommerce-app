@@ -4,6 +4,7 @@ import styles from '../../styles/sub-components/register.component.module.scss';
 import { useRouter } from "next/router";
 import axios from "axios";
 
+
 // type RegisterProps = {
 //   open: boolean,
 //   handleClose: boolean,
