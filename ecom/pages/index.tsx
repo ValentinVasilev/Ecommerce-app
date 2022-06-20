@@ -20,7 +20,7 @@ import { Footer } from '../components/footer.component'
 import Allproducts from '../assets/data/products';
 import { Backdrop } from '@mui/material'
 import Register from '../components/sub-components/register.component'
-
+import Login from '../components/sub-components/login.component'
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -74,7 +74,8 @@ const Home: NextPage = () => {
                   open={open}
                 // onClick={handleClose}
                 >
-                  <Register />
+                  {/* <Register /> */}
+                  <Login />
                   <div style={{ marginTop: '-50vh' }}>
                     <button onClick={handleClose} style={{ border: '2px solid red', fontSize: '20px', borderRadius: '100px', backgroundColor: 'red', marginTop: '2vh', color: 'white', cursor: 'pointer' }}>X</button>
                   </div>

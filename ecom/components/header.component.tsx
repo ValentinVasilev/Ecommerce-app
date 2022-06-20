@@ -5,6 +5,10 @@ import jwt from 'jsonwebtoken';
 
 const Header = () => {
 
+  let storage = localStorage.getItem("user-credentials");
+  let user = jwt.decode(storage as string);
+
+  console.log(user)
 
   return (
     <div className={styles.headerContainer}>
@@ -22,7 +26,9 @@ const Header = () => {
         </div>
         <div className={styles.rightSide}>
           <p className={styles.storePhone}>555-555-555</p>
-          <p style={{ alignSelf: 'center' }}>123</p>
+          <p style={{ alignSelf: 'center' }}>
+            {user.email ? (user.email) : (null)}
+          </p>
           <div style={{ alignSelf: 'center' }}>
             <input placeholder="Search product" />
           </div>
