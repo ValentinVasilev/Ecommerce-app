@@ -1,21 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Button } from "@mui/material";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 const Users = ({ data }: any) => {
 
+  const router = useRouter();
   const [users, setUsers] = useState(data.Users);
+
+
+  useEffect(() => {
+    setUsers(data.Users);
+  }, [data.Users])
+
+
+  const deleteUser = (userId: string) => {
+    try {
+      axios.delete(`/api/user/delete?id=${userId}`)
+      console.log(userId)
+    } catch (error) {
+      console.log(error)
+    }
+
+    router.push('/admin/users');
+
+  }
+
 
   return (
     <div style={{ display: 'flex' }}>
       {users?.map((user: any) => {
         return (
-          <div key={user._id} style={{ border: '2px solid red', margin: '2vh', maxWidth: '250px' }}>
+          <div key={user._id} style={{ border: '2px solid red', margin: '2vh', maxWidth: '250px', display: 'flex', flexDirection: 'column', justifyContent: '' }}>
+            <p>{user._id}</p>
             <p>{user.email}</p>
             <p>{user.createdAt}</p>
             <p>{user.updatedAt}</p>
             {user.cart.map((item: any) => {
               return <p key={item}>{item}</p>
             })}
-
+            <div style={{ width: '50%', alignSelf: 'center' }}>
+              <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
+            </div>
           </div>
         )
       })}
