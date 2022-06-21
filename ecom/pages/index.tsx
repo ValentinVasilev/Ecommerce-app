@@ -74,7 +74,7 @@ const Home: NextPage = () => {
                   open={open}
                 // onClick={handleClose}
                 >
-                  {/* <Register /> */}
+                  <Register />
                   <Login />
                   <div style={{ marginTop: '-50vh' }}>
                     <button onClick={handleClose} style={{ border: '2px solid red', fontSize: '20px', borderRadius: '100px', backgroundColor: 'red', marginTop: '2vh', color: 'white', cursor: 'pointer' }}>X</button>
@@ -144,6 +144,11 @@ const Home: NextPage = () => {
       <Footer />
 
     </div >
+
+    // <div className={styles.container}>
+    //   <div className={styles.headlineContainer}>
+    //   </div>
+    // </div>
   )
 }
 

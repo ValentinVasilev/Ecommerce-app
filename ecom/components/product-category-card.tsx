@@ -39,8 +39,6 @@ const ProductCategoryCard = (props: CardProps) => {
           </Link> */}
         </div>
       </div>
-
-
     </div>
   )
 }

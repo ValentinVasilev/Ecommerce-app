@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Header from '../components/header.component';
+import { Footer } from "./footer.component";
 import { useRouter } from 'next/router';
 
 type LayoutProps = {
@@ -16,10 +17,11 @@ const Layout = ({ children }: LayoutProps) => {
       <Head>
         <title>Ecom app</title>
       </Head>
-      {router.pathname === '/' ? null : <Header />}
+      <Header />
       <div>
         {children}
       </div>
+      {/* <Footer /> */}
     </>
   )
 }
