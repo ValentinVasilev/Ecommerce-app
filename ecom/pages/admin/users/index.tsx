@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Users = ({ data }: any) => {
 
@@ -39,7 +40,18 @@ const Users = ({ data }: any) => {
             {user.cart.map((item: any) => {
               return <p key={item}>{item}</p>
             })}
-            <div style={{ width: '50%', alignSelf: 'center' }}>
+            <div style={{ width: '70%', alignSelf: 'center' }}>
+              <Link href={{
+                pathname: '/admin/users/[id]',
+                query: {
+                  user: user._id,
+                }
+              }}
+                as={`/admin/users/${user._id}`}
+                passHref
+              >
+                <Button variant="contained" color="info">View User</Button>
+              </Link>
               <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
             </div>
           </div>
