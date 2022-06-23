@@ -4,7 +4,7 @@ import styles from '../styles/related-card.module.scss'
 import ShopingCart from '../assets/icons/shoping-cart.png';
 import AddToFavorite from '../assets/icons/add-to-favorites.png';
 import { Button } from '@mui/material';
-
+import Link from 'next/link'
 
 type RelatedProductsCardProps = {
   image: StaticImageData | string,
@@ -12,19 +12,37 @@ type RelatedProductsCardProps = {
   title?: string,
   info?: string,
   price?: number,
-  isLiked?: boolean
+  isLiked?: boolean,
+  category: string,
+  productId: string,
 }
 
 const RelatedProductsCard = (props: RelatedProductsCardProps) => {
 
 
-  const { title, price, info, image } = props;
+  const { title, price, info, image, category, productId } = props;
 
   return (
     <div className={styles.cardContainer}>
-      <div style={{ textAlign: 'center' }}>
-        <Image src={image} width={400} height={300} alt="product image" />
-        {/* <img src={image} /> */}
+      <div className={styles.imgContainer}>
+        <div>
+          <Image src={image} width={400} height={300} alt="product image" />
+          <div className={styles.viewMore}>
+            <Link
+              href={
+                {
+                  pathname: "/products/[productCategory]/[id]",
+                  query: {
+                    productCategory: category,
+                    id: productId,
+                  }
+                }
+              } as={`${category}/${productId}`} key={productId}
+              passHref>
+              <Button variant="outlined">View More</Button>
+            </Link>
+          </div>
+        </div>
       </div>
       <div className={styles.cardInfoStyle}>
         <p className={styles.title}>{title}</p>

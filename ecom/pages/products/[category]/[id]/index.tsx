@@ -239,6 +239,8 @@ const Product = () => {
                   price={item.price}
                   info={item.description}
                   image={item.thumbnail}
+                  category={item.category}
+                  productId={item._id}
                 />
               )
             })

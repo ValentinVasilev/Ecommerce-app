@@ -1,20 +1,29 @@
 .cardContainer {
-  // border: 1px solid red;
-  // backdrop-filter: blur(16px) saturate(180%);
-  // -webkit-backdrop-filter: blur(16px) saturate(180%);
-  // background-color: rgba(154, 162, 205, 0.75);
-  // border-radius: 12px;
-  // border: 1px solid rgba(255, 255, 255, 0.125);
-  // width: 300px;
-  // height: 500px;
   display: flex;
   flex-direction: column;
-  // background-color: gray;
   max-width: 22.5%;
-  // flex: 1 1 22.5%;
-  // flex: 1 1 calc(100% / 6);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+.imgContainer {
+  text-align: center;
+}
+
+.viewMore {
+  position: relative;
+  top: -178px;
+  display: none;
+  border: 1px solid red;
+  // margin-bottom: -4.4vh;
+  background-color: aqua;
+}
+
+.imgContainer:hover {
+  .viewMore {
+    display: block;
+    margin-bottom: -4vh;
+  }
+}
+
 .cardInfoStyle {
   background-color: white;
   display: flex;
