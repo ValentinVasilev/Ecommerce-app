@@ -22,3 +22,4 @@ const signToken = (user: User) => {
 }
 
 export { signToken }
+
