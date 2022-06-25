@@ -240,7 +240,7 @@ const Product = () => {
                   info={item.description}
                   image={item.thumbnail}
                   category={item.category}
-                  productId={item._id}
+                  productId={item.id}
                 />
               )
             })

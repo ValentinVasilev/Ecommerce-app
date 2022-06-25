@@ -24,6 +24,7 @@ handler.post(async (req: Request, res: Response) => {
         token,
         _id: user._id,
         isAdmin: user.isAdmin,
+        email: user.email
       }
     })
 

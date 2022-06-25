@@ -16,9 +16,9 @@ const Login = () => {
       const data = await axios.post('api/user/login', { email: email, password: password })
         .then(res => res.data)
         .then(data => {
-          localStorage.setItem('user-credentials', data.user.token)
+          localStorage.setItem('login', JSON.stringify(data.user))
           setTimeout(() => {
-            router.push('/products')
+            router.push('/')
           }, 1000)
         }
         )

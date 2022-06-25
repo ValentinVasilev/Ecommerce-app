@@ -22,6 +22,8 @@ const RelatedProductsCard = (props: RelatedProductsCardProps) => {
 
   const { title, price, info, image, category, productId } = props;
 
+  console.log('related category props', props)
+
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imgContainer}>
@@ -37,7 +39,7 @@ const RelatedProductsCard = (props: RelatedProductsCardProps) => {
                     id: productId,
                   }
                 }
-              } as={`${category}/${productId}`} key={productId}
+              } as={`/products/${category}/${productId}`} key={productId}
               passHref>
               <Button variant="outlined">View More</Button>
             </Link>
