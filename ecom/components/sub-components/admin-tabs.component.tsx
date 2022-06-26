@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, List, ListItem, ListItemText, Tab } from '@mui/material'
 import NextLink from 'next/link';
-import styles from './Tabs.module.css';
+// import styles from './Tabs.module.css';
 
 
 const AdminTabs = (props: any) => {
@@ -27,7 +27,7 @@ const AdminTabs = (props: any) => {
   }
 
   return (
-    <Card className={styles.card}>
+    <Card>
       <List>
         <NextLink href="/admin/home" passHref>
           <ListItem selected={home} button component="a">

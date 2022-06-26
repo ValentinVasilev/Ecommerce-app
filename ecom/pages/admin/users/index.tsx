@@ -31,33 +31,38 @@ const Users = ({ data }: any) => {
 
   return (
     <div style={{ display: 'flex' }}>
-      {users?.map((user: any) => {
-        return (
-          <div key={user._id} style={{ border: '2px solid red', margin: '2vh', maxWidth: '250px', display: 'flex', flexDirection: 'column', justifyContent: '' }}>
-            <p>{user._id}</p>
-            <p>{user.email}</p>
-            <p>{user.createdAt}</p>
-            <p>{user.updatedAt}</p>
-            {user.cart.map((item: any) => {
-              return <p key={item}>{item}</p>
-            })}
-            <div style={{ width: '70%', alignSelf: 'center' }}>
-              <Link href={{
-                pathname: '/admin/users/[id]',
-                query: {
-                  user: user._id,
-                }
-              }}
-                as={`/admin/users/${user._id}`}
-                passHref
-              >
-                <Button variant="contained" color="info">View User</Button>
-              </Link>
-              <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
+      <div>
+        <AdminTabs name="Users" />
+      </div>
+      <div style={{ display: 'flex' }}>
+        {users?.map((user: any) => {
+          return (
+            <div key={user._id} style={{ border: '2px solid red', margin: '2vh', maxWidth: '250px', display: 'flex', flexDirection: 'column', justifyContent: '' }}>
+              <p>{user._id}</p>
+              <p>{user.email}</p>
+              <p>{user.createdAt}</p>
+              <p>{user.updatedAt}</p>
+              {user.cart.map((item: any) => {
+                return <p key={item}>{item}</p>
+              })}
+              <div style={{ width: '70%', alignSelf: 'center' }}>
+                <Link href={{
+                  pathname: '/admin/users/[id]',
+                  query: {
+                    user: user._id,
+                  }
+                }}
+                  as={`/admin/users/${user._id}`}
+                  passHref
+                >
+                  <Button variant="contained" color="info">View User</Button>
+                </Link>
+                <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
 
     </div >
   )
