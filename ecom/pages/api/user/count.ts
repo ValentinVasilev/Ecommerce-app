@@ -9,14 +9,14 @@ handler.get(async (req: Request, res: Response) => {
 
   await db.connect();
 
-  let getAllUsers = await User.find({});
+  let getAllUsers = await User.find({}).count();
 
   db.disconnect();
 
   if (!getAllUsers) {
     return res.status(500).send({ message: 'There is no Users!' })
   } else {
-    return res.status(200).send({ Users: getAllUsers });
+    return res.status(200).send(getAllUsers);
   }
 
 })

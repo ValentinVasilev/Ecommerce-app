@@ -5,18 +5,22 @@ import { Request, Response } from 'express';
 
 const handler = nc();
 
+
+
 handler.get(async (req: Request, res: Response) => {
 
   await db.connect();
 
-  let getAllProducts = await Product.find({});
+  let getAllProducts = await Product.find({}).count();
 
   db.disconnect();
 
   if (!getAllProducts) {
     return res.status(500).send({ message: 'There is no products!' })
   } else {
-    return res.status(200).send({ products: getAllProducts });
+    // return res.status(200).send({ products: getAllProducts });
+    return res.status(200).send(getAllProducts);
+
   }
 
 })

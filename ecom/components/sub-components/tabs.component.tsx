@@ -19,7 +19,8 @@ const Tab = (props: TabProps) => {
 
   return (
     <div>
-      <Card onClick={() => ActiveState()}>
+      <Card
+        onClick={() => ActiveState()}>
         <List style={{ paddingTop: '0', paddingBottom: '0' }}>
           <div key={title}>
             <Link href={`${link}`} passHref>
@@ -30,7 +31,7 @@ const Tab = (props: TabProps) => {
           </div>
         </List>
       </Card>
-    </div>
+    </div >
   )
 }
 
