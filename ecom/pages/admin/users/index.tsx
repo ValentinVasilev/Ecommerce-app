@@ -3,6 +3,7 @@ import { Button } from "@mui/material";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import AdminTabs from "../../../components/sub-components/admin-tabs.component";
 
 const Users = ({ data }: any) => {
 
