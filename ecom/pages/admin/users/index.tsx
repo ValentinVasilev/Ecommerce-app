@@ -34,7 +34,7 @@ const Users = ({ data }: any) => {
       <div>
         <AdminTabs name="Users" />
       </div>
-      <div style={{ display: 'flex' }}>
+      {/* <div style={{ display: 'flex' }}>
         {users?.map((user: any) => {
           return (
             <div key={user._id} style={{ border: '2px solid red', margin: '2vh', maxWidth: '250px', display: 'flex', flexDirection: 'column', justifyContent: '' }}>
@@ -62,8 +62,49 @@ const Users = ({ data }: any) => {
             </div>
           )
         })}
-      </div>
+      </div> */}
+      <table style={{ border: '1px solid', width: '60%' }}>
+        <tr>
+          <th>ID</th>
+          <th>EMAIL</th>
+          <th>createdAt</th>
+          <th>updatedAt</th>
+        </tr>
 
+        {users?.map((user: any) => {
+          return (
+            <tr key={user._id} >
+              <td>{user._id}</td>
+              <td>{user.email}</td>
+              <td>{user.createdAt}</td>
+              <td>{user.updatedAt}</td>
+              <div style={{ width: '100%', alignSelf: 'center' }}>
+                <Link href={{
+                  pathname: '/admin/users/[id]',
+                  query: {
+                    user: user._id,
+                  }
+                }}
+                  as={`/admin/users/${user._id}`}
+                  passHref
+                >
+                  <Button variant="contained" color="info">View User</Button>
+                </Link>
+                <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
+              </div>
+              {/* {user.cart.map((item: any) => {
+                return <p key={item}>{item}</p>
+              })}
+               */}
+            </tr>
+          )
+        })}
+        {/* <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr> */}
+      </table>
     </div >
   )
 }
