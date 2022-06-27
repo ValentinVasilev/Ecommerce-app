@@ -53,6 +53,14 @@ const Home = () => {
         <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Users</p>
         {checkCount(usersCount)}
       </div>
+      <div className={styles.productContainer}>
+        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total sale units</p>
+        {checkCount(0)}
+      </div>
+      <div className={styles.productContainer}>
+        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total Profit</p>
+        {checkCount(0)}
+      </div>
     </div>
   )
 }
