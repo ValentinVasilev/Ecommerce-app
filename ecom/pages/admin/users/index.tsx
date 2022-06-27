@@ -63,7 +63,7 @@ const Users = ({ data }: any) => {
           )
         })}
       </div> */}
-      <table style={{ border: '1px solid', width: '60%' }}>
+      <table style={{ border: '1px solid', width: '60%', alignSelf: 'center' }}>
         <tr>
           <th>ID</th>
           <th>EMAIL</th>
@@ -73,7 +73,7 @@ const Users = ({ data }: any) => {
 
         {users?.map((user: any) => {
           return (
-            <tr key={user._id} >
+            <tr key={user._id} style={{ backgroundColor: 'skyblue' }}>
               <td>{user._id}</td>
               <td>{user.email}</td>
               <td>{user.createdAt}</td>
