@@ -10,3 +10,29 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.models.User || mongoose.model('User', UserSchema);
 export default User;
+
+
+export type UserObject = {
+  _id?: string,
+  email: string,
+  password: string,
+  cart: string[]
+}
+
+export const emptyUserObject: UserObject = {
+  email: '',
+  password: '',
+  cart: ['']
+}
+
+export const parseUserObject = (
+  email: string,
+  password: string,
+  cart: string[]
+) => {
+  return {
+    email: email,
+    password: password,
+    cart: cart
+  }
+} 

@@ -4,16 +4,41 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import AdminTabs from "../../../components/sub-components/admin-tabs.component";
+import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
+import { ApiStatus } from "../../../constants/apiStatus";
+import { parseUserObject } from "../../../models/UserModel";
+import { getAllUsersAction, selectAllUsers } from "../../../utils/app/features/users/usersSlice";
+
+
 
 const Users = ({ data }: any) => {
 
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
   const [users, setUsers] = useState(data.Users);
 
 
+  const {
+    // getAllUsersStatus,
+    // userObject
+
+  } = useAppSelector(selectAllUsers);
+
   useEffect(() => {
-    setUsers(data.Users);
-  }, [data.Users])
+    dispatch(getAllUsersAction())
+  }, [])
+
+
+  const setInitialState = () => {
+    setUsers(userObject);
+  }
+
+  useEffect(() => {
+    if (getAllUsersStatus === ApiStatus.Success) {
+      setInitialState()
+    }
+  }, [getAllUsersStatus])
 
 
   const deleteUser = (userId: string) => {

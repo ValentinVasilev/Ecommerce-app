@@ -8,9 +8,11 @@ import { combineReducers } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import counterReducer from './features/counter/counterSlice';
+import usersReducer from './features/users/usersSlice';
 
 const reducers = combineReducers({
   counter: counterReducer,
+  users: usersReducer,
 });
 
 const persistConfig = {
