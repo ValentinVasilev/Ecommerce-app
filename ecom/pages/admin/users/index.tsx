@@ -5,40 +5,51 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import AdminTabs from "../../../components/sub-components/admin-tabs.component";
 import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
-import { ApiStatus } from "../../../constants/apiStatus";
-import { parseUserObject } from "../../../models/UserModel";
+// import { ApiStatus } from "../../../constants/apiStatus";
+// import { parseUserObject } from "../../../models/UserModel";
 import { getAllUsersAction, selectAllUsers } from "../../../utils/app/features/users/usersSlice";
-
+// import { UserService } from '../../../services/user.service';
 
 
 const Users = ({ data }: any) => {
 
   const router = useRouter();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   const [users, setUsers] = useState(data.Users);
+  const [allUsers, setAllUsers] = useState<any>();
 
-
-  const {
-    // getAllUsersStatus,
-    // userObject
-
-  } = useAppSelector(selectAllUsers);
+  const usersData = useAppSelector(selectAllUsers)
 
   useEffect(() => {
-    dispatch(getAllUsersAction())
-  }, [])
+    setAllUsers(usersData.users.Users)
+  }, [usersData.users.Users])
+  console.log('usersData', allUsers)
+  // const {
+  //   // getAllUsersStatus,
+  //   // userObject
+
+  // } = useAppSelector(selectAllUsers);
+
+  // useEffect(() => {
+  //   dispatch(getAllUsersAction())
+  // }, [])
 
 
-  const setInitialState = () => {
-    setUsers(userObject);
-  }
+  // useEffect(() => {
+  //   const users = UserService();
+  //   console.log('USERS', users)
+  // })
 
-  useEffect(() => {
-    if (getAllUsersStatus === ApiStatus.Success) {
-      setInitialState()
-    }
-  }, [getAllUsersStatus])
+  // const setInitialState = () => {
+  //   setUsers(userObject);
+  // }
+
+  // useEffect(() => {
+  //   if (getAllUsersStatus === ApiStatus.Success) {
+  //     setInitialState()
+  //   }
+  // }, [getAllUsersStatus])
 
 
   const deleteUser = (userId: string) => {
@@ -130,6 +141,18 @@ const Users = ({ data }: any) => {
           <td>Mexico</td>
         </tr> */}
       </table>
+      <div>
+        <p>Data from REDUX:</p>
+        {allUsers?.map((user: any) => {
+          return (
+            <div key={user._id}>
+              <p>ID: {user._id}</p>
+              <p>EMAIL: {user.email}</p>
+              <p>PASSWORD: {user.password}</p>
+            </div>
+          )
+        })}
+      </div>
     </div >
   )
 }

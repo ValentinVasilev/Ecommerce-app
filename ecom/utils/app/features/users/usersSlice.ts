@@ -3,9 +3,10 @@ import { UserService } from '../../../../services/user.service';
 import type { RootState } from '../../store';
 import { ApiStatus } from '../../../../constants/apiStatus';
 import { emptyUserObject, UserObject } from '../../../../models/UserModel';
+import axios from 'axios';
 
 export type UserState = {
-  users: UserObject[],
+  users: UserObject,
   getAllUsersStatus: ApiStatus,
 };
 
@@ -21,13 +22,29 @@ export const getAllUsersAction = createAsyncThunk(
   async () => {
     const response = await userService.getAllUsers();
     return response.data;
+
+    // let data = userService.getAllUsers()
+    //   .then(data => data)
+    //   .then(res => res.data.Users)
+    // return data;
   }
 )
 
 export const usersSlice = createSlice({
   name: 'UsersSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    // getAllUsers: (state, action) => {
+    //   // let dataRes: any = {};
+
+    //   // const data = axios
+    //   //   .get('/api/user/getAll')
+    //   //   .then(data => data)
+    //   //   .then(res => dataRes = res.data)
+
+    //   state.users = action.payload;
+    // }
+  },
   extraReducers: builder => {
     builder
       .addCase(getAllUsersAction.pending, state => {
@@ -43,6 +60,10 @@ export const usersSlice = createSlice({
   }
 })
 
+// export const {
+//   getAllUsers
+// } = usersSlice.actions;
 
-export const selectAllUsers = (state: RootState) => state.users.users;
+
+export const selectAllUsers = (state: RootState) => state.users;
 export default usersSlice.reducer;

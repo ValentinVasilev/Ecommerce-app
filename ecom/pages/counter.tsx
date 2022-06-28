@@ -14,6 +14,8 @@ const Counter = () => {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCount);
   const [incrementAmount, setIncrementAmount] = useState<number>(0);
+  
+
 
   return (
     <div>
