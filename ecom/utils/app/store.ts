@@ -9,10 +9,12 @@ import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import counterReducer from './features/counter/counterSlice';
 import usersReducer from './features/users/usersSlice';
+import productsReducer from './features/products/productsSlice';
 
 const reducers = combineReducers({
   counter: counterReducer,
   users: usersReducer,
+  products: productsReducer,
 });
 
 const persistConfig = {
