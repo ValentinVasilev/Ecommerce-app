@@ -99,48 +99,7 @@ const Users = ({ data }: any) => {
           )
         })}
       </div> */}
-      <table style={{ border: '1px solid', width: '60%', alignSelf: 'center' }}>
-        <tr>
-          <th>ID</th>
-          <th>EMAIL</th>
-          <th>createdAt</th>
-          <th>updatedAt</th>
-        </tr>
 
-        {users?.map((user: any) => {
-          return (
-            <tr key={user._id} style={{ backgroundColor: 'skyblue' }}>
-              <td>{user._id}</td>
-              <td>{user.email}</td>
-              <td>{user.createdAt}</td>
-              <td>{user.updatedAt}</td>
-              <div style={{ width: '100%', alignSelf: 'center' }}>
-                <Link href={{
-                  pathname: '/admin/users/[id]',
-                  query: {
-                    user: user._id,
-                  }
-                }}
-                  as={`/admin/users/${user._id}`}
-                  passHref
-                >
-                  <Button variant="contained" color="info">View User</Button>
-                </Link>
-                <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
-              </div>
-              {/* {user.cart.map((item: any) => {
-                return <p key={item}>{item}</p>
-              })}
-               */}
-            </tr>
-          )
-        })}
-        {/* <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr> */}
-      </table>
       <div>
         <p>Data from REDUX:</p>
         {allUsers?.map((user: any) => {
@@ -149,6 +108,9 @@ const Users = ({ data }: any) => {
               <p>ID: {user._id}</p>
               <p>EMAIL: {user.email}</p>
               <p>PASSWORD: {user.password}</p>
+              <p>CreatedAt: {user.createdAt}</p>
+              <p>UpdatedAt: {user.updatedAt}</p>
+              <br />
             </div>
           )
         })}
