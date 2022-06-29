@@ -5,87 +5,55 @@ import styles from '../../styles/admin/home.module.scss';
 import { useAppSelector, useAppDispatch } from "../../utils/app/hooks";
 import { ApiStatus } from "../../constants/apiStatus";
 import { selectAllUsers, getAllUsersAction } from '../../utils/app/features/users/usersSlice';
-import { UserObject } from "../../models/UserModel";
-import { UserService } from "../../services/user.service";
+import { selectAllProducts, getAllProductsAction } from '../../utils/app/features/products/productsSlice';
 
 const Home = () => {
 
-  const [productsCount, setProductsCount] = useState();
-  const [usersCount, setUsersCount] = useState();
-  const [allUsers, setAllUsers] = useState<any>();
   const [usersList, setUsersList] = useState<any>();
+  const [productsList, setProductsList] = useState<any>();
 
   const dispatch = useAppDispatch();
-  const userService = new UserService();
 
   const { getAllUsersStatus, users } = useAppSelector(selectAllUsers)
+  const { getAllProductsStatus, products } = useAppSelector(selectAllProducts);
 
   useEffect(() => {
-    // const data = axios
-    //   .get('/api/user/getAll')
-    //   .then(data => data)
-    //   .then(res => setAllUsers(res.data.Users))
-
-    // dispatch(getAllUsers(allUsers))
-    // userService.getAllUsers()
-    //   .then(data => data)
-    //   .then(res => console.log(res.data.Users))
-    // const test = dispatch(getAllUsersAction());
-    // const data1 = dispatch(getAllUsersAction())
-    // let data2 = data1.then(data => data).then(res => res)
-    // const test = dispatch(getAllUsers());
-    dispatch(getAllUsersAction())
+    dispatch(getAllUsersAction());
+    dispatch(getAllProductsAction());
   }, [])
 
 
-  const setInitialState = () => {
+  const setUsersInitialState = () => {
     setUsersList(users.Users)
+  }
+
+  const setProductsInitialState = () => {
+    setProductsList(products.products)
   }
 
   useEffect(() => {
     if (getAllUsersStatus === ApiStatus.Success) {
-      setInitialState()
+      setUsersInitialState()
     }
-
   }, [getAllUsersStatus])
 
-  console.log('UsersList', usersList)
-
-  // console.log(usersList)
-  // console.log(dispatch(getAllUsers()))
-  // const { getAllUsersStatus, users } = useAppSelector(selectAllUsers)
-
-  // const setInitialState = () => {
-  //   setAllUsers(users);
-  // }
+  useEffect(() => {
+    if (getAllProductsStatus === ApiStatus.Success) {
+      setProductsInitialState()
+    }
+  }, [getAllProductsStatus])
 
 
+  console.log(products)
   // useEffect(() => {
-  //   dispatch(getAllUsersAction)
+  //   axios.get('/api/products/getAll')
+  //     .then(data => data)
+  //     .then(prod => {
+  //       setProductsCount(prod.data);
+  //     })
   // }, [])
 
-  // useEffect(() => {
-  //   if (getAllUsersStatus === ApiStatus.Success) {
-  //     setInitialState();
-  //   }
-  //   console.log('USERS', allUsers)
-  // }, [getAllUsersStatus])
 
-  useEffect(() => {
-    axios.get('/api/products/getAll')
-      .then(data => data)
-      .then(prod => {
-        setProductsCount(prod.data);
-      })
-  }, [])
-
-  useEffect(() => {
-    axios.get('/api/user/count')
-      .then(data => data)
-      .then(prod => {
-        setUsersCount(prod.data);
-      })
-  }, [])
 
   const checkCount = (count: any) => {
     if (count <= 1) {
@@ -110,7 +78,7 @@ const Home = () => {
       </div>
       <div className={styles.productContainer}>
         <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Products</p>
-        {checkCount(productsCount)}
+        {checkCount(productsList?.length)}
       </div>
       <div className={styles.productContainer}>
         <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Users</p>

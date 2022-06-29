@@ -5,16 +5,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import AdminTabs from "../../../components/sub-components/admin-tabs.component";
 import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
-// import { ApiStatus } from "../../../constants/apiStatus";
-// import { parseUserObject } from "../../../models/UserModel";
 import { getAllUsersAction, selectAllUsers } from "../../../utils/app/features/users/usersSlice";
-// import { UserService } from '../../../services/user.service';
 
 
 const Users = ({ data }: any) => {
 
   const router = useRouter();
-  // const dispatch = useAppDispatch();
 
   const [users, setUsers] = useState(data.Users);
   const [allUsers, setAllUsers] = useState<any>();
@@ -25,31 +21,6 @@ const Users = ({ data }: any) => {
     setAllUsers(usersData.users.Users)
   }, [usersData.users.Users])
   console.log('usersData', allUsers)
-  // const {
-  //   // getAllUsersStatus,
-  //   // userObject
-
-  // } = useAppSelector(selectAllUsers);
-
-  // useEffect(() => {
-  //   dispatch(getAllUsersAction())
-  // }, [])
-
-
-  // useEffect(() => {
-  //   const users = UserService();
-  //   console.log('USERS', users)
-  // })
-
-  // const setInitialState = () => {
-  //   setUsers(userObject);
-  // }
-
-  // useEffect(() => {
-  //   if (getAllUsersStatus === ApiStatus.Success) {
-  //     setInitialState()
-  //   }
-  // }, [getAllUsersStatus])
 
 
   const deleteUser = (userId: string) => {
@@ -110,6 +81,20 @@ const Users = ({ data }: any) => {
               <p>PASSWORD: {user.password}</p>
               <p>CreatedAt: {user.createdAt}</p>
               <p>UpdatedAt: {user.updatedAt}</p>
+              <div style={{ width: '70%', alignSelf: 'center' }}>
+                <Link href={{
+                  pathname: '/admin/users/[id]',
+                  query: {
+                    user: user._id,
+                  }
+                }}
+                  as={`/admin/users/${user._id}`}
+                  passHref
+                >
+                  <Button variant="contained" color="info">View User</Button>
+                </Link>
+                <Button onClick={() => deleteUser(user._id)} variant="contained" color="error">Delete</Button>
+              </div>
               <br />
             </div>
           )

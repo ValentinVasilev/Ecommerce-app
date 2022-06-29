@@ -11,15 +11,15 @@ handler.get(async (req: Request, res: Response) => {
 
   await db.connect();
 
-  let getAllProducts = await Product.find({}).count();
+  let getAllProducts = await Product.find({});
 
   db.disconnect();
 
   if (!getAllProducts) {
     return res.status(500).send({ message: 'There is no products!' })
   } else {
-    // return res.status(200).send({ products: getAllProducts });
-    return res.status(200).send(getAllProducts);
+    return res.status(200).send({ products: getAllProducts });
+    // return res.status(200).send(getAllProducts);
 
   }
 
