@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
-
   title: { type: String, required: true },
   brand: { type: String, required: true },
   description: { type: String, required: true },
@@ -17,3 +16,16 @@ const ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
 export default Product;
+
+export type ProductType = {
+  _id?: string,
+  title: string
+  description: string,
+  price: number,
+  priceOnDiscount: number,
+  rating: number,
+  inStock: number,
+  category: string,
+  thumbnail: string,
+  images: string[],
+}
