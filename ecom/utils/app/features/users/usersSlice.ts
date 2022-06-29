@@ -10,7 +10,7 @@ export type UserState = {
   getAllUsersStatus: ApiStatus,
 };
 
-const initialState: UserState = {
+const initialState = {
   users: [],
   getAllUsersStatus: ApiStatus.None,
 }

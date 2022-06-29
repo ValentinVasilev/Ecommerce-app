@@ -20,7 +20,6 @@ const Users = ({ data }: any) => {
   useEffect(() => {
     setAllUsers(usersData.users.Users)
   }, [usersData.users.Users])
-  console.log('usersData', allUsers)
 
 
   const deleteUser = (userId: string) => {
@@ -71,11 +70,11 @@ const Users = ({ data }: any) => {
         })}
       </div> */}
 
-      <div>
+      <div style={{ display: 'flex', width: '100%' }}>
         <p>Data from REDUX:</p>
         {allUsers?.map((user: any) => {
           return (
-            <div key={user._id}>
+            <div key={user._id} style={{ border: '2px solid green', width: 'content-fit', maxWidth: '20%', overflowWrap: 'break-word' }}>
               <p>ID: {user._id}</p>
               <p>EMAIL: {user.email}</p>
               <p>PASSWORD: {user.password}</p>

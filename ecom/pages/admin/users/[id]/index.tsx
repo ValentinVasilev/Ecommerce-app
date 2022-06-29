@@ -1,47 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { useAppSelector, useAppDispatch } from "../../../../utils/app/hooks";
+import { getAllUsersAction, selectAllUsers } from "../../../../utils/app/features/users/usersSlice";
 
 const UserInfo = ({ data }: any) => {
 
   const router = useRouter();
 
+  const usersData = useAppSelector(selectAllUsers)
+
+  const userId = router.query.id
+
   const [userData, setUserData] = useState();
-
-  console.log("USER", router.query.user)
-
+  const [user, setUser] = useState();
 
   useEffect(() => {
+    setUserData(usersData.users.Users);
+  }, [])
 
-    if (!router.isReady) return;
-    else {
-      let id = router.query.user;
+  console.log('userData', userData)
 
-      axios.get(`http://localhost:3000/api/user/getById?id=${id}`)
-        .then(data => data)
-        .then(user => setUserData(user.data.user))
-    }
+  // let singleUser: any = [];
 
-  }, [router.query.user, router.isReady])
+  // useEffect(() => {
+  //   singleUser.push(usersData.users.Users.filter((user: any) => user._id === userId))
+  // }, [])
+
+  // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+  // console.log('userId', userId)
+  // console.log('userData ', usersData.users.Users)
+
+  // console.log('single user', singleUser)
+  // console.log('############################')
+
+  // useEffect(() => {
+  //   setUser(usersData.users.Users?.filter((user: any) => user._id === userId))
+  // }, [])
 
   return (
-    <div>{userData?.email}</div>
+    <div>
+      {userData
+        ?.filter((user: any) => user._id === userId)
+        ?.map((singleUser: any) => {
+          return (
+            <div key={singleUser._id}>
+              <p>{singleUser._id}</p>
+              <p>{singleUser.email}</p>
+              <p>{singleUser.createdAt}</p>
+            </div>
+          )
+        })
+      }
+      {/* {userData?.map((users: any) => {
+        return (
+          <div key={users._id}>
+            <p>{users.email}</p>
+          </div>
+        )
+      })} */}
+    </div>
   )
 }
 export default UserInfo;
 
-
-// export async function getServerSideProps() {
-
-
-//   // eslint-disable-next-line react-hooks/rules-of-hooks
-//   const router = useRouter();
-
-//   // Fetch data from external API
-//   // const res = await fetch(`http://localhost:3000/api/products/get?id=${'62b1dc4496a8bbd9859bfbbd'}`);
-//   const res = await fetch(`http://localhost:3000/api/user/get?id=${router?.query.user}`)
-//   const data = await res.json()
-
-//   // Pass data to the page via props
-//   return { props: { data } }
-// }
