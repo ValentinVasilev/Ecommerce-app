@@ -3,6 +3,7 @@ import styles from '../styles/header.component.module.scss';
 import Link from "next/link";
 import jwt from 'jsonwebtoken';
 import Search from "./sub-components/search.component";
+import CurrencyDropdown from "./sub-components/currency-dropdown.component";
 import { useRouter } from "next/router";
 
 const Header = () => {
@@ -45,10 +46,10 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
             </div>
-            <div>Currency Dropdown</div>
+            <div style={{ alignSelf: 'center' }}><CurrencyDropdown /></div>
             <div>Login Component</div>
             <div>Cart Component</div>
           </div>
