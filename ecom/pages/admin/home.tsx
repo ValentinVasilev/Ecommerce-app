@@ -44,7 +44,7 @@ const Home = () => {
   }, [getAllProductsStatus])
 
 
-  console.log(products)
+  // console.log(products)
   // useEffect(() => {
   //   axios.get('/api/products/getAll')
   //     .then(data => data)

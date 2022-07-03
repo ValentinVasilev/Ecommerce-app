@@ -10,7 +10,7 @@ const AdminTabs = (props: any) => {
 
   let home = false;
   let users = false;
-  let reserach = false;
+  let products = false;
   let upgrades = false;
   let test = false;
 
@@ -18,8 +18,8 @@ const AdminTabs = (props: any) => {
     home = true;
   } else if (value === 'users') {
     users = true;
-  } else if (value === 'research') {
-    reserach = true;
+  } else if (value === 'products') {
+    products = true;
   } else if (value === 'upgrades') {
     upgrades = true;
   } else if (value === 'test') {
@@ -39,13 +39,11 @@ const AdminTabs = (props: any) => {
             <ListItemText primary="Users"></ListItemText>
           </ListItem>
         </NextLink>
-        {/* <NextLink href="/game/research" passHref>
-          <ListItem button selected={reserach} component="a">
-            <div className={styles.icon}>
-            </div>
-            <ListItemText primary="Research"></ListItemText>
+        <NextLink href="/admin/products" passHref>
+          <ListItem button selected={products} component="a">
+            <ListItemText primary="Products"></ListItemText>
           </ListItem>
-        </NextLink> */}
+        </NextLink>
         {/* <NextLink href="/game/upgrades" passHref>
           <ListItem button selected={upgrades} component="a">
             <div className={styles.icon}>
