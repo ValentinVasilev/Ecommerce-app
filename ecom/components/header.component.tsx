@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import Search from "./sub-components/search.component";
 import CurrencyDropdown from "./sub-components/currency-dropdown.component";
 import { useRouter } from "next/router";
+import Account from "./sub-components/account.component";
 
 const Header = () => {
 
@@ -50,7 +51,7 @@ const Header = () => {
               <Search />
             </div>
             <div style={{ alignSelf: 'center' }}><CurrencyDropdown /></div>
-            <div>Login Component</div>
+            <div style={{ alignSelf: 'center' }}><Account /></div>
             <div>Cart Component</div>
           </div>
         </div>

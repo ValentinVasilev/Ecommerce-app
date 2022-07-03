@@ -1,0 +1,24 @@
+.accountContainer {
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}
+.btnWrapper {
+  align-self: center;
+  margin-top: 4.5vh;
+  margin-bottom: 2vh;
+}
+.accountButton {
+  border: none;
+  cursor: pointer;
+  height: 40px;
+}
+.accountContent {
+  // border: 1px solid red;
+  position: relative;
+  width: 200px;
+  z-index: 999;
+  // background-color: transparent;
+  border-radius: 5px;
+  // height: 500px;
+}
