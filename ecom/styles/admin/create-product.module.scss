@@ -12,7 +12,26 @@
   border: 1px solid red;
   width: 70%;
   margin: 3vh;
+  text-align: center;
 }
 .fields {
   margin: 2vh 0vh 2vh 2vh;
+}
+
+.createBtn {
+  font-family: "Monteserrat", sans-serif;
+  font-size: 20px;
+  margin: 2vh 0vh 2vh 0vh;
+  border: none;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 1vh;
+  background-color: #4caf50;
+  color: whitesmoke;
+  border-radius: 4px;
+}
+.createBtn:active {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

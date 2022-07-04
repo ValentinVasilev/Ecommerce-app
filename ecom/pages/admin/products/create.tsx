@@ -14,7 +14,7 @@ const CreateProduct = () => {
   const [price, setPrice] = useState<number>(0);
   const [priceOnDiscount, setPriceOnDiscount] = useState<number>(0);
   const [inStock, setInStock] = useState<number>(0);
-  const [category, setCategory] = useState<string>('');
+  const [category, setCategory] = useState('');
 
   const product = {
     title: title,
@@ -36,7 +36,11 @@ const CreateProduct = () => {
       <div className={styles.images}>Images part</div>
       <div className={styles.inputFields}>
         <div className={styles.fields}>
-          <TextField label="Title" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setTitle((e.target as HTMLInputElement).value)} />
+          <TextField
+            label="Title" variant="outlined"
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setTitle((e.target as HTMLInputElement).value)}
+          />
         </div>
         <div className={styles.fields}>
           <TextField label="Brand" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setBrand((e.target as HTMLInputElement).value)} />
@@ -56,7 +60,7 @@ const CreateProduct = () => {
         <div className={styles.fields}>
           <TextField label="Category" variant="outlined" select
             sx={{ width: fieldsWidth }}
-            onInput={(e) => setCategory(categories.title)}
+            onChange={(e) => setCategory(e.target.value)}
           >
             {categories.map(category => (
               <MenuItem key={category.id} value={category.title} >
@@ -65,7 +69,7 @@ const CreateProduct = () => {
             ))}
           </TextField>
         </div>
-        <button onClick={() => DisplayProductData()}>Display Data</button>
+        <button className={styles.createBtn} onClick={() => DisplayProductData()}>Create Product</button>
       </div>
     </div>
   )
