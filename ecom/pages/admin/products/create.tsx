@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { MenuItem, TextField } from '@mui/material';
 import styles from '../../../styles/admin/create-product.module.scss';
 import categories from '../../../assets/data/categories';
+import { height } from '@mui/system';
 
 
 const CreateProduct = () => {
@@ -17,6 +18,8 @@ const CreateProduct = () => {
   const [category, setCategory] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState<string[]>([])
+
+  let newArray = [''];
 
   const product = {
     title: title,
@@ -35,9 +38,41 @@ const CreateProduct = () => {
   }
 
   const AddImage = (image: any) => {
+
+    if (image === '') {
+      return;
+    } else if (images.includes(image)) {
+      return;
+    }
+
     images.push(image);
     setImage('')
   }
+
+  const RemoveImg = (img: any) => {
+
+
+
+    let indexId = images.indexOf(img);
+    let newArray = images.splice(indexId, 1);
+
+    console.log(indexId)
+    console.log(newArray)
+
+    setImages(newArray);
+
+
+
+    // console.log(img)
+    // console.log(images)
+    // // setImages(images.filter(indx => indx != index));
+    // console.log(indexId)
+    // // console.log(images)
+
+  }
+
+  // useEffect(() => {
+  // }, [images])
 
   return (
     <div className={styles.productContainer}>
@@ -52,9 +87,38 @@ const CreateProduct = () => {
         <div>
           {images.length >= 1 &&
             (images?.map((img: any) => (
-              <div key={img} style={{ display: 'flex', alignItems: 'center' }}>
-                <p >{images.indexOf(img)}:{img}</p>
-                <div><button>X</button></div>
+              <div key={img} className={styles.listOfImages} >
+                <p style={{
+                  fontFamily: 'Montserrat',
+                  margin: '0vh 0vh 0vh 1vh',
+                  paddingRight: '1vh',
+                  borderRight: '1px solid',
+                  height: '47px',
+                  alignSelf: 'center',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}>{images.indexOf(img) + 1}</p>
+                <p style={{
+                  fontFamily: 'Montserrat',
+                  fontSize: '20px',
+                  fontWeight: '500',
+                }}>{img}</p>
+                <div>
+                  <button
+                    style={{
+                      fontFamily: 'Montserrat',
+                      margin: '0vh 1vh 0vh 1vh',
+                      border: 'none',
+                      fontSize: '35px',
+                      backgroundColor: 'red',
+                      color: 'white',
+                      height: '64px',
+                      width: '100%',
+                      cursor: 'pointer'
+                    }}
+                    onClick={() => RemoveImg(img)}
+                  >X</button>
+                </div>
               </div>
             )))}
         </div>
