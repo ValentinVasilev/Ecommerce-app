@@ -67,7 +67,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <p style={{ fontWeight: '300', textAlign: 'center', fontStyle: 'italic' }}>Copyright.All rights reserved {new Date().getFullYear()}</p>
+      <p style={{ fontWeight: '300', textAlign: 'center', fontStyle: 'italic', color: 'gray', margin: 0 }}>Copyright.All rights reserved {new Date().getFullYear()}</p>
     </div>
   )
 }

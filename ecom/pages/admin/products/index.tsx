@@ -4,6 +4,7 @@ import styles from '../../../styles/admin/products.module.scss';
 import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
 import { selectAllProducts, getAllProductsAction } from "../../../utils/app/features/products/productsSlice";
 import { ApiStatus } from "../../../constants/apiStatus";
+import Link from "next/link";
 
 const AdminProducts = () => {
 
@@ -33,7 +34,9 @@ const AdminProducts = () => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <div style={{ textAlign: 'center', padding: '2vh' }}>
-          <button className={styles.createBtn}>Create Product</button>
+          <Link href="/admin/products/create" passHref>
+            <button className={styles.createBtn}>Create Product</button>
+          </Link>
         </div>
         <div style={{ display: 'flex' }}>
           {productsList?.products?.map((product: any) => {
