@@ -15,6 +15,8 @@ const CreateProduct = () => {
   const [priceOnDiscount, setPriceOnDiscount] = useState<number>(0);
   const [inStock, setInStock] = useState<number>(0);
   const [category, setCategory] = useState('');
+  const [image, setImage] = useState('');
+  const [images, setImages] = useState<string[]>([])
 
   const product = {
     title: title,
@@ -24,6 +26,7 @@ const CreateProduct = () => {
     priceOnDiscount: priceOnDiscount,
     inStock: inStock,
     category: category,
+    images: images,
   }
 
 
@@ -31,9 +34,31 @@ const CreateProduct = () => {
     console.log(product)
   }
 
+  const AddImage = (image: any) => {
+    images.push(image);
+    setImage('')
+  }
+
   return (
     <div className={styles.productContainer}>
-      <div className={styles.images}>Images part</div>
+      <div className={styles.images}>
+        <div style={{ height: '400px', border: '1px solid' }}>Thumbnail Section</div>
+        <div style={{ border: '1px solid' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', margin: '2vh 0vh 2vh 1vh' }}>
+            <TextField label="Image" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setImage((e.target as HTMLInputElement).value)} value={image} />
+            <button className={styles.addImageBtn} onClick={() => AddImage(image)}>Add image</button>
+          </div>
+        </div>
+        <div>
+          {images.length >= 1 &&
+            (images?.map((img: any) => (
+              <div key={img} style={{ display: 'flex', alignItems: 'center' }}>
+                <p >{images.indexOf(img)}:{img}</p>
+                <div><button>X</button></div>
+              </div>
+            )))}
+        </div>
+      </div>
       <div className={styles.inputFields}>
         <div className={styles.fields}>
           <TextField
@@ -43,19 +68,46 @@ const CreateProduct = () => {
           />
         </div>
         <div className={styles.fields}>
-          <TextField label="Brand" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setBrand((e.target as HTMLInputElement).value)} />
+          <TextField
+            label="Brand"
+            variant="outlined"
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setBrand((e.target as HTMLInputElement).value)}
+          />
         </div>
         <div className={styles.fields}>
-          <TextField label="Description" variant="outlined" multiline maxRows={4} sx={{ width: fieldsWidth }} onInput={(e) => setDescription((e.target as HTMLInputElement).value)} />
+          <TextField
+            label="Description"
+            variant="outlined"
+            multiline
+            maxRows={4}
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setDescription((e.target as HTMLInputElement).value)}
+          />
         </div>
         <div className={styles.fields}>
-          <TextField label="Price" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setPrice(Number((e.target as HTMLInputElement).value))} />
+          <TextField
+            label="Price"
+            variant="outlined"
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setPrice(Number((e.target as HTMLInputElement).value))}
+          />
         </div>
         <div className={styles.fields}>
-          <TextField label="PriceOnDiscount" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setPriceOnDiscount(Number((e.target as HTMLInputElement).value))} />
+          <TextField
+            label="PriceOnDiscount"
+            variant="outlined"
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setPriceOnDiscount(Number((e.target as HTMLInputElement).value))}
+          />
         </div>
         <div className={styles.fields}>
-          <TextField label="Instock" variant="outlined" sx={{ width: fieldsWidth }} onInput={(e) => setInStock(Number((e.target as HTMLInputElement).value))} />
+          <TextField
+            label="Instock"
+            variant="outlined"
+            sx={{ width: fieldsWidth }}
+            onInput={(e) => setInStock(Number((e.target as HTMLInputElement).value))}
+          />
         </div>
         <div className={styles.fields}>
           <TextField label="Category" variant="outlined" select

@@ -7,6 +7,8 @@
   border: 1px solid pink;
   width: 30%;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 .inputFields {
   border: 1px solid red;
@@ -17,9 +19,16 @@
 .fields {
   margin: 2vh 0vh 2vh 2vh;
 }
-
+.addImageBtn {
+  border: 1px solid;
+  background-color: skyblue;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  color: white;
+  padding: 1vh;
+}
 .createBtn {
-  font-family: "Monteserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   margin: 2vh 0vh 2vh 0vh;
   border: none;
