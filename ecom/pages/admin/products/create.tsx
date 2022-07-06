@@ -40,33 +40,26 @@ const CreateProduct = () => {
     thumbnail: 'none',
   }
 
-  // useEffect(() => {
-  //   dispatch(clearAllApiStatuses())
-  // })
-
-  // useEffect(() => {
-
-  // })
-
   const DisplayProductData = () => {
-    console.log(product)
     dispatch(createProduct(product));
-    console.log(createProductStatus)
-    // axios.post('/api/products/create', product)
-    //   .then(ress => ress)
-    //   .then(data => console.log('new product data =>', data.data))
-
   }
 
-  const DispayAlert = () => {
-    if (createProductStatus === ApiStatus.Success) {
+
+  useEffect(() => {
+    console.log(createProductStatus)
+
+  }, [createProductStatus])
+
+  const DispayAlert = (apiStatus: any) => {
+    if (apiStatus === ApiStatus.Success) {
+
       return <Alert severity="success">Product successfully created!</Alert>
 
-    } else if (createProductStatus === ApiStatus.Pending) {
+    } else if (apiStatus === ApiStatus.Pending) {
 
       return <Alert severity="info">Loading ...</Alert>
 
-    } else if (createProductStatus === ApiStatus.Rejected) {
+    } else if (apiStatus === ApiStatus.Rejected) {
       return <Alert severity="error">Something went wrong ...</Alert>
     }
   }
@@ -204,7 +197,7 @@ const CreateProduct = () => {
         </div>
         <button className={styles.createBtn} onClick={() => DisplayProductData()}>Create Product</button>
         <div style={{ padding: '2vh 0vh 2vh 0vh' }}>
-          {DispayAlert()}
+          {DispayAlert(createProductStatus)}
         </div>
       </div>
 

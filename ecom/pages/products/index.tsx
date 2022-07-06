@@ -11,7 +11,7 @@ const Products = () => {
       width: '100%',
       justifyContent: 'center',
       alignItems: 'flex-start',
-      backgroundColor: 'black',
+      backgroundColor: '#213236',
       padding: '0vh 1vh 0vh 1vh'
     }}>
       {categories

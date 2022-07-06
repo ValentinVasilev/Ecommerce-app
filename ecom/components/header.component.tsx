@@ -27,7 +27,7 @@ const Header = () => {
     setAnnouncer('Just a text to announce!')
     console.log(user)
   }, [])
-  
+
   return (
     <div className={styles.headerContainer}>
       {
@@ -57,14 +57,14 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className={styles.headerWrapper}>
+      {/* <div className={styles.headerWrapper}>
         <div className={styles.infoSection}>
           <div>Brands</div>
           <div>Cloths</div>
           <div>Electronics</div>
           <div>Shoes</div>
         </div>
-      </div>
+      </div> */}
     </div >
   )
 }
