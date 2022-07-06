@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { MenuItem, TextField } from '@mui/material';
+import { Alert, MenuItem, TextField } from '@mui/material';
 import styles from '../../../styles/admin/create-product.module.scss';
 import categories from '../../../assets/data/categories';
 import { useAppSelector, useAppDispatch } from '../../../utils/app/hooks';
-import { selectAllProducts, createProduct } from '../../../utils/app/features/products/productsSlice';
+import { selectAllProducts, createProduct, clearAllApiStatuses } from '../../../utils/app/features/products/productsSlice';
+import { ApiStatus } from '../../../constants/apiStatus';
+
 import axios from 'axios';
 
 const CreateProduct = () => {
@@ -38,13 +40,35 @@ const CreateProduct = () => {
     thumbnail: 'none',
   }
 
+  // useEffect(() => {
+  //   dispatch(clearAllApiStatuses())
+  // })
+
+  // useEffect(() => {
+
+  // })
 
   const DisplayProductData = () => {
     console.log(product)
     dispatch(createProduct(product));
+    console.log(createProductStatus)
     // axios.post('/api/products/create', product)
     //   .then(ress => ress)
     //   .then(data => console.log('new product data =>', data.data))
+
+  }
+
+  const DispayAlert = () => {
+    if (createProductStatus === ApiStatus.Success) {
+      return <Alert severity="success">Product successfully created!</Alert>
+
+    } else if (createProductStatus === ApiStatus.Pending) {
+
+      return <Alert severity="info">Loading ...</Alert>
+
+    } else if (createProductStatus === ApiStatus.Rejected) {
+      return <Alert severity="error">Something went wrong ...</Alert>
+    }
   }
 
   const AddImage = (image: any) => {
@@ -179,8 +203,12 @@ const CreateProduct = () => {
           </TextField>
         </div>
         <button className={styles.createBtn} onClick={() => DisplayProductData()}>Create Product</button>
+        <div style={{ padding: '2vh 0vh 2vh 0vh' }}>
+          {DispayAlert()}
+        </div>
       </div>
-    </div>
+
+    </div >
   )
 }
 

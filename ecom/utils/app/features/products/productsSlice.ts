@@ -38,7 +38,12 @@ export const createProduct = createAsyncThunk(
 export const productsSlice = createSlice({
   name: 'ProductsSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    clearAllApiStatuses: state => {
+      state.createProductStatus = ApiStatus.None
+      state.getAllProductsStatus = ApiStatus.None
+    }
+  },
   extraReducers: builder => {
     builder
       // GET Products
@@ -70,6 +75,11 @@ export const productsSlice = createSlice({
       })
   }
 })
+
+export const {
+  clearAllApiStatuses
+} = productsSlice.actions
+
 
 export const selectAllProducts = (state: RootState) => state.products;
 export default productsSlice.reducer;
