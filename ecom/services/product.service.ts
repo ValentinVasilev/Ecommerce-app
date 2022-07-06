@@ -18,8 +18,8 @@ export class ProductService {
     return this.api.get(API_PATHS.getAllProducts);
   }
 
-  public async postProduct(product: { _id: string } & any) {
-    return this.api.get(API_PATHS.createProduct, { product });
+  public async postProduct(product: any) {
+    return this.api.post(API_PATHS.createProduct, product);
   }
 
 

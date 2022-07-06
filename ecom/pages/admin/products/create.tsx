@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { MenuItem, TextField } from '@mui/material';
 import styles from '../../../styles/admin/create-product.module.scss';
 import categories from '../../../assets/data/categories';
-
-
+import { useAppSelector, useAppDispatch } from '../../../utils/app/hooks';
+import { selectAllProducts, createProduct } from '../../../utils/app/features/products/productsSlice';
+import axios from 'axios';
 
 const CreateProduct = () => {
 
@@ -19,7 +20,10 @@ const CreateProduct = () => {
   const [image, setImage] = useState('');
   const [images, setImages] = useState<string[]>([])
 
-  let newArray = [''];
+  const { createProductStatus } = useAppSelector(selectAllProducts)
+
+  const dispatch = useAppDispatch();
+
 
   const product = {
     title: title,
@@ -30,11 +34,17 @@ const CreateProduct = () => {
     inStock: inStock,
     category: category,
     images: images,
+    rating: 0,
+    thumbnail: 'none',
   }
 
 
   const DisplayProductData = () => {
     console.log(product)
+    dispatch(createProduct(product));
+    // axios.post('/api/products/create', product)
+    //   .then(ress => ress)
+    //   .then(data => console.log('new product data =>', data.data))
   }
 
   const AddImage = (image: any) => {

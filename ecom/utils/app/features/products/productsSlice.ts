@@ -5,7 +5,7 @@ import { ApiStatus } from '../../../../constants/apiStatus';
 import { ProductType } from '../../../../models/ProductsModel';
 
 export type ProductState = {
-  products: ProductType[],
+  products: ProductType,
   getAllProductsStatus: ApiStatus,
   createProductStatus: ApiStatus,
 }
@@ -59,7 +59,11 @@ export const productsSlice = createSlice({
       .addCase(createProduct.fulfilled, (state, data) => {
         state.createProductStatus = ApiStatus.Success
         const newProduct: ProductType = data.meta.arg
-        state.products.push({ ...newProduct, _id: data.payload.id })
+        let check = Array.isArray(state.products)
+        console.log('Check', check)
+        // state.products.push({ ...newProduct, _id: data.payload.id })
+        state.products = newProduct;
+
       })
       .addCase(createProduct.rejected, (state) => {
         state.createProductStatus = ApiStatus.Rejected
