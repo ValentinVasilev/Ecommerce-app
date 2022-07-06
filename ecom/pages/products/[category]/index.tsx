@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import ProductsList from "../../../assets/data/products";
 import Link from "next/link";
+import styles from '../../../styles/sub-components/card-by-category.module.scss';
 
 const Category = () => {
 
@@ -9,16 +10,29 @@ const Category = () => {
 
   const productCategory = router.query.category;
 
-  console.log(router)
-
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      backgroundColor: '#213236',
+      padding: '0vh 1vh 0vh 1vh'
+    }}>
       {ProductsList
         .filter(category => category.category === productCategory)
         .map(product => {
           return (
-            <div key={product.id}>
-              <p>{product.title}</p>
+            <div key={product.id} className={styles.cardContainer}>
+              <div className={styles.cardInfoStyle}>
+                <p className={styles.title}>{product.title}</p>
+                <p className={styles.info}>{product.description}</p>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'green', marginRight: '15px' }}>$</p>
+                  <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'gray' }}>{product.price}</p>
+                </div>
+              </div>
               <Link href={
                 {
                   pathname: "[category]/[id]",

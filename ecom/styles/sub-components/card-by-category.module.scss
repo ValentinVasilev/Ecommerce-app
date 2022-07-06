@@ -1,0 +1,41 @@
+.cardContainer {
+  margin: 1vh;
+  flex-direction: column;
+  flex: 0 1 auto;
+  padding: 0.6em 2em;
+  color: rgb(255, 255, 255);
+  background: #111;
+  position: relative;
+  z-index: 0;
+  min-width: 200px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  // display: flex;
+  // flex-direction: column;
+  // max-width: 22.5%;
+  // width: 22.5%;
+  max-width: 500px;
+}
+.imgContainer {
+  text-align: center;
+}
+.cardInfoStyle {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 24px;
+  color: gray;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+.info {
+  font-size: 12px;
+  color: gray;
+  font-family: monospace;
+  font-weight: 500;
+  margin-top: -1vh;
+}
