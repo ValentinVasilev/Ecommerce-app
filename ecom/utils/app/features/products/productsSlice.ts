@@ -5,13 +5,15 @@ import { ApiStatus } from '../../../../constants/apiStatus';
 import { ProductType } from '../../../../models/ProductsModel';
 
 export type ProductState = {
-  products: ProductType,
+  products: ProductType[],
   getAllProductsStatus: ApiStatus,
+  createProductStatus: ApiStatus,
 }
 
 const initialState: ProductState = {
   products: [],
-  getAllProductsStatus: ApiStatus.None
+  getAllProductsStatus: ApiStatus.None,
+  createProductStatus: ApiStatus.None,
 }
 
 const productService = new ProductService();
@@ -25,12 +27,21 @@ export const getAllProductsAction = createAsyncThunk(
 )
 
 
+export const createProduct = createAsyncThunk(
+  'products/createProduct',
+  async (product: ProductType) => {
+    const response = await productService.postProduct(product);
+    return response.data;
+  }
+)
+
 export const productsSlice = createSlice({
   name: 'ProductsSlice',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
+      // GET Products
       .addCase(getAllProductsAction.pending, state => {
         state.getAllProductsStatus = ApiStatus.Pending
       })
@@ -40,6 +51,18 @@ export const productsSlice = createSlice({
       })
       .addCase(getAllProductsAction.rejected, (state) => {
         state.getAllProductsStatus = ApiStatus.Rejected
+      })
+      // POST Product
+      .addCase(createProduct.pending, state => {
+        state.createProductStatus = ApiStatus.Pending
+      })
+      .addCase(createProduct.fulfilled, (state, data) => {
+        state.createProductStatus = ApiStatus.Success
+        const newProduct: ProductType = data.meta.arg
+        state.products.push({ ...newProduct, _id: data.payload.id })
+      })
+      .addCase(createProduct.rejected, (state) => {
+        state.createProductStatus = ApiStatus.Rejected
       })
   }
 })

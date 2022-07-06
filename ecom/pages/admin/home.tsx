@@ -76,24 +76,32 @@ const Home = () => {
       <div style={{ width: '10%', minWidth: '150px' }}>
         <AdminTabs name="Home" />
       </div>
-      <div className={styles.productContainer}>
-        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Products</p>
-        {checkCount(productsList?.length)}
+      <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+        <div style={{ display: 'flex' }}>
+          <div className={styles.productContainer}>
+            <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Products</p>
+            {checkCount(productsList?.length)}
+          </div>
+          <div className={styles.productContainer}>
+            <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Users</p>
+            {checkCount(usersList?.length)}
+          </div>
+          <div className={styles.productContainer}>
+            <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total sale units</p>
+            {checkCount(0)}
+          </div>
+          <div className={styles.productContainer}>
+            <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total Profit</p>
+            {checkCount(0)}
+          </div>
+        </div>
+        <div className={styles.cardsGrid}>123</div>
       </div>
-      <div className={styles.productContainer}>
-        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Users</p>
-        {checkCount(usersList?.length)}
-      </div>
-      <div className={styles.productContainer}>
-        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total sale units</p>
-        {checkCount(0)}
-      </div>
-      <div className={styles.productContainer}>
-        <p style={{ textAlign: 'center', fontSize: '25px', fontFamily: 'Montserrat', fontWeight: "500", textTransform: 'uppercase' }}>Total Profit</p>
-        {checkCount(0)}
-      </div>
+
     </div>
   )
 }
+
+
 
 export default Home;

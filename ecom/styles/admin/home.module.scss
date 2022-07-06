@@ -1,5 +1,5 @@
 .productContainer {
-  min-width: 250px;
+  min-width: 150px;
   width: 20%;
   // border: 1px solid;
   margin: 2vh;
@@ -7,4 +7,12 @@
   background-color: #112c49;
   color: white;
   border-radius: 10px;
+}
+
+.cardsGrid {
+  margin: 2vh;
+  border: 1px solid #112c49;
+  display: flex;
+  background-color: gray;
+  // width: 100%;
 }

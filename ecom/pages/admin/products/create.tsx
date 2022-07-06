@@ -7,7 +7,7 @@ import { height } from '@mui/system';
 
 const CreateProduct = () => {
 
-  const fieldsWidth = '40%';
+  const fieldsWidth = '50%';
 
   const [title, setTitle] = useState<string>('');
   const [brand, setBrand] = useState<string>('');
@@ -51,28 +51,11 @@ const CreateProduct = () => {
 
   const RemoveImg = (img: any) => {
 
-
-
-    let indexId = images.indexOf(img);
-    let newArray = images.splice(indexId, 1);
-
-    console.log(indexId)
-    console.log(newArray)
+    let newArray = images.filter(image => image != img);
 
     setImages(newArray);
-
-
-
-    // console.log(img)
-    // console.log(images)
-    // // setImages(images.filter(indx => indx != index));
-    // console.log(indexId)
-    // // console.log(images)
-
   }
 
-  // useEffect(() => {
-  // }, [images])
 
   return (
     <div className={styles.productContainer}>

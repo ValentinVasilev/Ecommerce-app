@@ -27,6 +27,7 @@ const Header = () => {
     setAnnouncer('Just a text to announce!')
     console.log(user)
   }, [])
+  
   return (
     <div className={styles.headerContainer}>
       {
