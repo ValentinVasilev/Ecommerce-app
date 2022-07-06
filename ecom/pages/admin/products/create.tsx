@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { MenuItem, TextField } from '@mui/material';
 import styles from '../../../styles/admin/create-product.module.scss';
 import categories from '../../../assets/data/categories';
-import { height } from '@mui/system';
+
 
 
 const CreateProduct = () => {
