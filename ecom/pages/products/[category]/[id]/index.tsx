@@ -217,11 +217,6 @@ const Product = () => {
       </div >
       <div className={styles.relatedCardsContainer}>
         <div className={styles.cardsWrapper}>
-          {/* <RelatedProductsCard />
-          <RelatedProductsCard />
-          <RelatedProductsCard />
-          <RelatedProductsCard />
-          <RelatedProductsCard /> */}
           {
             // AllProducts?.filter.map(pr => pr.category === product?.category) => {
             // return (<RelatedProductsCard />)
