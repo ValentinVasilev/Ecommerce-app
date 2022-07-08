@@ -1,10 +1,10 @@
 import axios, { AxiosInstance } from "axios";
-import { ProductType } from "../models/ProductsModel";
 
 
 const API_PATHS = {
   getAllProducts: '/api/products/getAll',
   createProduct: '/api/products/create',
+  deleteProductById: '/api/products/delete/$id',
 }
 
 export class ProductService {
@@ -22,5 +22,8 @@ export class ProductService {
     return this.api.post(API_PATHS.createProduct, product);
   }
 
+  public async deleteProduct(id: string) {
+    return this.api.delete(API_PATHS.deleteProductById.replace('$id', id));
+  }
 
 }
