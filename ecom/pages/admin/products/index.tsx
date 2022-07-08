@@ -5,6 +5,7 @@ import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
 import { selectAllProducts, getAllProductsAction } from "../../../utils/app/features/products/productsSlice";
 import { ApiStatus } from "../../../constants/apiStatus";
 import Link from "next/link";
+import { Button } from "@mui/material";
 
 const AdminProducts = () => {
 
@@ -27,6 +28,23 @@ const AdminProducts = () => {
     }
   }, [getAllProductsStatus])
 
+
+  const checkRating = (rating: any) => {
+    if (rating <= 1) {
+      return (
+        <p style={{ textAlign: 'center', fontSize: '18px', fontFamily: 'Montserrat', fontWeight: "500", color: 'red' }}>{rating}</p>
+      )
+    } else if (rating >= 2 && rating <= 3.5) {
+      return (
+        <p style={{ textAlign: 'center', fontSize: '18px', fontFamily: 'Montserrat', fontWeight: "500", color: 'orange' }}>{rating}</p>
+      )
+    } else {
+      return (
+        <p style={{ textAlign: 'center', fontSize: '18px', fontFamily: 'Montserrat', fontWeight: "500", color: 'green' }}>{rating}</p>
+      )
+    }
+  }
+
   return (
     <div style={{ display: 'flex' }}>
       <div style={{ width: '10%', minWidth: '150px' }}>
@@ -38,21 +56,36 @@ const AdminProducts = () => {
             <button className={styles.createBtn}>Create Product</button>
           </Link>
         </div>
-        <div style={{ display: 'flex' }}>
+        <p style={{ fontSize: '25px', fontFamily: 'monospace', alignSelf: 'center' }}>Total Products Count: {productsList?.products.length}</p>
+        <table className={styles.table}>
+          <tr>
+            <th className={styles.th}>Category</th>
+            <th className={styles.th}>Brand</th>
+            <th className={styles.th}>Title</th>
+            <th className={styles.th}>Description</th>
+            <th className={styles.th}>InStock</th>
+            <th className={styles.th}>Price in $</th>
+            <th className={styles.th}>Rating</th>
+            <th className={styles.th}>Actions</th>
+          </tr>
           {productsList?.products?.map((product: any) => {
             return (
-              <div key={product._id} style={{ border: '1px solid coral', margin: '1vh', padding: '2vh' }}>
-                <p>{product.category}</p>
-                <p>{product.brand}</p>
-                <p>{product.title}</p>
-                <p>{product.description}</p>
-                <p>{product.inStock}</p>
-                <p>{product.price}</p>
-                <p>{product.rating}</p>
-              </div>
+              <tr key={product._id} className={styles.tr}>
+                <td className={styles.td}>{product.category}</td>
+                <td className={styles.td}>{product.brand}</td>
+                <td className={styles.td}>{product.title}</td>
+                <td className={styles.td}>{product.description}</td>
+                <td className={styles.td}>{product.inStock}</td>
+                <td className={styles.td}>$ {product.price}</td>
+                <td className={styles.td}>{checkRating(product.rating)}</td>
+                <td className={styles.tdActions} >
+                  <Button className={styles.btn} variant="contained" color="primary">Update</Button>
+                  <Button className={styles.btn} variant="contained" color="error">Delete</Button>
+                </td>
+              </tr>
             )
           })}
-        </div>
+        </table>
       </div>
     </div>
   )

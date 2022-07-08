@@ -12,3 +12,45 @@
 .createBtn:hover {
   transform: scale(1.2);
 }
+
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+  font-family: "Montserrat", sans-serif;
+  margin: 1vh 1vh 5vh 1vh;
+}
+
+.th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: black;
+  color: gold;
+}
+
+.td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+.tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.tdActions {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.btn {
+  margin: 1vh;
+  // font-size: 18px;
+  // border: 1px solid black;
+  // color: black;
+  // cursor: pointer;
+}
