@@ -5,15 +5,17 @@ import { ApiStatus } from '../../../../constants/apiStatus';
 import { ProductType } from '../../../../models/ProductsModel';
 
 export type ProductState = {
-  products: ProductType,
+  products: ProductType[],
   getAllProductsStatus: ApiStatus,
   createProductStatus: ApiStatus,
+  deleteProductByIdStatus: ApiStatus,
 }
 
 const initialState: ProductState = {
   products: [],
   getAllProductsStatus: ApiStatus.None,
   createProductStatus: ApiStatus.None,
+  deleteProductByIdStatus: ApiStatus.None,
 }
 
 const productService = new ProductService();
@@ -34,6 +36,15 @@ export const createProduct = createAsyncThunk(
     return response.data;
   }
 )
+
+export const deleteProductById = createAsyncThunk(
+  'products/deleteProductById',
+  async (id: string) => {
+    const response = await productService.deleteProduct(id);
+    return response.data;
+  }
+)
+
 
 export const productsSlice = createSlice({
   name: 'ProductsSlice',
@@ -63,14 +74,28 @@ export const productsSlice = createSlice({
       })
       .addCase(createProduct.fulfilled, (state, data) => {
         state.createProductStatus = ApiStatus.Success
+        // const newProduct: ProductType = data.meta.arg
+        // let check = Array.isArray(state.products)
+        // console.log('Check', check)
+        // // state.products.push({ ...newProduct, _id: data.payload.id })
+        // state.products = newProduct;
         const newProduct: ProductType = data.meta.arg
-        let check = Array.isArray(state.products)
-        console.log('Check', check)
-        // state.products.push({ ...newProduct, _id: data.payload.id })
-        state.products = newProduct;
+        state.products.push({ ...newProduct, _id: data.payload.id })
 
       })
       .addCase(createProduct.rejected, (state) => {
+        state.createProductStatus = ApiStatus.Rejected
+      })
+      // POST Product
+      .addCase(deleteProductById.pending, state => {
+        state.deleteProductByIdStatus = ApiStatus.Pending
+      })
+      .addCase(deleteProductById.fulfilled, (state, data) => {
+        state.deleteProductByIdStatus = ApiStatus.Success
+        const itemId: number = Array.from(state.products).findIndex(p => p._id === data.meta.arg)
+        Array.from(state.products).slice(itemId, itemId + 1)
+      })
+      .addCase(deleteProductById.rejected, (state) => {
         state.createProductStatus = ApiStatus.Rejected
       })
   }
@@ -82,4 +107,6 @@ export const {
 
 
 export const selectAllProducts = (state: RootState) => state.products;
+export const selectProductById = (state: RootState) => (id: string) => state
+  .products.products.find(product => product._id === id)
 export default productsSlice.reducer;

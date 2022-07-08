@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import AdminTabs from "../../../components/sub-components/admin-tabs.component";
 import styles from '../../../styles/admin/products.module.scss';
 import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
-import { selectAllProducts, getAllProductsAction } from "../../../utils/app/features/products/productsSlice";
+import { selectAllProducts, getAllProductsAction, deleteProductById } from "../../../utils/app/features/products/productsSlice";
 import { ApiStatus } from "../../../constants/apiStatus";
 import Link from "next/link";
 import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 const AdminProducts = () => {
+
+  const router = useRouter();
 
   const [productsList, setProductsList] = useState<any>();
   const dispatch = useAppDispatch();
@@ -27,6 +30,21 @@ const AdminProducts = () => {
       setProductsInitialState()
     }
   }, [getAllProductsStatus])
+
+
+  const DeleteProduct = (id: string) => {
+
+    dispatch(deleteProductById(id));
+
+    let index = productsList.products.findIndex((x: any) => x._id === id);
+
+    let newArray = [...productsList.products];
+
+    newArray.splice(index, 1);
+
+    setProductsList({ products: newArray })
+
+  }
 
 
   const checkRating = (rating: any) => {
@@ -56,7 +74,7 @@ const AdminProducts = () => {
             <button className={styles.createBtn}>Create Product</button>
           </Link>
         </div>
-        <p style={{ fontSize: '25px', fontFamily: 'monospace', alignSelf: 'center' }}>Total Products Count: {productsList?.products.length}</p>
+        <p style={{ fontSize: '25px', fontFamily: 'monospace', alignSelf: 'center' }}>Total Products Count: {productsList?.products?.length}</p>
         <table className={styles.table}>
           <tr>
             <th className={styles.th}>Category</th>
@@ -80,7 +98,7 @@ const AdminProducts = () => {
                 <td className={styles.td}>{checkRating(product.rating)}</td>
                 <td className={styles.tdActions} >
                   <Button className={styles.btn} variant="contained" color="primary">Update</Button>
-                  <Button className={styles.btn} variant="contained" color="error">Delete</Button>
+                  <Button className={styles.btn} variant="contained" color="error" onClick={() => DeleteProduct(product._id)}>Delete</Button>
                 </td>
               </tr>
             )

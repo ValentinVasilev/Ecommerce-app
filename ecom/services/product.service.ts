@@ -4,7 +4,7 @@ import axios, { AxiosInstance } from "axios";
 const API_PATHS = {
   getAllProducts: '/api/products/getAll',
   createProduct: '/api/products/create',
-  deleteProductById: '/api/products/delete/$id',
+  deleteProductById: '/api/products/$id',
 }
 
 export class ProductService {
