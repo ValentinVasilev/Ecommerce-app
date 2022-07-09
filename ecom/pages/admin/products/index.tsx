@@ -46,6 +46,9 @@ const AdminProducts = () => {
 
   }
 
+  const data = fetch('/asd/ad', {
+
+  }).then(data => data).then(result => result)
 
   const checkRating = (rating: any) => {
     if (rating <= 1) {

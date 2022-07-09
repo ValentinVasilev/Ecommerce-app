@@ -108,5 +108,5 @@ export const {
 
 export const selectAllProducts = (state: RootState) => state.products;
 export const selectProductById = (state: RootState) => (id: string) => state
-  .products.products.find(product => product._id === id)
+  .products.products.find((product: any) => product._id === id)
 export default productsSlice.reducer;
