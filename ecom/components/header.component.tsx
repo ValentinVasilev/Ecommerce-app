@@ -48,6 +48,17 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
+            <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-around' }}>
+              <div>
+                <Link href='/login' passHref>
+                  <button className={styles.loginBtn}>Log In</button>
+                </Link>
+              </div>
+              <Link href='/signup' passHref>
+                <button className={styles.signBtn}>Sign up</button>
+              </Link>
+            </div>
+
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
             </div>
