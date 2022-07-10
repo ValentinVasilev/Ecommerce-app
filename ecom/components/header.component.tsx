@@ -54,7 +54,7 @@ const Header = () => {
                   <button className={styles.loginBtn}>Log In</button>
                 </Link>
               </div>
-              <Link href='/signup' passHref>
+              <Link href='/account/sign-up' passHref>
                 <button className={styles.signBtn}>Sign up</button>
               </Link>
             </div>

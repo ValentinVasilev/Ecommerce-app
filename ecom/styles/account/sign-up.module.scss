@@ -1,0 +1,23 @@
+.container {
+  // height: 100px;
+  display: flex;
+  // border: 1px solid red;
+  background-color: black;
+}
+.formContainer {
+  color: white;
+  border: 1px solid gray;
+  margin: 10vh;
+  box-shadow: rgba(13, 189, 86, 0.24) 0px 3px 8px;
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+}
+.leftSide {
+  width: 50%;
+  color: gold;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
