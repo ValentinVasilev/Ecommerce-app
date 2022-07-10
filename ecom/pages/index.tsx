@@ -35,7 +35,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
-        <div className={styles.discountSection}>
+        {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
             <div>
               <Image src={Box} alt="delivery box" width={50} height={50} />
@@ -47,8 +47,8 @@ const Home: NextPage = () => {
               <p>Don&apos;t miss out. <Link href='/'><b style={{ cursor: 'pointer' }}>Subscribe now!</b></Link></p>
             </div>
           </div>
-        </div>
-        <div className={styles.header}>
+        </div> */}
+        {/* <div className={styles.header}>
           <div className={styles.headerInner}>
             <div>
               <p style={{ color: 'gold', fontSize: '25px' }}>StoreLogo</p>
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-        </div>
+        </div> */}
         <div className={styles.promotionWrapper}>
           <div className={styles.promotionMain}>
             <div className={styles.textsWrapper}>

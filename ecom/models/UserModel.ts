@@ -4,6 +4,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   cart: [{ type: String }],
+  isAdmin: { type: Boolean, default: false }
 }, {
   timestamps: true
 })
@@ -16,23 +17,27 @@ export type UserObject = {
   _id?: string,
   email: string,
   password: string,
-  cart: string[]
+  cart: string[],
+  isAdmin: boolean,
 }
 
 export const emptyUserObject: UserObject = {
   email: '',
   password: '',
-  cart: ['']
+  cart: [''],
+  isAdmin: false,
 }
 
 export const parseUserObject = (
   email: string,
   password: string,
-  cart: string[]
+  cart: string[],
+  isAdmin: boolean,
 ) => {
   return {
     email: email,
     password: password,
-    cart: cart
+    cart: cart,
+    isAdmin: isAdmin
   }
 } 

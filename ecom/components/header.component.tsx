@@ -13,7 +13,7 @@ const Header = () => {
 
   const [user, setUser] = useState()
   const [announcer, setAnnouncer] = useState<string>('')
-
+  const [isLogged, setIsLogged] = useState<boolean>(true);
   // let storage = localStorage.getItem("user-credentials");
   // let user = jwt.decode(storage as string);
 
@@ -39,7 +39,7 @@ const Header = () => {
       }
 
       <div className={styles.headerWrapper}>
-        <div style={{ width: '100%', backgroundColor: '#213236', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '100%', backgroundColor: 'rgb(77, 36, 226)', display: 'flex', justifyContent: 'center' }}>
           <div className={styles.searchSection}>
             <Link href="/" passHref>
               <div style={{ display: 'flex', alignItems: 'end', cursor: 'pointer' }}>
@@ -48,12 +48,12 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
             </div>
             <div style={{ alignSelf: 'center' }}><CurrencyDropdown /></div>
-            <div style={{ alignSelf: 'center' }}><Account /></div>
-            <div>Cart Component</div>
+            <div style={{ alignSelf: 'center' }}>{isLogged ? <Account /> : <p>No user</p>}   </div>
+            <div>Cart Component</div> */}
           </div>
         </div>
       </div>
