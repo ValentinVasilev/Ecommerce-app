@@ -6,6 +6,8 @@ import Image from "next/image";
 import LogInImg from '../../assets/icons/login.png';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { logIn } from '../../utils/app/features/account/accountSlice';
+import { useAppDispatch, useAppSelector } from '../../utils/app/hooks';
 
 
 const LogIn = () => {
@@ -13,11 +15,12 @@ const LogIn = () => {
 
   const router = useRouter();
 
+  const dispatch = useAppDispatch()
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const RegisterUser = () => {
+  const LoginUser = () => {
 
     // if (password != confirmPassword) {
     //   alert('Passwords dont match');
@@ -27,20 +30,25 @@ const LogIn = () => {
     // else if (!confirmPassword) {
     //   alert('Confirm password is required!');
     // } else {
-    //   try {
-    //     axios.post('/api/user/register', {
-    //       email: email,
-    //       password: password,
-    //       cart: [''],
-    //     })
-
-    //     setTimeout(() => {
-    //       router.push('/products')
-    //     }, 1300)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
+    //  
     // }
+
+
+    try {
+      axios.post('/api/user/login', {
+        email: email,
+        password: password,
+      })
+        .then(data => data)
+        .then(result => dispatch(logIn(result.data)))
+
+      // setTimeout(() => {
+      //   router.push('/products')
+      // }, 1300)
+
+    } catch (error) {
+      console.log(error)
+    }
 
   }
 
@@ -70,7 +78,7 @@ const LogIn = () => {
             />
           </div>
           <Button
-            onClick={() => RegisterUser()}
+            onClick={() => LoginUser()}
             variant="contained"
             color="primary"
             style={{

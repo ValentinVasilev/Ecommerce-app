@@ -10,11 +10,13 @@ import thunk from 'redux-thunk';
 import counterReducer from './features/counter/counterSlice';
 import usersReducer from './features/users/usersSlice';
 import productsReducer from './features/products/productsSlice';
+import accountReducer from './features/account/accountSlice';
 
 const reducers = combineReducers({
   counter: counterReducer,
   users: usersReducer,
   products: productsReducer,
+  account: accountReducer,
 });
 
 const persistConfig = {
