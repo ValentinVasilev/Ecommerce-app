@@ -50,7 +50,7 @@ const Header = () => {
             </Link>
             <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-around' }}>
               <div>
-                <Link href='/login' passHref>
+                <Link href='/account/log-in' passHref>
                   <button className={styles.loginBtn}>Log In</button>
                 </Link>
               </div>
