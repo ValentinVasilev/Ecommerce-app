@@ -4,15 +4,16 @@
   // border: 1px solid red;
   background-color: rgb(77, 36, 226);
   justify-content: space-around;
+  // flex-direction: column;
 }
 .formContainer {
-  color: white;
+  color: gree;
   margin: 10vh;
   width: 40%;
   min-height: 500px;
   min-width: 500px;
   display: flex;
-  background-color: transparent;
+  background-color: white;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -22,7 +23,7 @@
 
 .leftSide {
   width: 100%;
-  color: red;
+  color: black;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   display: flex;
@@ -44,6 +45,13 @@
   font-family: "Montserrat", sans-serif;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.imgContainer {
+  position: relative;
+  top: -69px;
+  border: 3px solid white;
+  border-radius: 100px;
+  align-self: center;
 }
 // .inputFields::before {
 //   border: 2px solid greenyellow;
