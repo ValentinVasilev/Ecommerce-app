@@ -48,7 +48,7 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-around' }}>
+            <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
               <div>
                 <Link href='/account/log-in' passHref>
                   <button className={styles.loginBtn}>Log In</button>

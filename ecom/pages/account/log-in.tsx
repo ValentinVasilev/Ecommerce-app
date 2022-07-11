@@ -64,6 +64,7 @@ const LogIn = () => {
               variant="outlined"
               sx={{ backgroundColor: 'transparent', margin: '5vh 0vh 5vh 0vh' }}
               label="Password"
+              type="password"
               className={styles.inputFields2}
               onInput={(e) => setPassword((e.target as HTMLInputElement).value)}
             />
@@ -77,6 +78,7 @@ const LogIn = () => {
               alignSelf: 'center',
               margin: '4vh 0vh 0vh 0vh'
             }}>Log in</Button>
+
           <div style={{
             display: 'flex',
             fontSize: '12px',

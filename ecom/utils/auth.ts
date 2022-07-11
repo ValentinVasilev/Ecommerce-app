@@ -14,7 +14,7 @@ const signToken = (user: User) => {
     {
       _id: user._id,
       email: user.email,
-      isAdmin: false,
+      isAdmin: user.isAdmin,
     },
     secretKey,
     { expiresIn: "2d" }

@@ -34,6 +34,7 @@ const SignUp = () => {
           email: email,
           password: password,
           cart: [''],
+          isAdmin: false,
         })
         setIsRegistered(!isRegistered);
 
@@ -67,6 +68,7 @@ const SignUp = () => {
               variant="outlined"
               sx={{ backgroundColor: 'transparent', margin: '5vh 0vh 5vh 0vh' }}
               label="Password"
+              type="password"
               className={styles.inputFields2}
               onInput={(e) => setPassword((e.target as HTMLInputElement).value)}
             />
@@ -74,6 +76,7 @@ const SignUp = () => {
               variant="outlined"
               sx={{ backgroundColor: 'transparent' }}
               label="Repeat Password"
+              type="password"
               className={styles.inputFields2}
               onInput={(e) => setConfirmPassword((e.target as HTMLInputElement).value)}
             />

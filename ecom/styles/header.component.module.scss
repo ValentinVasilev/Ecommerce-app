@@ -50,6 +50,21 @@
   border: 1px solid black;
   color: skyblue;
 }
+.loginBtn {
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 1vh;
+}
+.loginBtn:hover {
+  box-shadow: rgba(300, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid gray;
+  margin-left: -1px;
+}
 // .headerWrapper {
 //   display: flex;
 //   width: 95%;
