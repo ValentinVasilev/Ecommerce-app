@@ -30,7 +30,7 @@ const Header = () => {
       // setUser(JSON.parse(localStorage?.getItem('login')))
     }
     setAnnouncer('Just a text to announce!')
-    // console.log(user)
+    console.log(user)
   }, [])
 
   return (
