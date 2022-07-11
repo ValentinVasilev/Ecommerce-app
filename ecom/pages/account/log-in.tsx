@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, TextField, Alert } from "@mui/material";
 import Link from "next/link";
 import styles from '../../styles/account/sign-up.module.scss';
@@ -6,9 +6,8 @@ import Image from "next/image";
 import LogInImg from '../../assets/icons/login.png';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { logIn } from '../../utils/app/features/account/accountSlice';
+import { logIn, logOut, selectAccount } from '../../utils/app/features/account/accountSlice';
 import { useAppDispatch, useAppSelector } from '../../utils/app/hooks';
-
 
 const LogIn = () => {
 
@@ -19,6 +18,8 @@ const LogIn = () => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+
+  const user = useAppSelector(selectAccount);
 
   const LoginUser = () => {
 
@@ -52,6 +53,7 @@ const LogIn = () => {
 
   }
 
+  console.log()
 
   return (
     <div className={styles.container}>
@@ -123,8 +125,11 @@ const LogIn = () => {
                 color: 'blue'
               }}>Recover</p>
             </Link>
-          </div></div>
+          </div>
+          <button onClick={() => dispatch(logOut())}>log out</button>
+        </div>
       </div>
+      {/* <p>{user[0].user.email}</p> */}
     </div >
   )
 }

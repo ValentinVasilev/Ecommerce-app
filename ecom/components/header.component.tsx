@@ -6,17 +6,22 @@ import Search from "./sub-components/search.component";
 import CurrencyDropdown from "./sub-components/currency-dropdown.component";
 import { useRouter } from "next/router";
 import Account from "./sub-components/account.component";
+import { useAppSelector } from "../utils/app/hooks";
+import { selectAccount } from "../utils/app/features/account/accountSlice";
+
+
 
 const Header = () => {
 
   const router = useRouter();
 
-  const [user, setUser] = useState()
+  // const [user, setUser] = useState()
   const [announcer, setAnnouncer] = useState<string>('')
   const [isLogged, setIsLogged] = useState<boolean>(true);
   // let storage = localStorage.getItem("user-credentials");
   // let user = jwt.decode(storage as string);
 
+  const user = useAppSelector(selectAccount);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -25,7 +30,7 @@ const Header = () => {
       // setUser(JSON.parse(localStorage?.getItem('login')))
     }
     setAnnouncer('Just a text to announce!')
-    console.log(user)
+    // console.log(user)
   }, [])
 
   return (
@@ -48,16 +53,21 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
-              <div>
-                <Link href='/account/log-in' passHref>
-                  <button className={styles.loginBtn}>Log In</button>
-                </Link>
-              </div>
-              <Link href='/account/sign-up' passHref>
-                <button className={styles.signBtn}>Sign up</button>
-              </Link>
-            </div>
+            {user.length > 0
+              ? (<p style={{ alignSelf: 'center' }}>{user[0]?.user.email}</p>)
+              : (
+                <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
+                  <div>
+                    <Link href='/account/log-in' passHref>
+                      <button className={styles.loginBtn}>Log In</button>
+                    </Link>
+                  </div>
+                  <Link href='/account/sign-up' passHref>
+                    <button className={styles.signBtn}>Sign up</button>
+                  </Link>
+                </div>
+              )}
+
 
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />

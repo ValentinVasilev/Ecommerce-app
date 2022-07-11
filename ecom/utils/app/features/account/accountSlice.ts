@@ -31,5 +31,5 @@ export const {
 } = accountSlice.actions;
 
 
-export const selectCount = (state: RootState) => state.account.value;
+export const selectAccount = (state: RootState) => state.account.value;
 export default accountSlice.reducer;
