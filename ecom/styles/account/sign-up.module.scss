@@ -2,22 +2,64 @@
   // height: 100px;
   display: flex;
   // border: 1px solid red;
-  background-color: black;
+  background-color: rgb(77, 36, 226);
+  justify-content: space-around;
 }
 .formContainer {
   color: white;
-  border: 1px solid gray;
   margin: 10vh;
-  box-shadow: rgba(13, 189, 86, 0.24) 0px 3px 8px;
-  width: 100%;
+  width: 40%;
   min-height: 500px;
+  min-width: 500px;
   display: flex;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  // border: 1px solid black;
+  backdrop-filter: blur(20px);
 }
+
 .leftSide {
-  width: 50%;
-  color: gold;
+  width: 100%;
+  color: red;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.inputFields {
+  min-width: 40%;
+  height: 40px;
+  margin: 1vh 0vh 1vh 0vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+// .inputFields::before {
+//   border: 2px solid greenyellow;
+// }
+.inputFields2 {
+  min-width: 40%;
+  // height: 40px;
+  margin: 2vh 0vh 2vh 0vh;
+  border-radius: 5px;
+  width: 40%;
+  color: white;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+  //   rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+    rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
