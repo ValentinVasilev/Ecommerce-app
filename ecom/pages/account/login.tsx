@@ -43,9 +43,9 @@ const LogIn = () => {
         .then(data => data)
         .then(result => dispatch(logIn(result.data)))
 
-      // setTimeout(() => {
-      //   router.push('/products')
-      // }, 1300)
+      setTimeout(() => {
+        router.push('/')
+      }, 500)
 
     } catch (error) {
       console.log(error)
@@ -97,7 +97,7 @@ const LogIn = () => {
             marginBottom: '-1vh'
           }}>
             <p>You don&lsquo;t have account ?</p>
-            <Link href="/account/sign-up">
+            <Link href="/account/signup">
               <p style={{
                 fontStyle: 'normal',
                 fontWeight: '500',
@@ -126,7 +126,6 @@ const LogIn = () => {
               }}>Recover</p>
             </Link>
           </div>
-          <button onClick={() => dispatch(logOut())}>log out</button>
         </div>
       </div>
       {/* <p>{user[0].user.email}</p> */}

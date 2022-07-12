@@ -6,8 +6,9 @@ import Search from "./sub-components/search.component";
 import CurrencyDropdown from "./sub-components/currency-dropdown.component";
 import { useRouter } from "next/router";
 import Account from "./sub-components/account.component";
-import { useAppSelector } from "../utils/app/hooks";
+import { useAppDispatch, useAppSelector } from "../utils/app/hooks";
 import { selectAccount } from "../utils/app/features/account/accountSlice";
+
 
 
 
@@ -54,15 +55,15 @@ const Header = () => {
               </div>
             </Link>
             {user.length > 0
-              ? (<p style={{ alignSelf: 'center' }}>{user[0]?.user.email}</p>)
+              ? (<p style={{ alignSelf: 'center' }}><Account username={user[0]?.user.email} /> </p>)
               : (
                 <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
                   <div>
-                    <Link href='/account/log-in' passHref>
+                    <Link href='/account/login' passHref>
                       <button className={styles.loginBtn}>Log In</button>
                     </Link>
                   </div>
-                  <Link href='/account/sign-up' passHref>
+                  <Link href='/account/signup' passHref>
                     <button className={styles.signBtn}>Sign up</button>
                   </Link>
                 </div>

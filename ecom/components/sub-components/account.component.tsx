@@ -3,29 +3,53 @@ import React, { useState } from "react";
 import styles from '../../styles/sub-components/account.component.module.scss'
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { logOut } from '../../utils/app/features/account/accountSlice';
+import { useAppDispatch } from "../../utils/app/hooks";
+import { useRouter } from 'next/router'
 
-const Account = () => {
+
+type UserProps = {
+  username: string,
+}
+
+const Account = (props: UserProps) => {
+
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const { username } = props;
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const logOutUser = () => {
+    dispatch(logOut());
+    setTimeout(() => {
+      router.push('/')
+    }, 500)
+
+  }
+
   return (
     <React.Fragment>
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title="Account settings">
-          <button
+        <Tooltip title="Account settings" placement="top">
+          <p
             onClick={handleClick}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             className={styles.accountButton}
           >
-            My Account
-          </button>
+            {username}
+          </p>
         </Tooltip>
       </div>
       <Menu
@@ -70,7 +94,9 @@ const Account = () => {
           Settings
         </MenuItem>
         <Divider />
-        <MenuItem>
+        <MenuItem
+          onClick={() => logOutUser()}
+        >
           <Avatar sx={{ bgcolor: 'orange' }}>
             <LogoutIcon />
           </Avatar>
