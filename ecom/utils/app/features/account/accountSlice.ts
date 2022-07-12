@@ -3,6 +3,8 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit';
 import type { RootState } from '../../store';
+import Cookies from 'js-cookie'
+
 
 export type AccountState = {
   value: [],
@@ -18,6 +20,7 @@ export const accountSlice = createSlice({
   reducers: {
     logIn: (state, { payload }) => {
       state.value.push(payload);
+      Cookies.set('user', state.value[0]?.user.isAdmin);
     },
     logOut: state => {
       state.value = [];
