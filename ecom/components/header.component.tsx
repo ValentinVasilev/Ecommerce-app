@@ -55,7 +55,7 @@ const Header = () => {
               </div>
             </Link>
             {user.length > 0
-              ? (<p style={{ alignSelf: 'center' }}><Account username={user[0]?.user.email} /> </p>)
+              ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
               : (
                 <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
                   <div>

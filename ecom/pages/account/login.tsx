@@ -16,10 +16,17 @@ const LogIn = () => {
 
   const dispatch = useAppDispatch()
 
+
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const user = useAppSelector(selectAccount);
+
+  useEffect(() => {
+    if (user.length >= 1) {
+      router.push('/')
+    }
+  }, [user])
 
   const LoginUser = () => {
 

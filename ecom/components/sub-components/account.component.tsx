@@ -1,4 +1,4 @@
-import { Avatar, Menu, MenuItem, Tooltip, Divider } from "@mui/material";
+import { Avatar, Menu, MenuItem, Tooltip, Divider, Badge } from "@mui/material";
 import React, { useState } from "react";
 import styles from '../../styles/sub-components/account.component.module.scss'
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
@@ -6,10 +6,12 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { logOut } from '../../utils/app/features/account/accountSlice';
 import { useAppDispatch } from "../../utils/app/hooks";
 import { useRouter } from 'next/router'
-
+import Image from 'next/image'
+import ShoppingCardImage from '../../assets/icons/shoping-cart.png';
 
 type UserProps = {
   username: string,
+  user: any,
 }
 
 const Account = (props: UserProps) => {
@@ -20,7 +22,7 @@ const Account = (props: UserProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const { username } = props;
+  const { username, user } = props;
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -41,16 +43,23 @@ const Account = (props: UserProps) => {
     <React.Fragment>
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
         <Tooltip title="Account settings" placement="top">
-          <p
-            onClick={handleClick}
+          <div
+            onMouseOver={handleClick}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
             className={styles.accountButton}
           >
-            {username}
-          </p>
+            <p>{username}</p>
+          </div>
         </Tooltip>
+
+        <div style={{ alignSelf: 'center', marginBottom: '-2vh', paddingLeft: '1vh' }}>
+          <Badge badgeContent={user.cart.length} color="primary">
+            <Image src={ShoppingCardImage} alt="shopping cart image" />
+          </Badge>
+        </div>
+
       </div>
       <Menu
         anchorEl={anchorEl}
