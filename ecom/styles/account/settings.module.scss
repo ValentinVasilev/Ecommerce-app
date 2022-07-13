@@ -1,0 +1,13 @@
+.container {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  // background-color: rgb(77, 36, 226);
+}
+.cardsWrapper {
+  border: 1px solid black;
+  width: 90%;
+  display: flex;
+  margin: 10vh 0vh 10vh 0vh;
+}
