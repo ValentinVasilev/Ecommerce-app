@@ -3,17 +3,7 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  cart: [
-    {
-      product: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true, default: null },
-      title: { type: String, required: true, default: null },
-      brand: { type: String, required: true, default: null },
-      description: { type: String, required: true, default: null },
-      price: { type: Number, required: true, default: null },
-      priceOnDiscount: { type: Number, required: true, default: null },
-      category: { type: String, required: true, default: null },
-    },
-  ],
+  cart: [{ type: String }],
   isAdmin: { type: Boolean, default: false }
 }, {
   timestamps: true

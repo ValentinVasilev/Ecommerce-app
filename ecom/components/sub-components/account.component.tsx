@@ -8,6 +8,7 @@ import { useAppDispatch } from "../../utils/app/hooks";
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import ShoppingCardImage from '../../assets/icons/shoping-cart.png';
+import Link from 'next/link';
 
 type UserProps = {
   username: string,
@@ -39,6 +40,8 @@ const Account = (props: UserProps) => {
 
   }
 
+  console.log(user._id)
+
   return (
     <React.Fragment>
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -55,9 +58,12 @@ const Account = (props: UserProps) => {
         </Tooltip>
 
         <div style={{ alignSelf: 'center', marginBottom: '-2vh', paddingLeft: '1vh' }}>
-          <Badge badgeContent={user.cart.length} color="primary">
-            <Image src={ShoppingCardImage} alt="shopping cart image" />
-          </Badge>
+          <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
+            <Badge badgeContent={user.cart?.length + ''} color="primary">
+              <Image src={ShoppingCardImage} alt="shopping cart image" />
+            </Badge>
+          </button>
+
         </div>
 
       </div>
@@ -96,12 +102,26 @@ const Account = (props: UserProps) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem LinkComponent={"address"}>
-          <Avatar sx={{ bgcolor: 'skyblue' }}>
-            <SettingsApplicationsIcon />
-          </Avatar>
-          Settings
-        </MenuItem>
+        <Link href={
+          {
+            pathname: `/account/settings/[id]`,
+            query: {
+              id: user._id,
+            }
+          }
+
+        }
+          as={`/account/settings`} key={user.id}
+          passHref
+
+        >
+          <MenuItem LinkComponent={"address"}>
+            <Avatar sx={{ bgcolor: 'skyblue' }}>
+              <SettingsApplicationsIcon />
+            </Avatar>
+            Settings
+          </MenuItem>
+        </Link>
         <Divider />
         <MenuItem
           onClick={() => logOutUser()}
