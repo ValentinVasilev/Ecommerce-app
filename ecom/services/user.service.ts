@@ -15,4 +15,6 @@ export class UserService {
     return this.api.get(API_PATHS.getAllUsers);
   }
 
+  // TODO: Get User by Id
+  // TODO: Update User's cart (remove and add product)
 }

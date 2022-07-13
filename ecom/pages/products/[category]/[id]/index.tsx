@@ -15,6 +15,10 @@ import AddToWishlist from '../../../../assets/icons/add-to-favorites.png'
 import CompareIcon from '../../../../assets/icons/compare.png';
 import RelatedProductsCard from "../../../../components/related-products-card.component";
 import AllProducts from '../../../../assets/data/products';
+import { useAppDispatch, useAppSelector } from "../../../../utils/app/hooks";
+import { selectAccount, addToCart } from '../../../../utils/app/features/account/accountSlice';
+
+
 
 type ProductType = {
   id: number,
@@ -50,6 +54,10 @@ const Product = () => {
   const [productRating, setProductRating] = useState<number | undefined>(product?.rating);
   const [relatedProducts, setRelatedProducts] = useState<string | undefined>();
 
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(selectAccount)
+
+  console.log("USER", user)
   useEffect(() => {
     setGetProductById(AllProducts?.find(productTitle => productTitle.id === id));
     setRelatedProducts(
@@ -101,6 +109,12 @@ const Product = () => {
   }, [items])
 
 
+  const addProductToCart = () => {
+    console.log(getProductById);
+    dispatch(addToCart(getProductById))
+    console.log(user)
+  }
+
   return (
     <>
       <div className={styles.productContainer}>
@@ -140,7 +154,7 @@ const Product = () => {
               <p className={styles.priceTagStyle}>$$ {product?.price}</p>
               <p>Quantity ={">"} {product?.stock}</p>
               <div>
-                <button className={styles.addButton}>Add to Cart</button>
+                <button className={styles.addButton} onClick={() => addProductToCart()}>Add to Cart</button>
               </div>
             </div>
             <div className={styles.additionalInfo}>

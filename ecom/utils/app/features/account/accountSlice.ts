@@ -24,13 +24,17 @@ export const accountSlice = createSlice({
     },
     logOut: state => {
       state.value = [];
+    },
+    addToCart: (state, { payload }) => {
+      state.value[0]?.user.cart.push(payload);
     }
   }
 })
 
 export const {
   logIn,
-  logOut
+  logOut,
+  addToCart,
 } = accountSlice.actions;
 
 

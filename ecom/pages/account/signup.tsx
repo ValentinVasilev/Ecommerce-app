@@ -33,7 +33,6 @@ const SignUp = () => {
         axios.post('/api/user/register', {
           email: email,
           password: password,
-          cart: [''],
           isAdmin: false,
         })
         setIsRegistered(!isRegistered);
