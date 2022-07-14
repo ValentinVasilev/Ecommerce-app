@@ -40,22 +40,21 @@ const Account = (props: UserProps) => {
 
   }
 
-  console.log(user._id)
 
   return (
-    <React.Fragment>
+    <>
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title="Account settings" placement="top">
-          <div
-            onMouseOver={handleClick}
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            className={styles.accountButton}
-          >
-            <p>{username}</p>
-          </div>
-        </Tooltip>
+
+        <div
+          onMouseOver={handleClick}
+          aria-controls={open ? "account-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          className={styles.accountButton}
+        >
+          <p>{username}</p>
+        </div>
+
 
         <div style={{ alignSelf: 'center', marginBottom: '-2vh', paddingLeft: '1vh' }}>
           <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
@@ -132,7 +131,7 @@ const Account = (props: UserProps) => {
           Logout
         </MenuItem>
       </Menu>
-    </React.Fragment >
+    </ >
   );
 }
 

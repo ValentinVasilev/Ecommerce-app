@@ -12,7 +12,8 @@ const Settings = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cardsWrapper}>
-        123
+        {/* {id} */}
+        <SettingsCard cardType='Password' />
       </div>
     </div>
   )
@@ -20,3 +21,54 @@ const Settings = () => {
 
 
 export default Settings;
+
+
+enum cardTypes {
+  email,
+  password,
+  shippingAddress
+}
+
+type SettingsCardProps = {
+  cardType: 'Email' | 'Password' | "ShippingAddress",
+}
+
+
+const SettingsCard = (props: SettingsCardProps) => {
+
+  const type = props.cardType;
+
+  const password = (
+    <div>{type}</div>
+  )
+
+  const email = (
+    <div>{type}</div>
+  )
+
+  const CardTypes = (type) => {
+    if (type === 'Password') {
+      return password
+    }
+
+    if (type === 'Email') {
+      return email
+    }
+  }
+
+
+  // if (props.cardType === 'Email') {
+  //   return <div>{props.cardType}</div>
+  // }
+
+  // if (props.cardType === 'Password') {
+  //   return password
+  // }
+  // return (
+  //   <div className={styles.settingsCard}>
+  //     <p>{props.title}</p>
+  //   </div>
+  // )
+
+  return CardTypes(type);
+}

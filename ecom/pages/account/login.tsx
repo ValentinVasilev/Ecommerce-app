@@ -22,11 +22,11 @@ const LogIn = () => {
 
   const user = useAppSelector(selectAccount);
 
-  useEffect(() => {
-    if (user.length >= 1) {
-      router.push('/')
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if (user.length >= 1) {
+  //     router.push('/')
+  //   }
+  // }, [user])
 
   const LoginUser = () => {
 
