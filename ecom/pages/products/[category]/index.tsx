@@ -17,22 +17,9 @@ const Category = () => {
 
   const [priceTag, setPriceTag] = useState(9999);
   const [checked, setChecked] = useState(false)
-  const [initialPrice, setInitialPrice] = useState([]);
+  const [brand, setBrand] = useState([]);
+  const [brandTag, setBrandTag] = useState('');
 
-  const priceTags = [
-    {
-      id: 1,
-      price: 1100,
-    },
-    {
-      id: 2,
-      price: 1500,
-    },
-    {
-      id: 13,
-      price: 1700,
-    }
-  ]
 
   const marks = [
     {
@@ -57,35 +44,39 @@ const Category = () => {
     },
   ];
 
-  const SetLowestPrice = () => {
 
-    let arrayOfPrice: any = [];
 
+  const SetBrandList = () => {
     ProductsList
       .filter(category => category.category === productCategory)
       .map(product => {
-        arrayOfPrice.push(product.price);
+        if (brand.includes(product.brand)) {
+          return;
+        }
+        brand.push(product?.brand);
       })
-
-    initialPrice.push(arrayOfPrice)
   }
 
-  SetLowestPrice()
-  console.log(initialPrice[0].sort())
+  SetBrandList();
+
+  console.log(brand)
+
 
   const OrderByPrice = (value: any) => {
-    setPriceTag(value)
-    setChecked(!checked)
+    setBrandTag(value)
+    // setPriceTag(value)
+    // setChecked(!checked)
 
-    if (checked) {
-      setPriceTag(9999)
-    }
+    // if (checked) {
+    //   setPriceTag(9999)
+    // }
+    console.log(value)
 
   }
 
   return (
     <div style={{ display: ' flex' }}>
-      <div style={{ minWidth: '10%' }}>
+      <div style={{ minWidth: '200px' }}>
         <div>
           <Accordion>
             <AccordionSummary
@@ -96,19 +87,32 @@ const Category = () => {
             <AccordionDetails
               sx={{ margin: '-1vh 0vh -2vh 0vh' }}
             >
-              {/* {priceTags.map(price => {
+              <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" max={4000} marks={marks} step={100} onChange={(e) => setPriceTag(e.target?.value)} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<Image src={DownArrow} />}
+            >
+              <p>Brand</p>
+            </AccordionSummary>
+            <AccordionDetails
+              sx={{ margin: '-1vh 0vh -2vh 0vh', alignItems: 'flex-end', display: 'flex', flexDirection: 'column' }}
+            >
+              {brand.sort().map(brand => {
                 return (
-                  <div key={price.id} style={{ display: 'flex', margin: '-1vh 0vh 0vh 0vh' }}>
-                    <p>${price.price}</p>
-                    <Checkbox value={price.price} onClick={(e) => OrderByPrice(e.target.value)} />
+                  <div key={brand} style={{ display: 'flex', margin: '-1vh 0vh 0vh 0vh' }}>
+                    <p>{brand}</p>
+                    <Checkbox value={brand} onClick={(e) => OrderByPrice(e.target.value)} />
                   </div>
                 )
-              })} */}
-              <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" max={4000} marks={marks} step={100} onChange={(e) => setPriceTag(e.target?.value)} />
+              })}
             </AccordionDetails>
           </Accordion>
         </div>
       </div>
+
+
 
       <div style={{
         display: 'flex',
@@ -122,6 +126,7 @@ const Category = () => {
         {ProductsList
           .filter(category => category.category === productCategory)
           .filter(price => price.price <= priceTag)
+          // .filter(brand => brand.brand === brandTag)
           .map(product => {
             return (
               <div key={product.id} className={styles.cardContainer}>
