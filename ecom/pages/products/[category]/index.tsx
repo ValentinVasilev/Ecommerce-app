@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ProductsList from "../../../assets/data/products";
 import Link from "next/link";
 import styles from '../../../styles/sub-components/card-by-category.module.scss';
-import { Accordion, AccordionSummary, AccordionDetails, Checkbox } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails, Checkbox, Tooltip, Slider } from "@mui/material";
 import DownArrow from '../../../assets/icons/down-arrow.png';
 import Image from "next/image";
 
@@ -17,6 +17,7 @@ const Category = () => {
 
   const [priceTag, setPriceTag] = useState(9999);
   const [checked, setChecked] = useState(false)
+  const [initialPrice, setInitialPrice] = useState([]);
 
   const priceTags = [
     {
@@ -32,6 +33,45 @@ const Category = () => {
       price: 1700,
     }
   ]
+
+  const marks = [
+    {
+      value: 0,
+      label: '0'
+    },
+    {
+      value: 1000,
+      label: '1000',
+    },
+    {
+      value: 2000,
+      label: '2000'
+    },
+    {
+      value: 3000,
+      label: '3000'
+    },
+    {
+      value: 4000,
+      label: '4000'
+    },
+  ];
+
+  const SetLowestPrice = () => {
+
+    let arrayOfPrice: any = [];
+
+    ProductsList
+      .filter(category => category.category === productCategory)
+      .map(product => {
+        arrayOfPrice.push(product.price);
+      })
+
+    initialPrice.push(arrayOfPrice)
+  }
+
+  SetLowestPrice()
+  console.log(initialPrice[0].sort())
 
   const OrderByPrice = (value: any) => {
     setPriceTag(value)
@@ -56,14 +96,15 @@ const Category = () => {
             <AccordionDetails
               sx={{ margin: '-1vh 0vh -2vh 0vh' }}
             >
-              {priceTags.map(price => {
+              {/* {priceTags.map(price => {
                 return (
                   <div key={price.id} style={{ display: 'flex', margin: '-1vh 0vh 0vh 0vh' }}>
                     <p>${price.price}</p>
                     <Checkbox value={price.price} onClick={(e) => OrderByPrice(e.target.value)} />
                   </div>
                 )
-              })}
+              })} */}
+              <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" max={4000} marks={marks} step={100} onChange={(e) => setPriceTag(e.target?.value)} />
             </AccordionDetails>
           </Accordion>
         </div>
