@@ -34,11 +34,11 @@ const Settings = () => {
       <div className={styles.cardsWrapper}>
         {/* {id} */}
         <div className={styles.emailModalContainer}>
-          <div>
+          <div className={styles.imgContainer}>
             <Image src={EmailIcon} alt="email icon" width={64} height={64} />
           </div>
-          <p>Change your Email</p>
-          <button onClick={handleEmailModalOpen}>Open modal</button>
+          <p className={styles.title}>Change your Email</p>
+          <button className={styles.buttonStyle} onClick={handleEmailModalOpen}>Open Panel</button>
           <Modal
             open={openEmailModal}
             onClose={handleEmailModalClose}
