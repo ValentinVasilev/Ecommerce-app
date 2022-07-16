@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import styles from '../../../styles/account/settings.module.scss';
-import { Box, Modal } from '@mui/material';
+import { Box, Modal, TextField, Button } from '@mui/material';
 import Image from 'next/image';
 import EmailIcon from '../../../assets/icons/email.png'
 
@@ -41,18 +41,32 @@ const Settings = () => {
           <button className={styles.buttonStyle} onClick={handleEmailModalOpen}>Open Panel</button>
           <Modal
             open={openEmailModal}
-            onClose={handleEmailModalClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
             <Box sx={EmailModalStyle}>
-              <p>
-                Text in a modal
-              </p>
-              <p>
-                Duis mollis, est non commodo luctus, nisi erat  porttitor ligula.
-              </p>
-              <p>Email Modal Open</p>
+              <TextField
+                label="Old Email"
+                variant="standard"
+                color="info"
+                style={{ margin: '2vh 0vh 4vh 0vh', width: '100%' }}
+              />
+              <TextField
+                label="New Email"
+                variant="standard"
+                color="info"
+                style={{ margin: '2vh 0vh 4vh 0vh', width: '100%' }}
+              />
+              <TextField
+                label="Repeat New Email"
+                variant="standard"
+                color="info"
+                style={{ margin: '2vh 0vh 6vh 0vh', width: '100%' }}
+              />
+              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                <Button variant="contained" color='primary'>Change</Button>
+                <Button variant="contained" color='warning' onClick={handleEmailModalClose}>Cancel</Button>
+              </div>
             </Box>
           </Modal>
         </div>
