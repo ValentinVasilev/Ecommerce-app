@@ -4,7 +4,7 @@ import ProductsList from "../../../assets/data/products";
 import Link from "next/link";
 import styles from '../../../styles/sub-components/card-by-category.module.scss';
 import { Accordion, AccordionSummary, AccordionDetails, Checkbox, Tooltip, Slider } from "@mui/material";
-import DownArrow from '../../../assets/icons/down-arrow.png';
+import DownArrow from '../../../assets/icons/downArrow.png';
 import Image from "next/image";
 
 const Category = () => {
@@ -77,6 +77,7 @@ const Category = () => {
   return (
     <div style={{ display: ' flex' }}>
       <div style={{ minWidth: '200px' }}>
+        <p style={{ textAlign: 'center', fontFamily: 'Montserrat', fontSize: '20px', fontWeight: '500', textDecoration: 'underline' }}>Filters</p>
         <div>
           <Accordion>
             <AccordionSummary
@@ -97,7 +98,7 @@ const Category = () => {
               <p>Brand</p>
             </AccordionSummary>
             <AccordionDetails
-              sx={{ margin: '-1vh 0vh -2vh 0vh', alignItems: 'flex-end', display: 'flex', flexDirection: 'column' }}
+              sx={{ margin: '-1vh 0vh -2vh 0vh', alignItems: 'flex-end', display: 'flex', flexDirection: 'column', fontSize: '14px' }}
             >
               {brand.sort().map(brand => {
                 return (

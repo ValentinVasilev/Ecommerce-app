@@ -139,6 +139,7 @@ const CreateProduct = () => {
             label="Title" variant="outlined"
             sx={{ width: fieldsWidth }}
             onInput={(e) => setTitle((e.target as HTMLInputElement).value)}
+            defaultValue={"Some Awesome Title"}
           />
         </div>
         <div className={styles.fields}>
@@ -147,6 +148,7 @@ const CreateProduct = () => {
             variant="outlined"
             sx={{ width: fieldsWidth }}
             onInput={(e) => setBrand((e.target as HTMLInputElement).value)}
+            defaultValue={"best Brand"}
           />
         </div>
         <div className={styles.fields}>
