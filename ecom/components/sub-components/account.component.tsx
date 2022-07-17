@@ -101,19 +101,7 @@ const Account = (props: UserProps) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Link href={
-          {
-            pathname: `/account/settings/[id]`,
-            query: {
-              id: user._id,
-            }
-          }
-
-        }
-          as={`/account/settings`} key={user.id}
-          passHref
-
-        >
+        <Link href="/account/settings" passHref>
           <MenuItem LinkComponent={"address"}>
             <Avatar sx={{ bgcolor: 'skyblue' }}>
               <SettingsApplicationsIcon />
