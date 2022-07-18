@@ -1,0 +1,19 @@
+.cartContainer {
+  background-color: #ecf0f1;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: space-around;
+  border: 1px solid red;
+}
+
+.itemCardWrapper {
+  background-color: #e5e9ea;
+  display: flex;
+  margin: 2vh 0vh 2vh 0vh;
+}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/router";
-import styles from '../../../styles/account/settings.module.scss';
+import styles from '../../styles/account/settings.module.scss';
 import { Box, Modal, TextField, Button } from '@mui/material';
 import Image from 'next/image';
-import EmailIcon from '../../../assets/icons/email.png'
-import PasswordIcon from '../../../assets/icons/change-password.png'
-import { useAppSelector, useAppDispatch } from '../../../utils/app/hooks';
-import { selectAllUsers } from '../../../utils/app/features/users/usersSlice';
-import { selectAccount, updateUser } from '../../../utils/app/features/account/accountSlice';
+import EmailIcon from '../../assets/icons/email.png'
+import PasswordIcon from '../../assets/icons/change-password.png'
+import { useAppSelector, useAppDispatch } from '../../utils/app/hooks';
+import { selectAllUsers } from '../../utils/app/features/users/usersSlice';
+import { selectAccount, updateUser } from '../../utils/app/features/account/accountSlice';
 
 const Settings = () => {
 

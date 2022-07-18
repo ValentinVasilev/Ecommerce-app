@@ -46,7 +46,7 @@ const Account = (props: UserProps) => {
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
 
         <div
-          onMouseOver={handleClick}
+          onClick={handleClick}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
@@ -57,11 +57,14 @@ const Account = (props: UserProps) => {
 
 
         <div style={{ alignSelf: 'center', marginBottom: '-2vh', paddingLeft: '1vh' }}>
-          <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
-            <Badge badgeContent={user.cart?.length + ''} color="primary">
-              <Image src={ShoppingCardImage} alt="shopping cart image" />
-            </Badge>
-          </button>
+          <Link href="/account/cart" passHref>
+            <button style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}>
+              <Badge badgeContent={user.cart?.length + ''} color="primary">
+                <Image src={ShoppingCardImage} alt="shopping cart image" />
+              </Badge>
+            </button>
+          </Link>
+
 
         </div>
 
