@@ -5,14 +5,15 @@ import { Box, Modal, TextField, Button } from '@mui/material';
 import Image from 'next/image';
 import EmailIcon from '../../../assets/icons/email.png'
 import PasswordIcon from '../../../assets/icons/change-password.png'
-import { useAppSelector } from '../../../utils/app/hooks';
+import { useAppSelector, useAppDispatch } from '../../../utils/app/hooks';
 import { selectAllUsers } from '../../../utils/app/features/users/usersSlice';
-import { selectAccount } from '../../../utils/app/features/account/accountSlice';
+import { selectAccount, updateUser } from '../../../utils/app/features/account/accountSlice';
 
 const Settings = () => {
 
   const router = useRouter();
   const userData = useAppSelector(selectAccount)
+  const dispatch = useAppDispatch();
 
   // const userId = router.query.id
   const [account, setAccount] = useState<[]>();
@@ -26,13 +27,22 @@ const Settings = () => {
   const handlePasswordModalOpen = () => setOpenPasswordModal(true);
   const handlePasswordModalClose = () => setOpenPasswordModal(false);
 
-  console.log('userData', userData)
+  const [getEmail, setEmail] = useState('');
+
+
+  const updateUserEmail = () => {
+    // dispatch(updateUser({ ...account, email: getEmail }));
+    const updatedUser = { user: { ...account, email: getEmail } }
+    console.log('Updated user', updatedUser)
+    dispatch(updateUser(updatedUser));
+  }
+  // console.log('userData2', userData)
 
   useEffect(() => {
     setAccount(userData[0]?.user);
   }, [])
 
-  console.log(account)
+  console.log('USER', userData[0]?.user)
   const EmailModalStyle = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -73,6 +83,7 @@ const Settings = () => {
                 variant="standard"
                 color="info"
                 style={{ margin: '2vh 0vh 4vh 0vh', width: '100%' }}
+                onChange={e => setEmail(e.target.value)}
               />
               <TextField
                 label="Repeat New Email"
@@ -81,7 +92,7 @@ const Settings = () => {
                 style={{ margin: '2vh 0vh 6vh 0vh', width: '100%' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                <Button variant="contained" color='primary'>Change</Button>
+                <Button variant="contained" color='primary' onClick={() => updateUserEmail()}>Change</Button>
                 <Button variant="contained" color='warning' onClick={handleEmailModalClose}>Cancel</Button>
               </div>
             </Box>

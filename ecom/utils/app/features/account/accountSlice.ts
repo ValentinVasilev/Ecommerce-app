@@ -19,6 +19,7 @@ export const accountSlice = createSlice({
   initialState,
   reducers: {
     logIn: (state, { payload }) => {
+
       state.value.push(payload);
       Cookies.set('user', state.value[0]?.user.isAdmin);
     },
@@ -27,6 +28,15 @@ export const accountSlice = createSlice({
     },
     addToCart: (state, { payload }) => {
       state.value[0]?.user.cart.push(payload);
+    },
+    updateUser: (state, { payload }) => {
+      // state.value[0]?.user.email.replace(state.value[0]?.user.email, payload);
+      // state.value = { ...user, email = payload };
+      state.value = [];
+
+      state.value.push(payload);
+      console.log('STATE VALUE', state.value)
+
     }
   }
 })
@@ -35,6 +45,7 @@ export const {
   logIn,
   logOut,
   addToCart,
+  updateUser,
 } = accountSlice.actions;
 
 
