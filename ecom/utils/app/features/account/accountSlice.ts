@@ -7,7 +7,7 @@ import Cookies from 'js-cookie'
 
 
 export type AccountState = {
-  value: [],
+  value: any[],
 }
 
 const initialState: AccountState = {
@@ -30,13 +30,8 @@ export const accountSlice = createSlice({
       state.value[0]?.user.cart.push(payload);
     },
     updateUser: (state, { payload }) => {
-      // state.value[0]?.user.email.replace(state.value[0]?.user.email, payload);
-      // state.value = { ...user, email = payload };
       state.value = [];
-
       state.value.push(payload);
-      console.log('STATE VALUE', state.value)
-
     }
   }
 })
