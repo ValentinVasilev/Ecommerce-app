@@ -31,9 +31,7 @@ const Settings = () => {
 
 
   const updateUserEmail = () => {
-    // dispatch(updateUser({ ...account, email: getEmail }));
     const updatedUser = { user: { ...account, email: getEmail } }
-    console.log('Updated user', updatedUser)
     dispatch(updateUser(updatedUser));
   }
   // console.log('userData2', userData)
@@ -43,6 +41,7 @@ const Settings = () => {
   }, [])
 
   console.log('USER', userData[0]?.user)
+
   const EmailModalStyle = {
     position: 'absolute' as 'absolute',
     top: '50%',

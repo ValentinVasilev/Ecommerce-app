@@ -593,3 +593,23 @@ const products = [
 export default products;
 
 
+// const info = [
+//   {
+//     id: 7615,
+//     "SKU": "HEH-2245",
+//     "Name": "Simply Sweet Blouse",
+//     "Product URL": "https://www.domain.com/product/heh-2245",
+//     price: 42,
+//     "Retail Price": 59.95,
+//     "Thumbnail URL": "https://www.domain.com/images/heh-2245_600x600.png",
+//     "Search Keywords": "lorem, ipsum, dolor, ...",
+//     description: "Sociosqu facilisis duis ...",
+//     category: "Clothing>Tops>Blouses|Clearance|Tops On Sale",
+//     "Category ID": "285|512|604",
+//     brand: "Entity Apparel",
+//     "Child SKU": "HEH-2245-RSWD-SM|HEH-2245-RSWD-MD|HEH-2245-THGR-SM|EH-2245-THGR-MD|HEH-2245-DKCH-SM|HEH-2245-DKCH-MD",
+//     "Child Price": "42|59.99",
+//     "Color": "Rosewood|Thyme Green|Dark Charcoal",
+//     "Color Family": "Red|Green|Grey",
+//     "Color Swatches": "[{\"color\":\"Rosewood\", \"family\":\"Red\", \"swatch_hex\":\"#65000b\", \"thumbnail\":\"/images/heh-2245-rswd-sm_600x600.png\", \"price\":42}, {\"color\":\"Thyme Green\", \"family\":\"Green\", \"swatch_img\":\"/swatches/thyme_green.png\", \"thumbnail\":\"/images/heh-2245-thgr-sm_600x600.png\", \"price\":59.99}, {\"color\":\"Dark Charcoal\", \"family\":\"Grey\", \"swatch_hex\":\"#36454f\", \"thumbnail\":\"/images/heh-2245-dkch-sm_600x600.png\", \"price\":59.99}]", "Size": "Small|Medium", "Shoe Size": "", "Pants Size": "", "Occassion": "", "Season": "Summer|Spring", "Badges": "Exclusive|Clearance", "Rating Avg": 4.5, "Rating Count": 10, "Inventory Count": 8, "Date Created": "2018-03-20 22:24:21"
+//   }]
