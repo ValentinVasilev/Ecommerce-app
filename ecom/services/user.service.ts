@@ -1,7 +1,10 @@
 import axios, { AxiosInstance } from "axios";
 
+const baseUrl = '/api/user';
+
 const API_PATHS = {
-  getAllUsers: '/api/user/getAll',
+  getAllUsers: `${baseUrl}/getAll`,
+  updateUser: `${baseUrl}/update`
 }
 
 export class UserService {
@@ -15,6 +18,9 @@ export class UserService {
     return this.api.get(API_PATHS.getAllUsers);
   }
 
+  public async updateUser() {
+    return this.api.put(API_PATHS.updateUser);
+  }
   // TODO: Get User by Id
   // TODO: Update User's cart (remove and add product)
 }
