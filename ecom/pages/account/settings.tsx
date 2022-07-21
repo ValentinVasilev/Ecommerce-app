@@ -6,7 +6,7 @@ import Image from 'next/image';
 import EmailIcon from '../../assets/icons/email.png'
 import PasswordIcon from '../../assets/icons/change-password.png'
 import { useAppSelector, useAppDispatch } from '../../utils/app/hooks';
-import { selectAllUsers } from '../../utils/app/features/users/usersSlice';
+import { selectAllUsers, updateUserAction } from '../../utils/app/features/users/usersSlice';
 import { selectAccount, updateUser } from '../../utils/app/features/account/accountSlice';
 
 const Settings = () => {
@@ -31,16 +31,20 @@ const Settings = () => {
 
 
   const updateUserEmail = () => {
-    const updatedUser = { user: { ...account, email: getEmail } }
-    dispatch(updateUser(updatedUser));
+    try {
+      const updatedUser = { user: { ...account, email: getEmail } }
+      // dispatch(updateUser(updatedUser));
+      dispatch(updateUserAction(updatedUser))
+      console.log('updatedUser', updatedUser)
+    } catch (error) {
+      console.log(error)
+    }
+
   }
-  // console.log('userData2', userData)
 
   useEffect(() => {
     setAccount(userData[0]?.user);
   }, [])
-
-  console.log('USER', userData[0]?.user)
 
   const EmailModalStyle = {
     position: 'absolute' as 'absolute',

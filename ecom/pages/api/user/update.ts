@@ -15,9 +15,9 @@ handler.put(async (req: Request, res: Response) => {
 
   if (user) {
     user.email = req.body.email,
-      user.password = bcrypt.hashSync(req.body.password),
-      user.cart = req.body.cart,
-      user.isAdmin = req.body.isAdmin,
+      // user.password = bcrypt.hashSync(req.body.password),
+      // user.cart = req.body.cart,
+      // user.isAdmin = req.body.isAdmin,
 
       await user.save();
     await db.disconnect();

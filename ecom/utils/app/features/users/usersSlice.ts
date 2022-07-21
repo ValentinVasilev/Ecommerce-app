@@ -8,11 +8,13 @@ import axios from 'axios';
 export type UserState = {
   users: UserObject,
   getAllUsersStatus: ApiStatus,
+  updateUserStatus: ApiStatus,
 };
 
 const initialState = {
   users: [],
   getAllUsersStatus: ApiStatus.None,
+  updateUserStatus: ApiStatus.None,
 }
 
 const userService = new UserService();
@@ -28,6 +30,18 @@ export const getAllUsersAction = createAsyncThunk(
     //   .then(res => res.data.Users)
     // return data;
   }
+)
+
+
+export const updateUserAction = createAsyncThunk(
+  'user/updateUser',
+  async (user: any) => {
+    console.log('THE USER', user)
+    const response = await userService.updateUser(user)
+    return response.data
+  },
+
+
 )
 
 export const usersSlice = createSlice({
@@ -47,6 +61,7 @@ export const usersSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+      // GET allUsers
       .addCase(getAllUsersAction.pending, state => {
         state.getAllUsersStatus = ApiStatus.Pending
       })
@@ -56,6 +71,19 @@ export const usersSlice = createSlice({
       })
       .addCase(getAllUsersAction.rejected, (state) => {
         state.getAllUsersStatus = ApiStatus.Rejected
+      })
+      // PUT User
+      .addCase(updateUserAction.pending, state => {
+        state.updateUserStatus = ApiStatus.Pending
+      })
+      .addCase(updateUserAction.fulfilled, (state, { payload }) => {
+        state.updateUserStatus = ApiStatus.Success
+        // const newUser = payload
+        // const itemIndex: number = state.users.findIndex((p: any) => p._id === newUser?._id)
+        // state.users.splice(itemIndex, 1, newUser)
+      })
+      .addCase(updateUserAction.rejected, (state) => {
+        state.updateUserStatus = ApiStatus.Rejected
       })
   }
 })

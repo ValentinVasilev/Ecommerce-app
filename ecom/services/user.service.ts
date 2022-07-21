@@ -18,8 +18,14 @@ export class UserService {
     return this.api.get(API_PATHS.getAllUsers);
   }
 
-  public async updateUser() {
-    return this.api.put(API_PATHS.updateUser);
+  public async updateUser(userObj: any) {
+    let id = userObj.user._id;
+    let email = userObj.user.email
+    return this.api.put(API_PATHS.updateUser, { email: email }, {
+      params: {
+        id
+      }
+    });
   }
   // TODO: Get User by Id
   // TODO: Update User's cart (remove and add product)
