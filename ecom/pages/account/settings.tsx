@@ -27,15 +27,20 @@ const Settings = () => {
   const handlePasswordModalOpen = () => setOpenPasswordModal(true);
   const handlePasswordModalClose = () => setOpenPasswordModal(false);
 
-  const [getEmail, setEmail] = useState('');
-
+  const [getEmail, setEmail] = useState<string>('');
+  const [repeatEmail, setRepeatEmail] = useState<string>('');
 
   const updateUserEmail = () => {
     try {
       const updatedUser = { user: { ...account, email: getEmail } }
-      // dispatch(updateUser(updatedUser));
+
+      if (getEmail != repeatEmail) {
+        return;
+      }
+      
+      dispatch(updateUser(updatedUser));
       dispatch(updateUserAction(updatedUser))
-      console.log('updatedUser', updatedUser)
+
     } catch (error) {
       console.log(error)
     }
