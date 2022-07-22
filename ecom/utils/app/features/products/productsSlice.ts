@@ -86,7 +86,7 @@ export const productsSlice = createSlice({
       .addCase(createProduct.rejected, (state) => {
         state.createProductStatus = ApiStatus.Rejected
       })
-      // POST Product
+      // DELETE Product
       .addCase(deleteProductById.pending, state => {
         state.deleteProductByIdStatus = ApiStatus.Pending
       })

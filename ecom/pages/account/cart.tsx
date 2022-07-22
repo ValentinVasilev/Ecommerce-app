@@ -1,21 +1,38 @@
-import { useState } from "react";
-import { useAppSelector } from "../../utils/app/hooks";
+import { useState, useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../utils/app/hooks";
 import { selectAccount } from "../../utils/app/features/account/accountSlice";
 import styles from '../../styles/account/cart.module.scss';
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Button } from "@mui/material";
 
+
 const Cart = () => {
 
   const [account, setAccount] = useState(useAppSelector(selectAccount));
+  const [userCart, setUserCart] = useState(account[0]?.user.cart)
 
+  const RemoveItem = (id: any) => {
+
+    let userCart = account[0].user.cart
+
+    let indexOfItem = userCart.findIndex((i: any) => i.id === id);
+
+    let newCartLength = [...userCart];
+
+    newCartLength.splice(indexOfItem, 1);
+
+
+    setUserCart(newCartLength);
+
+    // dispatch(removeFromCart(id));
+  }
 
 
   return (
     <div className={styles.cartContainer}>
       <div className={styles.itemsContainer}>
-        {account[0]?.user.cart.map((item: any) => {
+        {userCart.map((item: any) => {
           return (
             <div key={item} >
               <ItemCard
@@ -27,6 +44,7 @@ const Cart = () => {
                 category={item.category}
                 account={account}
               />
+              <Button onClick={() => RemoveItem(item.id)} variant="outlined" color="error" className={styles.deleteButton}>X</Button>
             </div>
           )
         })}
@@ -55,17 +73,10 @@ type ItemCardProps = {
 
 const ItemCard = (props: ItemCardProps) => {
 
+  // const dispatch = useAppDispatch();
+
   const { thumbnail, title, refId, count, price, category, account } = props;
 
-  const RemoveItem = (id: any) => {
-    let userCart = account[0].user.cart
-
-    let indexOfItem = userCart.findIndex((i: any) => i.id === id);
-
-    let newCartLength = [...userCart];
-
-    newCartLength.splice(indexOfItem, 1);
-  }
 
 
   return (
@@ -90,7 +101,6 @@ const ItemCard = (props: ItemCardProps) => {
       </div>
       <div style={{ alignSelf: 'center', margin: '0vh', height: '100%' }}>
         {/* <Button variant="outlined" className={styles.deleteButton}>View More</Button> */}
-        <Button onClick={() => RemoveItem(refId)} variant="outlined" color="error" className={styles.deleteButton}>X</Button>
       </div>
     </div >
   )

@@ -29,6 +29,20 @@ export const accountSlice = createSlice({
     addToCart: (state, { payload }) => {
       state.value[0]?.user.cart.push(payload);
     },
+    // removeFromCart: (state, { payload }) => {
+
+    //   // let itemId = payload;
+
+    //   // let cart = state.value
+    //   // let indexOfItem = state.value[0].user.cart.findIndex((i: any) => i.id === itemId);
+
+    //   // let newCartLength = [...state.value[0].user.cart];
+
+    //   // newCartLength.splice(indexOfItem, 1);
+
+    //   // console.log('THE CART', cart)
+
+    // },
     updateUser: (state, { payload }) => {
       state.value = [];
       state.value.push(payload);
@@ -41,6 +55,7 @@ export const {
   logOut,
   addToCart,
   updateUser,
+  // removeFromCart,
 } = accountSlice.actions;
 
 
