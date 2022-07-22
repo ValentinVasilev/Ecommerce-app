@@ -37,7 +37,7 @@ const Settings = () => {
       if (getEmail != repeatEmail) {
         return;
       }
-      
+
       dispatch(updateUser(updatedUser));
       dispatch(updateUserAction(updatedUser))
 
@@ -98,6 +98,7 @@ const Settings = () => {
                 variant="standard"
                 color="info"
                 style={{ margin: '2vh 0vh 6vh 0vh', width: '100%' }}
+                onChange={e => setRepeatEmail(e.target.value)}
               />
               <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <Button variant="contained" color='primary' onClick={() => updateUserEmail()}>Change</Button>
