@@ -21,7 +21,7 @@ export const accountSlice = createSlice({
     logIn: (state, { payload }) => {
 
       state.value.push(payload);
-      Cookies.set('user', state.value[0]?.user.isAdmin);
+      Cookies.set('user', state.value[0]?.user.token);
     },
     logOut: state => {
       state.value = [];
