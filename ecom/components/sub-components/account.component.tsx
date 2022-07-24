@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import ShoppingCardImage from '../../assets/icons/shoping-cart.png';
 import Link from 'next/link';
+import cookies from 'js-cookie'
 
 type UserProps = {
   username: string,
@@ -34,6 +35,7 @@ const Account = (props: UserProps) => {
 
   const logOutUser = () => {
     dispatch(logOut());
+    cookies.remove('user');
     setTimeout(() => {
       router.push('/')
     }, 500)
@@ -44,7 +46,6 @@ const Account = (props: UserProps) => {
   return (
     <>
       <div style={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-
         <div
           onClick={handleClick}
           aria-controls={open ? "account-menu" : undefined}
@@ -52,7 +53,9 @@ const Account = (props: UserProps) => {
           aria-expanded={open ? "true" : undefined}
           className={styles.accountButton}
         >
-          <p>{username}</p>
+          <Tooltip title="Account Settings" arrow placement="top">
+            <p>{username}</p>
+          </Tooltip>
         </div>
 
 
