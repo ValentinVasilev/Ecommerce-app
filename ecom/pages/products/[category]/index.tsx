@@ -19,7 +19,7 @@ const Category = () => {
   const [checked, setChecked] = useState(false)
   const [brand, setBrand] = useState([]);
   const [brandTag, setBrandTag] = useState('');
-
+  const [searchParams, setSearchParams] = useState('');
 
   const marks = [
     {
@@ -58,9 +58,6 @@ const Category = () => {
   }
 
   SetBrandList();
-
-  console.log(brand)
-
 
   const OrderByPrice = (value: any) => {
     setBrandTag(value)
@@ -114,7 +111,6 @@ const Category = () => {
       </div>
 
 
-
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -122,12 +118,18 @@ const Category = () => {
         justifyContent: 'center',
         alignItems: 'flex-start',
         backgroundColor: '#213236',
-        padding: '0vh 1vh 0vh 1vh'
+        padding: '0vh 1vh 0vh 1vh',
+        // flexDirection: 'column'
       }}>
+
+        {/* <div style={{ margin: '2vh' }}>
+          <input placeholder="Search for product" onChange={(e) => setSearchParams(e.target.value)} />
+        </div> */}
         {ProductsList
           .filter(category => category.category === productCategory)
           .filter(price => price.price <= priceTag)
           // .filter(brand => brand.brand === brandTag)
+          // .filter(product => product.title.startsWith(searchParams))
           .map(product => {
             return (
               <div key={product.id} className={styles.cardContainer}>
