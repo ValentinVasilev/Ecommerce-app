@@ -81,7 +81,7 @@ const Category = () => {
         <div>
           <Accordion>
             <AccordionSummary
-              expandIcon={<Image src={DownArrow} />}
+              expandIcon={<Image src={DownArrow} alt="expand icon" />}
             >
               <p>Price</p>
             </AccordionSummary>
@@ -93,7 +93,7 @@ const Category = () => {
           </Accordion>
           <Accordion>
             <AccordionSummary
-              expandIcon={<Image src={DownArrow} />}
+              expandIcon={<Image src={DownArrow} alt="expand icon" />}
             >
               <p>Brand</p>
             </AccordionSummary>
