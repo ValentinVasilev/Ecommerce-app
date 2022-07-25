@@ -119,17 +119,17 @@ const Category = () => {
         alignItems: 'flex-start',
         backgroundColor: '#213236',
         padding: '0vh 1vh 0vh 1vh',
-        // flexDirection: 'column'
+        flexDirection: 'column'
       }}>
 
-        {/* <div style={{ margin: '2vh' }}>
+        <div style={{ margin: '2vh' }}>
           <input placeholder="Search for product" onChange={(e) => setSearchParams(e.target.value)} />
-        </div> */}
+        </div>
         {ProductsList
           .filter(category => category.category === productCategory)
           .filter(price => price.price <= priceTag)
           // .filter(brand => brand.brand === brandTag)
-          // .filter(product => product.title.startsWith(searchParams))
+          .filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()))
           .map(product => {
             return (
               <div key={product.id} className={styles.cardContainer}>
