@@ -4,6 +4,7 @@ import Header from '../components/header.component';
 import { Footer } from "./footer.component";
 import { useRouter } from 'next/router';
 
+
 type LayoutProps = {
   children?: React.ReactNode
 }
