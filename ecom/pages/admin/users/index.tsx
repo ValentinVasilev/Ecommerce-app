@@ -6,6 +6,9 @@ import Link from "next/link";
 import AdminTabs from "../../../components/sub-components/admin-tabs.component";
 import { useAppSelector, useAppDispatch } from "../../../utils/app/hooks";
 import { getAllUsersAction, selectAllUsers } from "../../../utils/app/features/users/usersSlice";
+import styles from '../../../styles/admin/users.module.scss';
+import { DataGrid } from "@mui/x-data-grid";
+
 
 
 const Users = ({ data }: any) => {
@@ -14,13 +17,29 @@ const Users = ({ data }: any) => {
 
   const [users, setUsers] = useState(data.Users);
   const [allUsers, setAllUsers] = useState<any>();
+  const [userRows, setUserRows] = useState();
+
+  let rows = [];
 
   const usersData = useAppSelector(selectAllUsers)
 
   useEffect(() => {
     setAllUsers(usersData.users.Users)
+    // setUserRows(allUsers);
+    const data = usersData.users.Users
+    setUserRows(data);
+
   }, [usersData.users.Users])
 
+
+  // useEffect(() => {
+  //   console.log('Users row', userRows)
+  // }, [])
+
+  usersData
+  console.log('USERS ROWS', userRows)
+  console.log('All Users', allUsers)
+  console.log('usersData', usersData.users.Users)
 
   const deleteUser = (userId: string) => {
     try {
@@ -35,9 +54,50 @@ const Users = ({ data }: any) => {
   }
 
 
+
+  // console.log('ALL USERS', allUsers.length)
+
+  // let someRows = [];
+  // someRows.push(allUsers)
+
+  // console.log(someRows[0].length)
+
+  const columns = [
+    { field: 'id', headerName: 'ID', maxWidth: 250, minWidth: 250 },
+    { field: 'email', headerName: 'Email', maxWidth: 250, minWidth: 250 },
+    { field: 'isAdmin', headerName: 'IsAdmin', maxWidth: 250, minWidth: 250 },
+    { field: 'createdAt', headerName: 'CreatedAt', maxWidth: 250, minWidth: 150 },
+    { field: 'updatedAt', headerName: 'UpdatedAt', maxWidth: 250, minWidth: 250 },
+    { field: 'update', headerName: '', maxWidth: 250, minWidth: 250 },
+    // { field: 'delete', headerName: '', maxWidth: 250, minWidth: 250 },
+  ]
+
+  const dataParser = (dataToParse: any) => {
+
+    const userData: { id: any; email: any; isAdmin: any; createdAt: any; updatedAt: any; }[] = [];
+
+    dataToParse.map((data: any) => {
+      let parserObj = {
+        id: data._id,
+        email: data.email,
+        isAdmin: data.isAdmin === true ? 'Yes' : 'No',
+        createdAt: new Date(data.createdAt).toLocaleDateString('en-US', { timeZone: "Europe/Sofia" }),
+        updatedAt: new Date(data.updatedAt).toLocaleString("en-EUNE", { timeZone: "Europe/Sofia", dateStyle: 'medium', timeStyle: 'medium' })
+      }
+
+      userData.push(parserObj);
+    })
+
+    return userData;
+
+  }
+
+
+  let theRightData = dataParser(usersData.users.Users);
+
   return (
     <div style={{ display: 'flex' }}>
-      <div>
+      <div style={{ minWidth: '150px' }}>
         <AdminTabs name="Users" />
       </div>
       {/* <div style={{ display: 'flex' }}>
@@ -71,8 +131,8 @@ const Users = ({ data }: any) => {
       </div> */}
 
       <div style={{ display: 'flex', width: '100%' }}>
-        <p>Data from REDUX:</p>
-        {allUsers?.map((user: any) => {
+        {/* <p>Data from REDUX:</p> */}
+        {/* {allUsers?.map((user: any) => {
           return (
             <div key={user._id} style={{ border: '2px solid green', width: 'content-fit', maxWidth: '20%', overflowWrap: 'break-word' }}>
               <p>ID: {user._id}</p>
@@ -97,7 +157,17 @@ const Users = ({ data }: any) => {
               <br />
             </div>
           )
-        })}
+        })} */}
+        <div className={styles.contentContainer}>
+          <DataGrid
+            rows={theRightData}
+            columns={columns}
+            pageSize={7}
+            rowsPerPageOptions={[7]}
+            checkboxSelection
+          // onCellClick={(e) => console.log(e)}
+          />
+        </div>
       </div>
     </div >
   )
