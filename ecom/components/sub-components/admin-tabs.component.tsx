@@ -27,8 +27,8 @@ const AdminTabs = (props: any) => {
   }
 
   return (
-    <Card>
-      <List>
+    <Card >
+      <List style={{ paddingTop: 0, paddingBottom: 0, borderRadius: 0 }}>
         <NextLink href="/admin/home" passHref>
           <ListItem selected={home} button component="a">
             <ListItemText primary="Home"></ListItemText>
@@ -59,7 +59,7 @@ const AdminTabs = (props: any) => {
           </ListItem>
         </NextLink> */}
       </List>
-    </Card>
+    </Card >
   )
 }
 
