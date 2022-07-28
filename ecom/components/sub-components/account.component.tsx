@@ -10,6 +10,7 @@ import Image from 'next/image'
 import ShoppingCardImage from '../../assets/icons/shoping-cart.png';
 import Link from 'next/link';
 import cookies from 'js-cookie'
+import jwt from 'jsonwebtoken'
 
 type UserProps = {
   username: string,
@@ -42,6 +43,8 @@ const Account = (props: UserProps) => {
 
   }
 
+  let loggedUser = cookies.get('user');
+  let decodedUser = jwt.decode(loggedUser);
 
   return (
     <>
@@ -116,6 +119,21 @@ const Account = (props: UserProps) => {
           </MenuItem>
         </Link>
         <Divider />
+        {decodedUser?.isAdmin &&
+          (
+            <>
+              <Link href="/admin/home" passHref>
+                <MenuItem LinkComponent={"address"}>
+                  <Avatar sx={{ bgcolor: 'skyblue' }}>
+                    <SettingsApplicationsIcon />
+                  </Avatar>
+                  Admin
+                </MenuItem>
+              </Link>
+              <Divider />
+            </>
+          )
+        }
         <MenuItem
           onClick={() => logOutUser()}
         >
