@@ -6,6 +6,7 @@ import styles from '../../../styles/sub-components/card-by-category.module.scss'
 import { Accordion, AccordionSummary, AccordionDetails, Checkbox, Tooltip, Slider } from "@mui/material";
 import DownArrow from '../../../assets/icons/downArrow.png';
 import Image from "next/image";
+import ProductCard from "../../../components/product-card.component";
 
 const Category = () => {
 
@@ -117,47 +118,66 @@ const Category = () => {
         width: '100%',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        backgroundColor: '#213236',
+        backgroundColor: 'white',
         padding: '0vh 1vh 0vh 1vh',
         flexDirection: 'column'
       }}>
 
-        <div style={{ margin: '2vh' }}>
+        <div style={{ margin: '2vh', border: '1px solid red' }}>
           <input placeholder="Search for product" onChange={(e) => setSearchParams(e.target.value)} />
         </div>
-        {ProductsList
-          .filter(category => category.category === productCategory)
-          .filter(price => price.price <= priceTag)
-          // .filter(brand => brand.brand === brandTag)
-          .filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()))
-          .map(product => {
-            return (
-              <div key={product.id} className={styles.cardContainer}>
-                <div className={styles.cardInfoStyle}>
-                  <p className={styles.title}>{product.title}</p>
-                  <p className={styles.info}>{product.description}</p>
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'green', marginRight: '15px' }}>$</p>
-                    <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'gray' }}>{product.price}</p>
-                  </div>
-                </div>
-                <Link href={
-                  {
-                    pathname: "[category]/[id]",
-                    query: {
-                      category: productCategory,
-                      id: product.id,
-                    }
-                  }
-                } as={`${productCategory}/${product.id}`} key={product.id}
-                  passHref
-                >
-                  <button>View More</button>
-                </Link>
-              </div>
-            )
-          })
-        }
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          width: '100%',
+          justifyContent: 'center',
+          alignItems: 'flex-start',
+          padding: '0vh 0vh 5vh 0vh'
+        }}>
+          {ProductsList
+            .filter(category => category.category === productCategory)
+            .filter(price => price.price <= priceTag)
+            // .filter(brand => brand.brand === brandTag)
+            .filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()))
+            .map(product => {
+              return (
+                // <div key={product.id} className={styles.cardContainer}>
+                //   <div className={styles.cardInfoStyle}>
+                //     <p className={styles.title}>{product.title}</p>
+                //     <p className={styles.info}>{product.description}</p>
+                //     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                //       <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'green', marginRight: '15px' }}>$</p>
+                //       <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'gray' }}>{product.price}</p>
+                //     </div>
+                //   </div>
+                //   <Link href={
+                //     {
+                //       pathname: "[category]/[id]",
+                //       query: {
+                //         category: productCategory,
+                //         id: product.id,
+                //       }
+                //     }
+                //   } as={`${productCategory}/${product.id}`} key={product.id}
+                //     passHref
+                //   >
+                //     <button>View More</button>
+                //   </Link>
+                // </div>
+                <ProductCard
+                  key={product.id}
+                  title={product.title}
+                  brand={product.brand}
+                  description={product.description}
+                  price={product.price}
+                  thumbnail={product.thumbnail}
+                  rating={product.rating}
+                />
+              )
+            })
+          }
+        </div>
+
       </div>
     </div>
   )

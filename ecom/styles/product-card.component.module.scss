@@ -1,18 +1,55 @@
 .cardContainer {
-  border: 1px solid red;
-  // max-width: 20%;
-  // min-width: 20%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  border: 0px solid transparent;
 }
 .cardWrapper {
   padding: 1vh;
   flex: 0 1 25%;
   flex-basis: 25%;
+  max-width: 25%;
+  min-width: 25%;
+  max-height: 550px;
 }
-// @media only screen and (max-width: 1400px) {
-//   .cardContainer {
-//     max-width: 40%;
-//     min-width: 40%;
-//   }
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.brand {
+  font-size: 17px;
+  font-weight: 400;
+  margin-top: -1vh;
+}
+.description {
+  font-size: 16px;
+  font-weight: 400;
+  width: 90%;
+  margin-top: 3px;
+}
+.price {
+  font-size: 25px;
+  font-weight: 400;
+  color: green;
+  margin-top: 3px;
+}
+.addButton {
+  width: 100%;
+  padding: 2vh 0vh 2vh 0vh;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #27c8a5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0px;
+}
+// .addButton:hover {
+//   background-color: green;
 // }
