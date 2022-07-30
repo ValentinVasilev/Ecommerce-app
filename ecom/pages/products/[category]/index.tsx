@@ -164,11 +164,14 @@ const Category = () => {
                 //     <button>View More</button>
                 //   </Link>
                 // </div>
+
                 <ProductCard
                   key={product.id}
+                  productId={product.id}
                   title={product.title}
                   brand={product.brand}
                   description={product.description}
+                  category={product.category}
                   price={product.price}
                   thumbnail={product.thumbnail}
                   rating={product.rating}
