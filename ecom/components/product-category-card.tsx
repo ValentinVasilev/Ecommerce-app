@@ -34,9 +34,6 @@ const ProductCategoryCard = (props: CardProps) => {
           >
             <button className={styles.button}>View More</button>
           </Link>
-          {/* <Link href="">
-            <button className={styles.button}>View More</button>
-          </Link> */}
         </div>
       </div>
     </div>

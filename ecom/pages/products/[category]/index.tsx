@@ -156,6 +156,7 @@ const Category = () => {
                   price={product.price}
                   thumbnail={product.thumbnail}
                   rating={product.rating}
+                  count={product.stock}
                 />
               )
             })

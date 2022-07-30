@@ -69,8 +69,8 @@ const Product = () => {
   }, [id, product?.category, product?.title])
 
 
-  console.log('single product =>', getProductById);
-  console.log('rating', Number(product?.rating.toPrecision(2)))
+  // console.log('single product =>', getProductById);
+  // console.log('rating', Number(product?.rating.toPrecision(2)))
   const [isAdded, setIsAdded] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [items, setItems] = useState([]);

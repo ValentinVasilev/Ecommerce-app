@@ -3,6 +3,9 @@ import styles from '../styles/product-card.component.module.scss';
 import Image, { StaticImageData } from 'next/image';
 import { Button, Rating } from '@mui/material'
 import Link from 'next/link';
+import { useAppDispatch } from "../utils/app/hooks";
+import { addToCart } from "../utils/app/features/account/accountSlice";
+
 
 type ProductCardProps = {
   title?: string,
@@ -13,14 +16,30 @@ type ProductCardProps = {
   thumbnail: StaticImageData | string
   category: string,
   productId: any,
+  count: any
 }
 
 
 const ProductCard = (props: ProductCardProps) => {
 
-  const { title, description, price, rating, brand, thumbnail, category, productId } = props;
+  const { title, description, price, rating, brand, thumbnail, category, productId, count } = props;
 
   const [productRating, setProductRating] = useState<number | undefined>(rating)
+
+  const dispatch = useAppDispatch();
+
+  const cardProps = {
+    thumbnail: thumbnail,
+    title: title,
+    count: count,
+    refId: productId,
+    price: price,
+    category: category,
+  }
+
+  const addProductToCart = (cardInfo: any) => {
+    dispatch(addToCart(cardInfo))
+  }
 
 
   return (
@@ -54,6 +73,7 @@ const ProductCard = (props: ProductCardProps) => {
           variant="contained"
           color="warning"
           className={styles.addButton}
+          onClick={() => addProductToCart(cardProps)}
         >Add to cart</Button>
       </div>
     </div>

@@ -49,9 +49,6 @@
   cursor: pointer;
   border-radius: 0px;
 }
-// .addButton:hover {
-//   background-color: green;
-// }
 .viewMore {
   display: block;
   border: none;
@@ -75,8 +72,6 @@
 }
 .cardWrapper:hover {
   .viewMore {
-    // display: inline-block;
-    // margin-top: -20px;
     top: 0;
   }
 }
