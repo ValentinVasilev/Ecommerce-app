@@ -44,11 +44,11 @@ const ProductCard = (props: ProductCardProps) => {
         </div>
         <p className={styles.title}>{title}</p>
         <p className={styles.brand}>{brand}</p>
-        <p className={styles.description}>{description!.length >= 70 ? description?.slice(0, 70) + ' ...' : description}</p>
+        <p className={styles.description}>{description!.length >= 60 ? description?.slice(0, 60) + ' ...' : description}</p>
         <p className={styles.price}>$ {price}</p>
-        {/* <p>{rating}</p> */}
-        <div style={{ paddingBottom: '25px' }}>
-          <Rating value={productRating} readOnly />
+        <div style={{ paddingBottom: '25px', display: 'flex', alignItems: 'center' }}>
+          <Rating value={productRating} readOnly precision={0.5} />
+          <p>({productRating})</p>
         </div>
         <Button
           variant="contained"

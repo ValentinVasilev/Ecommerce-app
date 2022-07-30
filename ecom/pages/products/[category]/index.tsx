@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import ProductsList from "../../../assets/data/products";
 import Link from "next/link";
 import styles from '../../../styles/sub-components/card-by-category.module.scss';
-import { Accordion, AccordionSummary, AccordionDetails, Checkbox, Tooltip, Slider } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails, Checkbox, Tooltip, Slider, TextField } from "@mui/material";
 import DownArrow from '../../../assets/icons/downArrow.png';
 import Image from "next/image";
 import ProductCard from "../../../components/product-card.component";
@@ -123,11 +123,16 @@ const Category = () => {
         flexDirection: 'column'
       }}>
 
-        <div style={{ margin: '2vh', border: '1px solid red' }}>
-          <input placeholder="Search for product" onChange={(e) => setSearchParams(e.target.value)} />
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ margin: '2vh', width: '40%' }}>
+            <TextField label="Search for product" variant="filled" onChange={(e) => setSearchParams(e.target.value)} fullWidth />
+          </div>
         </div>
+
         <div style={{
           display: 'flex',
+          flexGrow: '25%',
+          // flex: '4 1 auto',
           flexWrap: 'wrap',
           width: '100%',
           justifyContent: 'center',
@@ -141,30 +146,6 @@ const Category = () => {
             .filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()))
             .map(product => {
               return (
-                // <div key={product.id} className={styles.cardContainer}>
-                //   <div className={styles.cardInfoStyle}>
-                //     <p className={styles.title}>{product.title}</p>
-                //     <p className={styles.info}>{product.description}</p>
-                //     <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                //       <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'green', marginRight: '15px' }}>$</p>
-                //       <p style={{ fontFamily: 'Montserrat', fontSize: '28px', color: 'gray' }}>{product.price}</p>
-                //     </div>
-                //   </div>
-                //   <Link href={
-                //     {
-                //       pathname: "[category]/[id]",
-                //       query: {
-                //         category: productCategory,
-                //         id: product.id,
-                //       }
-                //     }
-                //   } as={`${productCategory}/${product.id}`} key={product.id}
-                //     passHref
-                //   >
-                //     <button>View More</button>
-                //   </Link>
-                // </div>
-
                 <ProductCard
                   key={product.id}
                   productId={product.id}
