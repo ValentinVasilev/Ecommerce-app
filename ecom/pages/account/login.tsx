@@ -76,7 +76,7 @@ const LogIn = () => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <div className={styles.leftSide}>
+        <div className={styles.formInnerContainer}>
           <div className={styles.imgContainer}>
             <Image src={LogInImg} alt="sign in icon" />
           </div>
@@ -86,7 +86,7 @@ const LogIn = () => {
               variant="outlined"
               sx={{ backgroundColor: 'transparent' }}
               label="Email"
-              className={styles.inputFields2}
+              className={styles.inputFields}
               onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
             />
             <TextField
@@ -94,7 +94,7 @@ const LogIn = () => {
               sx={{ backgroundColor: 'transparent', margin: '5vh 0vh 5vh 0vh' }}
               label="Password"
               type="password"
-              className={styles.inputFields2}
+              className={styles.inputFields}
               onInput={(e) => setPassword((e.target as HTMLInputElement).value)}
             />
           </div>
