@@ -19,9 +19,14 @@ const LogIn = () => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState('');
 
   const user = useAppSelector(selectAccount);
 
+  // useEffect(() => {
+  //   setIsLoading(!isLoading);
+  // }, [isLoading])
   // useEffect(() => {
   //   if (user.length >= 1) {
   //     router.push('/')
@@ -48,19 +53,25 @@ const LogIn = () => {
         password: password,
       })
         .then(data => data)
-        .then(result => dispatch(logIn(result.data)))
+        .then(result => {
+          dispatch(logIn(result.data))
+          console.log('THE RESULT', result)
+          setIsLoading(!isLoading)
+        }).catch(data => {
+          if (data.response.status != 200)
+            setError(data.response.data.message)
+        })
 
       setTimeout(() => {
-        router.push('/')
-      }, 500)
-
-    } catch (error) {
+        setIsLoading(false)
+        console.log('Is loadnig - after', isLoading)
+      }, 1000)
+    }
+    catch (error) {
       console.log(error)
     }
 
   }
-
-  console.log()
 
   return (
     <div className={styles.container}>
@@ -69,6 +80,7 @@ const LogIn = () => {
           <div className={styles.imgContainer}>
             <Image src={LogInImg} alt="sign in icon" />
           </div>
+          <p style={{ alignSelf: 'center', color: 'red', width: '50%' }}>{error ? <Alert variant='standard' severity="error" color='error'>{error}</Alert> : null}</p>
           <div className={styles.form}>
             <TextField
               variant="outlined"
@@ -94,7 +106,7 @@ const LogIn = () => {
               width: '25%',
               alignSelf: 'center',
               margin: '4vh 0vh 0vh 0vh'
-            }}>Log in</Button>
+            }}>{isLoading ? 'Loading...' : 'Log in'}</Button>
 
           <div style={{
             display: 'flex',
@@ -136,6 +148,7 @@ const LogIn = () => {
         </div>
       </div>
       {/* <p>{user[0].user.email}</p> */}
+
     </div >
   )
 }

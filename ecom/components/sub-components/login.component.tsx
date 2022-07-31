@@ -17,9 +17,10 @@ const Login = () => {
         .then(res => res.data)
         .then(data => {
           localStorage.setItem('login', JSON.stringify(data.user))
-          setTimeout(() => {
-            router.push('/')
-          }, 1000)
+          // setTimeout(() => {
+          //   router.push('/')
+          // }, 1000)
+          console.log('USER DATA')
         }
         )
     } catch (error) {
