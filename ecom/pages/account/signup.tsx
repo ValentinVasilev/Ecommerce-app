@@ -112,6 +112,25 @@ const SignUp = () => {
               padding: '1vh'
             }}>Sign Up</Button>
           <div style={{
+            minWidth: '80%',
+            alignSelf: 'center',
+            margin: '4vh 0vh 0vh 0vh',
+            padding: '1vh',
+            fontSize: '12px',
+            display: 'flex',
+            // justifyContent: 'space-around'
+          }}>
+            <p>By Signing up, you agree to our</p>
+            <p style={{ color: 'blue', padding: '0px 5px 0px 5px', fontStyle: 'italic' }}>Terms of Service</p>
+            <p>and </p>
+            <p style={{ color: 'blue', padding: '0px 5px 0px 5px', fontStyle: 'italic' }}>Privacy Policy</p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+            <button className={styles.socialButtons}>Google</button>
+            <button className={styles.socialButtons}>Facebook</button>
+            <button className={styles.socialButtons}>Twitter</button>
+          </div>
+          <div style={{
             display: 'flex',
             fontSize: '12px',
             fontStyle: 'italic',

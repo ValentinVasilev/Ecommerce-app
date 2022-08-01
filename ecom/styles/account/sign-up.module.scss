@@ -48,3 +48,16 @@
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
 }
+.socialButtons {
+  min-width: 25%;
+  border: 1px solid rgb(230, 218, 218);
+  font-size: 17px;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.socialButtons:hover {
+  border: 1px solid skyblue;
+  // background-color: rgb(199, 230, 243);
+}
