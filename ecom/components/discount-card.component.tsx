@@ -36,7 +36,7 @@ export const DiscountCard = (props: DiscountCardProps) => {
       </div>
       <div className={style.cardContent}>
         <div>
-          <Image src={props.cardImg} alt="image of the card" width={430} height={250} />
+          <Image src={props.cardImg} alt="image of the card" width={430} height={250} layout='responsive' />
         </div>
         <p className={style.brand}>{props.brand}</p>
         <p className={style.model}>{props.model}</p>

@@ -20,7 +20,6 @@ SwiperCore.use([Pagination, Navigation]);
 export default function DiscountCarouselComponent() {
 
   const products = Products.slice(0, 7);
-  console.log('allProducts', products)
   return (
     <>
       <Swiper
