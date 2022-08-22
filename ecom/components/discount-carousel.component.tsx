@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Laptop from '../assets/icons/laptop-asus.png'
 import { DiscountCard } from "./discount-card.component";
 import styles from '../styles/carouselStyles.module.scss'
+import Products from '../assets/data/products';
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,6 +18,9 @@ import SwiperCore, { Pagination, Navigation } from "swiper";
 SwiperCore.use([Pagination, Navigation]);
 
 export default function DiscountCarouselComponent() {
+
+  const products = Products.slice(0, 7);
+  console.log('allProducts', products)
   return (
     <>
       <Swiper
@@ -52,19 +56,24 @@ export default function DiscountCarouselComponent() {
           }
         }}
       >
-        <SwiperSlide
-        >
-          <DiscountCard
-            cardImg={Laptop}
-            brand="Asus"
-            model="ASUS ZenBook Pro Duo UX581GV"
-            rate={3}
-            actualPrice={3000}
-            discountPrice={2899}
-            inStock={50}
-          />
-        </SwiperSlide>
-        <SwiperSlide
+        {products.map(item => {
+          return (
+            <SwiperSlide key={item.id}
+            >
+              <DiscountCard
+                cardImg={item.thumbnail}
+                brand={item.brand}
+                model={item.title}
+                rate={item.rating}
+                actualPrice={item.price}
+                discountPrice={item.price}
+                inStock={item.stock}
+              />
+            </SwiperSlide>
+          )
+        })}
+
+        {/* <SwiperSlide
         >
           <DiscountCard
             cardImg={Laptop}
@@ -113,7 +122,7 @@ export default function DiscountCarouselComponent() {
             discountPrice={2899}
             inStock={5}
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </>
   );
