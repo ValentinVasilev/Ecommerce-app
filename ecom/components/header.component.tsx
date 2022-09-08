@@ -10,7 +10,23 @@ import { useAppDispatch, useAppSelector } from "../utils/app/hooks";
 import { selectAccount } from "../utils/app/features/account/accountSlice";
 
 
-
+const LinksArray = [
+  {
+    id: 0,
+    title: 'All Categories',
+    link: '/products'
+  },
+  {
+    id: 1,
+    title: 'Smartphones',
+    link: '/products/smartphones'
+  },
+  {
+    id: 2,
+    title: 'Laptops',
+    link: '/products/laptops'
+  }
+]
 
 const Header = () => {
 
@@ -36,16 +52,26 @@ const Header = () => {
 
   return (
     <div className={styles.headerContainer}>
-      {
+      {/* {
         router.pathname === '/' && (
           <div className={styles.announcementBar}>
             {announcer.length > 1 && (<p>{announcer}</p>)}
           </div>
         )
-      }
+      } */}
+      <div className={styles.announcementBar}>
 
+        {LinksArray.map(link => {
+          return (
+            <Link key={link.id} href={link.link} passHref>
+              <p className={styles.announceLinks}>{link.title}</p>
+            </Link>
+          )
+        })}
+
+      </div>
       <div className={styles.headerWrapper}>
-        <div style={{ width: '100%', backgroundColor: 'rgb(77, 36, 226)', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center' }}>
           <div className={styles.searchSection}>
             <Link href="/" passHref>
               <div style={{ display: 'flex', alignItems: 'end', cursor: 'pointer' }}>

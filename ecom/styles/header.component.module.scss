@@ -1,26 +1,43 @@
 .headerContainer {
   display: flex;
-  justify-content: space-around;
-  // background-color: #213236;
+  // justify-content: space-around;
   flex-direction: column;
-  position: sticky;
+  // position: sticky;
+  width: 100%;
+  // float: left;
+  background-image: url(../assets/pictures/mainBanner.png);
+  height: auto;
+  min-height: 650px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  align-items: center;
+  // color: white;
 }
 .announcementBar {
-  background-color: #ff6128;
+  background-color: black;
   color: white;
-  font-weight: bold;
+  // font-weight: bold;
   display: flex;
-  width: 100%;
+  min-width: 900px;
   justify-content: center;
   font-family: "Montserrat", sans-serif;
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%);
+  justify-content: space-evenly;
   // margin-top: -1vh;
   // margin-bottom: -1vh;
 }
+.announceLinks {
+  cursor: pointer;
+}
+.announceLinks:hover {
+  color: #ff6128;
+}
+
 .headerWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: #213236;
+  width: 50%;
 }
 .searchSection {
   display: flex;
