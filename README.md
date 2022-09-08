@@ -27,6 +27,7 @@ Back - end:
 4. Compare Function for up to 3 products - [20% completed]
 5. Rate Products - [50% completed]
 6. Review of a product - [0% completed]
+7. Purchase of a products - [0% completed]
 
 ########## Admin Features ##########
 
@@ -34,3 +35,4 @@ Back - end:
 2. Base Information for count of Users/Products/Sales/Profit - [50% completed]
 3. CRUD over Users - [80% completed]
 4. Crud over Products - [80% completed]
+5. Review Purchase Status - [0% completed]
