@@ -71,31 +71,33 @@ const Header = () => {
 
       </div>
       <div className={styles.headerWrapper}>
-        <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '100%', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', }}>
           <div className={styles.searchSection}>
             <Link href="/" passHref>
-              <div style={{ display: 'flex', alignItems: 'end', cursor: 'pointer' }}>
+              <div style={{ display: 'flex', alignItems: 'end', cursor: 'pointer', fontWeight: 'bolder' }}>
                 <p style={{ fontSize: '35px', alignSelf: 'flex-end', fontFamily: 'monospace' }}>E</p>
                 <p style={{ fontSize: '50px', color: 'red', fontFamily: 'Montserrat' }}>com</p>
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            {user.length > 0
-              ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
-              : (
-                <div style={{ display: 'flex', alignItems: 'center', width: '10%', justifyContent: 'space-between', minWidth: '200px' }}>
-                  <div>
-                    <Link href='/account/login' passHref>
-                      <button className={styles.loginBtn}>Log In</button>
-                    </Link>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+
+              {user.length > 0
+                ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
+                : (
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '200px' }}>
+                    <div>
+                      <Link href='/account/login' passHref>
+                        <button className={styles.loginBtn}>Log In</button>
+                      </Link>
+                      <Link href='/account/signup' passHref>
+                        <button className={styles.signBtn}>Sign up</button>
+                      </Link>
+                    </div>
                   </div>
-                  <Link href='/account/signup' passHref>
-                    <button className={styles.signBtn}>Sign up</button>
-                  </Link>
-                </div>
-              )}
+                )}
 
-
+            </div>
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
             </div>
