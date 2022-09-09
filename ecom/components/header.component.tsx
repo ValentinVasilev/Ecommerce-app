@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import Account from "./sub-components/account.component";
 import { useAppDispatch, useAppSelector } from "../utils/app/hooks";
 import { selectAccount } from "../utils/app/features/account/accountSlice";
-
+import LanguageSwitcher from "./sub-components/language-switcher";
 
 const LinksArray = [
   {
@@ -85,18 +85,17 @@ const Header = () => {
               {user.length > 0
                 ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
                 : (
-                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '200px' }}>
-                    <div>
-                      <Link href='/account/login' passHref>
-                        <button className={styles.loginBtn}>Log In</button>
-                      </Link>
-                      <Link href='/account/signup' passHref>
-                        <button className={styles.signBtn}>Sign up</button>
-                      </Link>
-                    </div>
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '300px' }}>
+
+                    <Link href='/account/login' passHref>
+                      <button className={styles.loginBtn}>Log In</button>
+                    </Link>
+                    <Link href='/account/signup' passHref>
+                      <button className={styles.signBtn}>Sign up</button>
+                    </Link>
+                    <LanguageSwitcher />
                   </div>
                 )}
-
             </div>
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
