@@ -1,12 +1,14 @@
-import * as React from 'react';
-import { Button, Menu, MenuItem } from '@mui/material'
+import { useState } from 'react';
+import { Menu, MenuItem } from '@mui/material'
 import BulgarianFlag from '../../assets/icons/bulgaria.png';
 import USAFlag from '../../assets/icons/usa.png';
 import GermanFlag from '../../assets/icons/germany.png';
+import DownArrow from '../../assets/icons/downArrow.png'
 import Image from 'next/image';
 export default function LanguageSwitcher() {
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [language, setLanguage] = useState<string>('');
 
   const open = Boolean(anchorEl);
 
@@ -18,18 +20,26 @@ export default function LanguageSwitcher() {
     setAnchorEl(null);
   };
 
+  const handleLanguageChange = (language: string) => {
+    setLanguage(language)
+    handleClose()
+  }
+
   return (
     <div>
-      <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        sx={{ backgroundColor: 'white', color: 'black' }}
-      >
-        Language
-      </Button>
+      <button onClick={handleClick} style={btnStyles}>
+        {language.length <= 1
+          ? <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+            <Image src={USAFlag} alt="down arrow" width={32} height={25} />
+            <span style={{ padding: '0vh 1vh' }}>English</span>
+            <Image src={DownArrow} alt="down arrow" width={22} height={18} />
+          </div>
+          : <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+            <Image src={language === 'English' ? USAFlag : BulgarianFlag} alt="down arrow" width={32} height={25} />
+            <span style={{ padding: '0vh 1vh' }}>{language}</span>
+            <Image src={DownArrow} alt="down arrow" width={22} height={18} />
+          </div>}
+      </button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -39,19 +49,22 @@ export default function LanguageSwitcher() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose} sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
-          <Image src={BulgarianFlag} width={40} height={40} alt="bulgarian flag" />
-          <p>BG</p>
+        <MenuItem onClick={() => handleLanguageChange('Bulgarian')} sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+          <Image src={BulgarianFlag} width={42} height={42} alt="bulgarian flag" />
+          <p style={{ fontSize: '14px' }}>Bulgarian</p>
         </MenuItem>
-        <MenuItem onClick={handleClose} sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        <MenuItem onClick={() => handleLanguageChange('English')} sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Image src={USAFlag} alt="usa flag" width={32} height={32} />
-          <p>EN</p>
+          <p style={{ fontSize: '15px' }}>English</p>
         </MenuItem>
-        {/* <MenuItem onClick={handleClose} sx={{ display: 'flex', justifyContent: 'space-around' }}>
-          <Image src={GermanFlag} alt="germany flag" width={32} height={32} />
-          <p style={{ padding: '0vh 1vh' }}>GER</p>
-        </MenuItem> */}
       </Menu>
     </div>
   );
+}
+
+const btnStyles = {
+  cursor: 'pointer',
+  border: 'none',
+  minHeight: '40px',
+  borderRadius: '5px'
 }

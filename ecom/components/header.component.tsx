@@ -85,15 +85,20 @@ const Header = () => {
               {user.length > 0
                 ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
                 : (
-                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '300px' }}>
-
-                    <Link href='/account/login' passHref>
-                      <button className={styles.loginBtn}>Log In</button>
-                    </Link>
-                    <Link href='/account/signup' passHref>
-                      <button className={styles.signBtn}>Sign up</button>
-                    </Link>
-                    <LanguageSwitcher />
+                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '400px' }}>
+                    <div className={styles.buttonContainer}>
+                      <LanguageSwitcher />
+                    </div>
+                    <div className={styles.buttonContainer}>
+                      <Link href='/account/login' passHref>
+                        <button className={styles.loginBtn}>Log In</button>
+                      </Link>
+                    </div>
+                    <div className={styles.buttonContainer}>
+                      <Link href='/account/signup' passHref>
+                        <button className={styles.signBtn}>Sign up</button>
+                      </Link>
+                    </div>
                   </div>
                 )}
             </div>
