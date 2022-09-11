@@ -80,12 +80,12 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
+            <div className={styles.navigationMenu}>
               <Search />
               {user.length > 0
                 ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
                 : (
-                  <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between', minWidth: '400px' }}>
+                  <div className={styles.buttonsSection}>
                     <div className={styles.buttonContainer}>
                       <LanguageSwitcher />
                     </div>

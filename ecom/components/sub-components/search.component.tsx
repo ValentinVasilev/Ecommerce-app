@@ -20,10 +20,12 @@ const Search = () => {
     <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '3px' }}>
       <input className={styles.input}
         type="text"
-        autoComplete="off" onChange={(e) => setSearchParams((e.target as HTMLInputElement).value)}
+        autoComplete="off"
+        onChange={(e) => setSearchParams((e.target as HTMLInputElement).value)}
+        value={searchParams}
         placeholder="Search for a product.." />
 
-   
+
       <div className={styles.searchResults} style={searchParams.length < 1 ? { display: 'none' } : { display: 'block' }}>
         {Products.filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()) || product.brand.includes(searchParams))
           .map(item => {

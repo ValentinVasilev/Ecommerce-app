@@ -48,8 +48,9 @@ export default function LanguageSwitcher() {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
+
       >
-        <MenuItem onClick={() => handleLanguageChange('Bulgarian')} sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+        <MenuItem onClick={() => handleLanguageChange('Bulgarian')} sx={{ display: 'flex', justifyContent: 'space-evenly', width: '150px' }}>
           <Image src={BulgarianFlag} width={42} height={42} alt="bulgarian flag" />
           <p style={{ fontSize: '14px' }}>Bulgarian</p>
         </MenuItem>
