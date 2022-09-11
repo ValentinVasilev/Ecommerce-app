@@ -1,7 +1,36 @@
 .input {
   height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  min-width: 400px;
 }
-
+.searchResults {
+  width: 400px;
+  border: 1px solid gray;
+  height: 300px;
+  margin: 2vh 0vh;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow-y: auto;
+  font-family: "Montserrat", sans-serif;
+}
+.searchItems {
+  display: flex;
+  border-bottom: 2px solid gray;
+  margin: 2vh 2vh;
+}
+.searchItems:hover {
+  border-bottom: 2px solid coral;
+}
+.searchResultContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1vh 0vh;
+  cursor: pointer;
+}
 .menuItemWrapper {
   display: flex;
   flex-direction: column;

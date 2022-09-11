@@ -66,5 +66,7 @@ const btnStyles = {
   cursor: 'pointer',
   border: 'none',
   minHeight: '40px',
-  borderRadius: '5px'
+  borderRadius: '5px',
+  width: '150px',
+  minWidth: '150px'
 }

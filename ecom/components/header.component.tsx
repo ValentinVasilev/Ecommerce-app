@@ -80,8 +80,8 @@ const Header = () => {
                 <p style={{ fontSize: '35px', fontFamily: 'monospace' }}>M</p>
               </div>
             </Link>
-            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
+              <Search />
               {user.length > 0
                 ? (<Account username={user[0]?.user.email} user={user[0]?.user} />)
                 : (
@@ -104,8 +104,8 @@ const Header = () => {
             </div>
             {/* <div style={{ display: 'flex', alignItems: 'center' }}>
               <Search />
-            </div>
-            <div style={{ alignSelf: 'center' }}><CurrencyDropdown /></div>
+            </div> */}
+            {/* <div style={{ alignSelf: 'center' }}><CurrencyDropdown /></div>
             <div style={{ alignSelf: 'center' }}>{isLogged ? <Account /> : <p>No user</p>}   </div>
             <div>Cart Component</div> */}
           </div>

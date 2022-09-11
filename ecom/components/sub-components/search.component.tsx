@@ -5,71 +5,49 @@ import SearchIcon from '../../assets/icons/find.png';
 import styles from '../../styles/sub-components/search.component.module.scss';
 import UpArrow from '../../assets/icons/up-arrow.png';
 import DownArrow from '../../assets/icons/down-arrow.png';
-
+import Products from '../../assets/data/products';
+import Link from 'next/link';
 
 const Search = () => {
 
+  const [searchParams, setSearchParams] = useState<string>('');
+
+  const closeSearchFilter = () => {
+    setSearchParams('');
+  }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div>
-        <input className={styles.input} placeholder="Search..." />
+    <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '3px' }}>
+      <input className={styles.input}
+        type="text"
+        autoComplete="off" onChange={(e) => setSearchParams((e.target as HTMLInputElement).value)}
+        placeholder="Search for a product.." />
+
+   
+      <div className={styles.searchResults} style={searchParams.length < 1 ? { display: 'none' } : { display: 'block' }}>
+        {Products.filter(product => product.title.toLowerCase().includes(searchParams.toLowerCase()) || product.brand.includes(searchParams))
+          .map(item => {
+            return (
+              <div key={item.id} className={styles.searchItems} onClick={() => closeSearchFilter()}>
+                <Link href={`/products/${item.category}/${item.id}`} passHref>
+                  <div className={styles.searchResultContainer}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ color: 'black', fontSize: '18px', fontWeight: '500' }}>{item.title}</span>
+                      <span style={{ color: 'gray', fontSize: '15px', fontWeight: '400' }}>{item.brand}</span>
+                      <p style={{ color: 'green', fontSize: '17px', fontWeight: 'bolder' }}>$ {item.price}</p>
+                    </div>
+                    <Image src={item.thumbnail} width={100} height={50} alt="product image" />
+                  </div>
+                </Link>
+              </div>
+            )
+          })}
       </div>
-      <SelectCategory />
-      <div>
-        <button>
-          <Image src={SearchIcon} alt="search icon" />
-        </button>
-      </div>
-    </div>
+    </div >
   )
 }
 
 
-const SelectCategory = () => {
-
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  return (
-    <div>
-      <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        sx={{ backgroundColor: 'white', borderRadius: 0, padding: '7px 10px' }}
-      >
-        <b style={{ color: 'black', padding: '0px 5px 0px 5px' }}>Categories</b>
-        {open
-          ? (<Image src={UpArrow} alt="arrow up" width={16} height={16} />)
-          : (<Image src={DownArrow} alt="down up" width={16} height={16} />)}
-      </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-        
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-    </div >
-  );
-}
 
 export default Search;
+
