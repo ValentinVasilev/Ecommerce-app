@@ -34,7 +34,7 @@ const Search = () => {
                 <Link href={`/products/${item.category}/${item.id}`} passHref>
                   <div className={styles.searchResultContainer}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      <span style={{ color: 'black', fontSize: '18px', fontWeight: '500' }}>{item.title}</span>
+                      <span className={styles.resultTitle}>{item.title}</span>
                       <span style={{ color: 'gray', fontSize: '15px', fontWeight: '400' }}>{item.brand}</span>
                       <p style={{ color: 'green', fontSize: '17px', fontWeight: 'bolder' }}>$ {item.price}</p>
                     </div>

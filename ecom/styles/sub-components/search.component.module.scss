@@ -4,26 +4,52 @@
   border: none;
   font-size: 20px;
   min-width: 400px;
+  padding: 0vh 2vh;
+  font-family: "Montserrat", sans-serif;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+.input:focus {
+  border: 2px solid skyblue;
+  outline: none;
 }
 .searchResults {
   position: absolute;
   width: 400px;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   height: 300px;
   margin: 5vh 0vh;
-  background-color: white;
+  // background-color: white;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   overflow-y: auto;
   font-family: "Montserrat", sans-serif;
+
+  background: rgba(255, 255, 255, 0.34);
+  // border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
+.resultTitle {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .searchItems {
   display: flex;
   border-bottom: 2px solid transparent;
   margin: 2vh 2vh;
 }
 .searchItems:hover {
-  border-bottom: 2px solid coral;
+  .resultTitle {
+    color: coral;
+  }
 }
 .searchResultContainer {
   display: flex;
