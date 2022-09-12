@@ -48,9 +48,11 @@ export default function LanguageSwitcher() {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
-
       >
-        <MenuItem onClick={() => handleLanguageChange('Bulgarian')} sx={{ display: 'flex', justifyContent: 'space-evenly', width: '150px' }}>
+        <MenuItem onClick={() => handleLanguageChange('Bulgarian')}
+          sx={{
+            display: 'flex', justifyContent: 'space-evenly', width: '150px'
+          }}>
           <Image src={BulgarianFlag} width={42} height={42} alt="bulgarian flag" />
           <p style={{ fontSize: '14px' }}>Bulgarian</p>
         </MenuItem>
@@ -69,5 +71,6 @@ const btnStyles = {
   minHeight: '40px',
   borderRadius: '5px',
   width: '150px',
-  minWidth: '150px'
+  minWidth: '150px',
+  background: 'rgba(255, 255, 255, 0.54)',
 }

@@ -21,6 +21,7 @@ import Allproducts from '../assets/data/products';
 import { Backdrop } from '@mui/material'
 import Register from '../components/sub-components/register.component'
 import Login from '../components/sub-components/login.component'
+import Announce from '../components/sub-components/announce.component'
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
+        <Announce />
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
             <div>
@@ -86,7 +88,7 @@ const Home: NextPage = () => {
           </div>
 
         </div> */}
-        <div className={styles.promotionWrapper}>
+        {/* <div className={styles.promotionWrapper}>
           <div className={styles.promotionMain}>
             <div className={styles.textsWrapper}>
               <div className={styles.texts}>
@@ -108,13 +110,16 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.productsWrapper}>
+        </div> */}
+
+
+        {/* <div className={styles.productsWrapper}>
           <div className={styles.productsCarousel}>
             <CarouselComponent />
           </div>
-        </div>
-        <div className={styles.discountWrapper}>
+        </div> */}
+
+        {/* <div className={styles.discountWrapper}>
           <div className={styles.discountCarousel}>
             <div>
               <p className={styles.sectionsTitles}>Recent Discounts</p>
@@ -123,8 +128,9 @@ const Home: NextPage = () => {
               <DiscountCarouselComponent />
             </div>
           </div>
-        </div>
-        <div className={styles.activePromotionsWrapper}>
+        </div> */}
+
+        {/* <div className={styles.activePromotionsWrapper}>
           <div className={styles.activePromotions}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p className={styles.sectionsTitles}>Active Promotions</p>
@@ -136,10 +142,9 @@ const Home: NextPage = () => {
               <PromotionCard title='Up to 25% off on all casual sweaters' img={SweaterImg} icon={SweaterIcon} isReverse={false} />
               <PromotionCard title='Up to 20% off on all beauty products' img={BeautyImg} icon={CosmeticIcon} isReverse={true} />
               <PromotionCard title='Exciting bike rides with amazing equipment' img={BikeImg} icon={BikeIcon} isReverse={false} />
-              {/* <PromotionCard title='Just a test title' /> */}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* <Footer /> */}
 

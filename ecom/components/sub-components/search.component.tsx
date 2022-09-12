@@ -1,10 +1,6 @@
-import { Button, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import Image from "next/image";
-import SearchIcon from '../../assets/icons/find.png';
 import styles from '../../styles/sub-components/search.component.module.scss';
-import UpArrow from '../../assets/icons/up-arrow.png';
-import DownArrow from '../../assets/icons/down-arrow.png';
 import Products from '../../assets/data/products';
 import Link from 'next/link';
 
