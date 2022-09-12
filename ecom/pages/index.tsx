@@ -22,6 +22,9 @@ import { Backdrop } from '@mui/material'
 import Register from '../components/sub-components/register.component'
 import Login from '../components/sub-components/login.component'
 import Announce from '../components/sub-components/announce.component'
+import CategoryBox from '../components/sub-components/category-box.component'
+import LaptopImg from '../assets/icons/laptop-asus.png';
+
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
@@ -37,6 +40,13 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
         <Announce />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+        }}>
+          <CategoryBox text='Just a test' image={LaptopImg} />
+          <CategoryBox text='Just a test2' image={LaptopImg} />
+        </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
             <div>
