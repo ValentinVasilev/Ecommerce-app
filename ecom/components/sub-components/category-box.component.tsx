@@ -15,7 +15,7 @@ const CategoryBox = (props: CategoryBoxProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <Image src={image} alt="image of a product category" />
+        <Image src={image} alt="image of a product category" height={600} width={1000} />
       </div>
       <div className={styles.textContainer}>
         <p>{text}</p>
