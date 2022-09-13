@@ -54,6 +54,11 @@ const Home: NextPage = () => {
           <CategoryBox text='Fragrances' image={FragrancesImg} link="fragrances" />
           <CategoryBox text='Smartphones' image={SmartPhonesImg} link="smartphones" />
         </div>
+        <div className={styles.viewMoreContainer}>
+          <Link href="/products" passHref>
+            <button className={styles.viewMoreBtn}>View All</button>
+          </Link>
+        </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
             <div>
