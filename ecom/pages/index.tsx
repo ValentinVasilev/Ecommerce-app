@@ -44,11 +44,7 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.headerWrapper}>
         <Announce />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          flexWrap: 'wrap'
-        }}>
+        <div className={styles.categoryBoxWrapper}>
           <CategoryBox text='Groceries' image={GroceriesImg} link="groceries" />
           <CategoryBox text='Laptops' image={LaptopsImg} link="laptops" />
           <CategoryBox text='Fragrances' image={FragrancesImg} link="fragrances" />

@@ -1,0 +1,21 @@
+.announceContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(30, 29, 27);
+  padding: 25vh 0vh;
+  color: whitesmoke;
+  font-family: "Montserrat", sans-serif;
+}
+.container {
+  width: 600px;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 80%;
+  }
+}
