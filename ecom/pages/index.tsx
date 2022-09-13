@@ -25,6 +25,9 @@ import Announce from '../components/sub-components/announce.component'
 import CategoryBox from '../components/sub-components/category-box.component'
 import LaptopImg from '../assets/icons/laptop-asus.png';
 import GroceriesImg from '../assets/pictures/groceries.jpg';
+import LaptopsImg from '../assets/pictures/laptops.jpg';
+import FragrancesImg from '../assets/pictures/fragrances.jpg';
+import SmartPhonesImg from '../assets/pictures/smartphones.jpg';
 
 
 const Home: NextPage = () => {
@@ -44,9 +47,12 @@ const Home: NextPage = () => {
         <div style={{
           display: 'flex',
           justifyContent: 'space-around',
+          flexWrap: 'wrap'
         }}>
-          <CategoryBox text='Just a test' image={GroceriesImg} />
-          <CategoryBox text='Just a test2' image={LaptopImg} />
+          <CategoryBox text='Groceries' image={GroceriesImg} link="groceries" />
+          <CategoryBox text='Laptops' image={LaptopsImg} link="laptops" />
+          <CategoryBox text='Fragrances' image={FragrancesImg} link="fragrances" />
+          <CategoryBox text='Smartphones' image={SmartPhonesImg} link="smartphones" />
         </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>

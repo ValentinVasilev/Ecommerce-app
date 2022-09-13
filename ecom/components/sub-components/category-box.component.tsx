@@ -5,21 +5,28 @@ import styles from '../../styles/sub-components/category-box.module.scss';
 type CategoryBoxProps = {
   text: string,
   image: StaticImageData,
-  link?: string,
+  link: string,
 }
 
 const CategoryBox = (props: CategoryBoxProps) => {
 
-  const { text, image } = props;
+  const { text, image, link } = props;
 
   return (
     <div className={styles.container}>
       <div className={styles.image}>
         <Image src={image} alt="image of a product category" height={600} width={1000} />
       </div>
+
       <div className={styles.textContainer}>
-        <p>{text}</p>
+        <hr className={styles.hr} />
+        <p className={styles.text}>{text}</p>
+        <hr className={styles.hr} />
+        <Link href={`/products/${link}`} passHref>
+          <button className={styles.btn}>View More</button>
+        </Link>
       </div>
+
     </div>
   )
 }
