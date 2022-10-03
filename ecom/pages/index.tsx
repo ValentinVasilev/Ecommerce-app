@@ -57,10 +57,10 @@ const Home: NextPage = () => {
           </Link>
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <FavoritesCard />
-          <FavoritesCard />
-          <FavoritesCard />
-          <FavoritesCard />
+          <FavoritesCard title='Card 1' price={200} />
+          <FavoritesCard title='Card 2' price={300} isNew={true} />
+          <FavoritesCard title='Card 3' price={400} />
+          <FavoritesCard title='Card 4' price={500} />
         </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>

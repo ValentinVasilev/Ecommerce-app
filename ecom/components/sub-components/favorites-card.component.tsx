@@ -9,11 +9,19 @@ type FavoriteCardProps = {
 
 }
 
-const FavoritesCard = (props:FavoriteCardProps) => {
+const FavoritesCard = (props: FavoriteCardProps) => {
+
+  const { price, title, isNew } = props;
+
   return (
     <div className={styles.container}>
-      <div>NEW</div>
-      <div>123</div>
+      {
+        isNew && <div className={styles.isNewContainer}>NEW</div>
+      }
+      <div>
+        <p>{price}</p>
+        <p>{title}</p>
+      </div>
     </div>
   )
 }
