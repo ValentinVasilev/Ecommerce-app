@@ -28,6 +28,7 @@ import GroceriesImg from '../assets/pictures/groceries.jpg';
 import LaptopsImg from '../assets/pictures/laptops.jpg';
 import FragrancesImg from '../assets/pictures/fragrances.jpg';
 import SmartPhonesImg from '../assets/pictures/smartphones.jpg';
+import FavoritesCard from '../components/sub-components/favorites-card.component'
 
 
 const Home: NextPage = () => {
@@ -54,6 +55,12 @@ const Home: NextPage = () => {
           <Link href="/products" passHref>
             <button className={styles.viewMoreBtn}>View All</button>
           </Link>
+        </div>
+        <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <FavoritesCard />
+          <FavoritesCard />
+          <FavoritesCard />
+          <FavoritesCard />
         </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
