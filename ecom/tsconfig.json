@@ -22,6 +22,6 @@
     "pages/all-products.js",
     "pages/test.js",
     "services/product.service.ts"
-  ],
+, "assets/data/customer-favorites.js"  ],
   "exclude": ["node_modules"]
 }

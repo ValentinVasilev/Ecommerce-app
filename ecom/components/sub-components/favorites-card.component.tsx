@@ -1,9 +1,9 @@
 import styles from '../../styles/favorites-card.module.scss';
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 type FavoriteCardProps = {
   isNew?: boolean,
-  img?: string,
+  img: StaticImageData,
   price?: number,
   title?: string,
 
@@ -11,7 +11,7 @@ type FavoriteCardProps = {
 
 const FavoritesCard = (props: FavoriteCardProps) => {
 
-  const { price, title, isNew } = props;
+  const { img, price, title, isNew } = props;
 
   return (
     <div className={styles.container}>
@@ -19,7 +19,8 @@ const FavoritesCard = (props: FavoriteCardProps) => {
         isNew && <div className={styles.isNewContainer}>NEW</div>
       }
       <div>
-        <p>{price}</p>
+        <Image src={img} alt="product image" width={300} height={250} />
+        <p>${price}</p>
         <p>{title}</p>
       </div>
     </div>

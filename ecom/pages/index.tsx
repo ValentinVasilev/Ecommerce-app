@@ -29,6 +29,7 @@ import LaptopsImg from '../assets/pictures/laptops.jpg';
 import FragrancesImg from '../assets/pictures/fragrances.jpg';
 import SmartPhonesImg from '../assets/pictures/smartphones.jpg';
 import FavoritesCard from '../components/sub-components/favorites-card.component'
+import CustomerFavorites from '../assets/data/customer-favorites'
 
 
 const Home: NextPage = () => {
@@ -57,10 +58,23 @@ const Home: NextPage = () => {
           </Link>
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <FavoritesCard title='Card 1' price={200} />
+          {
+            CustomerFavorites.map((item: any) => {
+              return (
+                <FavoritesCard
+                  key={item.title}
+                  img={item.img}
+                  title={item.title}
+                  price={item.price}
+                  isNew={item.isNew}
+                />
+              )
+            })
+          }
+          {/* <FavoritesCard title='Card 1' price={200} />
           <FavoritesCard title='Card 2' price={300} isNew={true} />
           <FavoritesCard title='Card 3' price={400} />
-          <FavoritesCard title='Card 4' price={500} />
+          <FavoritesCard title='Card 4' price={500} /> */}
         </div>
         {/* <div className={styles.discountSection}>
           <div className={styles.discount}>
