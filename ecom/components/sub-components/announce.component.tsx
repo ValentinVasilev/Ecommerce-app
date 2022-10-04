@@ -8,7 +8,7 @@ const Announce = () => {
       <p className={styles.container}>
         This website is not a real active platform. This is a personal side project.
         For anyone who is reading this, do not atempt to purchase any kind of items.
-        All items presented in the website are dummy products, this website <b style={{ color: 'red' }}>DO NOT BUY</b> any
+        All items presented in the website are dummy products  <b style={{ color: 'red' }}>DO NOT BUY</b> any
         of the listed items. Please dont enter any credit cards data for your own good.
       </p>
     </div>
