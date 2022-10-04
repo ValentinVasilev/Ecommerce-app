@@ -1,9 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  // border: 1px solid red;
   background-color: #1f1f1f;
-  cursor: pointer;
+  // cursor: pointer;
   width: 18%;
   min-width: 310px;
   color: white;
@@ -31,5 +30,60 @@
   background-color: #a36337;
   .isNewContainer {
     background-color: black;
+  }
+}
+
+.informationBtn {
+  font-family: cursive, sans-serif;
+  margin: 0vh 7vh;
+  cursor: pointer;
+  border: 2px solid gray;
+  background-color: transparent;
+  color: white;
+  border-radius: 100%;
+  padding: 0px 11px;
+}
+.information {
+  position: absolute;
+  top: -120px;
+  left: 34px;
+  border: 1px solid red;
+  width: 80%;
+  min-height: 90px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgb(255, 255, 255);
+  z-index: 4;
+  // display: none;
+  opacity: 1;
+}
+.bubble {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  top: -21px;
+  left: 257px;
+  rotate: 50deg;
+  z-index: 2;
+  // display: none;
+  opacity: 0;
+}
+
+.informationBtn:hover {
+  .information {
+    // opacity: 1;
+  }
+  .bubble {
+    opacity: 1; 
   }
 }

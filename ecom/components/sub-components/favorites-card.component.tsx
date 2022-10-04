@@ -19,9 +19,16 @@ const FavoritesCard = (props: FavoriteCardProps) => {
         isNew && <div className={styles.isNewContainer}>NEW</div>
       }
       <div>
-        <Image src={img} alt="product image" width={300} height={250} />
-        <p>${price}</p>
-        <p>{title}</p>
+        <div style={{ margin: '8vh' }}>
+          <Image src={img} alt="product image" width={300} height={250} />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
+          <p style={{ fontFamily: 'cursive', margin: '0vh 7vh', fontSize: '22px' }}>${price}</p>
+          <p className={styles.information}>Some information about the product</p>
+          <span className={styles.bubble}></span>
+          <button className={styles.informationBtn}>i</button>
+        </div>
+        <p style={{ fontFamily: 'fantasy', margin: '2vh 7vh', fontSize: '22px' }}>{title}</p>
       </div>
     </div>
   )
