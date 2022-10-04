@@ -14,7 +14,7 @@ const CustomerFavorites = [
     price: 3,
     description: '',
     isNew: true,
-    type: 'bakery'
+    type: 1
   },
   {
     id: 1,
@@ -23,7 +23,7 @@ const CustomerFavorites = [
     price: 4,
     description: '',
     isNew: false,
-    type: 'bakery'
+    type: 1
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const CustomerFavorites = [
     price: 2.50,
     description: '',
     isNew: false,
-    type: 'bakery',
+    type: 1
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const CustomerFavorites = [
     price: 4.50,
     description: '',
     isNew: true,
-    type: 'bakery'
+    type: 1
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ const CustomerFavorites = [
     price: 3.75,
     description: '',
     isNew: true,
-    type: 'bakery'
+    type: 1
   },
   {
     id: 5,
@@ -59,7 +59,25 @@ const CustomerFavorites = [
     price: 6.50,
     description: '',
     isNew: false,
-    type: 'bakery'
+    type: 1
+  },
+  {
+    id: 6,
+    img: puffyPastry,
+    title: 'Puffy Pastry',
+    price: 6.50,
+    description: '',
+    isNew: false,
+    type: 2
+  },
+  {
+    id: 7,
+    img: puffyPastry,
+    title: 'Puffy Pastry',
+    price: 6.50,
+    description: '',
+    isNew: false,
+    type: 2
   }
 ]
 

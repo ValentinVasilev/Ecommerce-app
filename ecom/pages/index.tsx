@@ -35,6 +35,17 @@ import CustomerFavorites from '../assets/data/customer-favorites'
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
 
+  const [filterType, setFilterType] = useState<number>(1)
+
+
+  const changeCategory = (category: number) => {
+    // if (category === 1) {
+    //   return;
+    // } else {
+    // }
+    setFilterType(category);
+  }
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -57,19 +68,32 @@ const Home: NextPage = () => {
             <button className={styles.viewMoreBtn}>View All</button>
           </Link>
         </div>
+        <span style={{ backgroundColor: 'black', color: '#f19a4b', fontSize: '35px', fontFamily: 'cursive', textAlign: 'center', padding: '5vh 0vh' }}>Customers Favorites</span>
+        <div>
+          <p>Order by:</p>
+          {/* <button onClick={changeCategory('bakery')}>Bakery</button>
+          <button onClick={(changeCategory('any')}>Any</button> */}
+          <button onClick={() => changeCategory(1)}>Bakery</button>
+          <button onClick={() => changeCategory(2)}>Any</button>
+        </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {
-            CustomerFavorites.map((item: any) => {
-              return (
-                <FavoritesCard
-                  key={item.title}
-                  img={item.img}
-                  title={item.title}
-                  price={item.price}
-                  isNew={item.isNew}
-                />
-              )
-            })
+
+          }
+          {
+            CustomerFavorites
+              .filter((items: any) => items.type === filterType)
+              .map((item: any) => {
+                return (
+                  <FavoritesCard
+                    key={item.title}
+                    img={item.img}
+                    title={item.title}
+                    price={item.price}
+                    isNew={item.isNew}
+                  />
+                )
+              })
           }
           {/* <FavoritesCard title='Card 1' price={200} />
           <FavoritesCard title='Card 2' price={300} isNew={true} />
