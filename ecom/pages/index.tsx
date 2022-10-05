@@ -23,27 +23,27 @@ import { Backdrop } from '@mui/material'
 import Login from '../components/sub-components/login.component'
 import Announce from '../components/sub-components/announce.component'
 import CategoryBox from '../components/sub-components/category-box.component'
-import LaptopImg from '../assets/icons/laptop-asus.png';
-import GroceriesImg from '../assets/pictures/groceries.jpg';
-import LaptopsImg from '../assets/pictures/laptops.jpg';
-import FragrancesImg from '../assets/pictures/fragrances.jpg';
-import SmartPhonesImg from '../assets/pictures/smartphones.jpg';
 import FavoritesCard from '../components/sub-components/favorites-card.component'
 import CustomerFavorites from '../assets/data/customer-favorites'
+import CategoryBoxData from '../assets/data/categoryBox';
+
 
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
 
-  const [filterType, setFilterType] = useState<number>(1)
+  const [filterType, setFilterType] = useState<number[]>([1])
 
 
   const changeCategory = (category: number) => {
-    // if (category === 1) {
-    //   return;
-    // } else {
-    // }
-    setFilterType(category);
+    console.log('before', filterType)
+
+    filterType.pop()
+    filterType.push(category);
+    console.log(category)
+
+    console.log('after', filterType)
+
   }
 
   const handleClose = () => {
@@ -58,10 +58,18 @@ const Home: NextPage = () => {
       <div className={styles.headerWrapper}>
         <Announce />
         <div className={styles.categoryBoxWrapper}>
-          <CategoryBox text='Groceries' image={GroceriesImg} link="groceries" />
-          <CategoryBox text='Laptops' image={LaptopsImg} link="laptops" />
-          <CategoryBox text='Fragrances' image={FragrancesImg} link="fragrances" />
-          <CategoryBox text='Smartphones' image={SmartPhonesImg} link="smartphones" />
+          {
+            CategoryBoxData.map((item: any) => {
+              return (
+                <CategoryBox
+                  key={item.id}
+                  text={item.text}
+                  image={item.image}
+                  link={item.link}
+                />
+              )
+            })
+          }
         </div>
         <div className={styles.viewMoreContainer}>
           <Link href="/products" passHref>
@@ -71,18 +79,13 @@ const Home: NextPage = () => {
         <span style={{ backgroundColor: 'black', color: '#f19a4b', fontSize: '35px', fontFamily: 'cursive', textAlign: 'center', padding: '5vh 0vh' }}>Customers Favorites</span>
         <div>
           <p>Order by:</p>
-          {/* <button onClick={changeCategory('bakery')}>Bakery</button>
-          <button onClick={(changeCategory('any')}>Any</button> */}
           <button onClick={() => changeCategory(1)}>Bakery</button>
           <button onClick={() => changeCategory(2)}>Any</button>
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {
-
-          }
-          {
             CustomerFavorites
-              .filter((items: any) => items.type === filterType)
+              .filter((items: any) => items.type === 2)
               .map((item: any) => {
                 return (
                   <FavoritesCard
