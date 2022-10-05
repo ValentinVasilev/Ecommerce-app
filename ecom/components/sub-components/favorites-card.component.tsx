@@ -6,12 +6,13 @@ type FavoriteCardProps = {
   img: StaticImageData,
   price?: number,
   title?: string,
+  description?: string,
 
 }
 
 const FavoritesCard = (props: FavoriteCardProps) => {
 
-  const { img, price, title, isNew } = props;
+  const { img, price, title, isNew, description } = props;
 
   return (
     <div className={styles.container}>
@@ -25,7 +26,7 @@ const FavoritesCard = (props: FavoriteCardProps) => {
         <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
           <p style={{ fontFamily: 'cursive', margin: '0vh 7vh', fontSize: '22px' }}>${price}</p>
           <div className={styles.informationBtn}>
-            <p className={styles.information}>Some information about the product</p>
+            <p className={styles.information}>{description}</p>
             <span className={styles.bubble}></span>
             <span>i</span>
           </div>

@@ -19,7 +19,7 @@ import BikeImg from '../assets/icons/bikePicture2.jpg'
 import { Footer } from '../components/footer.component'
 import Allproducts from '../assets/data/products';
 import { Backdrop } from '@mui/material'
-import Register from '../components/sub-components/register.component'
+// import Register from '../components/sub-components/register.component'
 import Login from '../components/sub-components/login.component'
 import Announce from '../components/sub-components/announce.component'
 import CategoryBox from '../components/sub-components/category-box.component'
@@ -91,6 +91,7 @@ const Home: NextPage = () => {
                     title={item.title}
                     price={item.price}
                     isNew={item.isNew}
+                    description={item.description}
                   />
                 )
               })

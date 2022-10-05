@@ -12,7 +12,7 @@ const CustomerFavorites = [
     img: bagelBaked,
     title: 'Bagel Baked',
     price: 3,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: true,
     type: 1
   },
@@ -21,7 +21,7 @@ const CustomerFavorites = [
     img: bagelSesame,
     title: 'Bagel Sesame',
     price: 4,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: false,
     type: 1
   },
@@ -30,7 +30,7 @@ const CustomerFavorites = [
     img: bread,
     title: 'Bread',
     price: 2.50,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: false,
     type: 1
   },
@@ -39,7 +39,7 @@ const CustomerFavorites = [
     img: fourSeedsWheat,
     title: 'Four Seed Wheat',
     price: 4.50,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: true,
     type: 1
   },
@@ -48,7 +48,7 @@ const CustomerFavorites = [
     img: frenchBagguette,
     title: 'French Bagguette',
     price: 3.75,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: true,
     type: 1
   },
@@ -57,7 +57,7 @@ const CustomerFavorites = [
     img: puffyPastry,
     title: 'Puffy Pastry',
     price: 6.50,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: false,
     type: 1
   },
@@ -66,7 +66,7 @@ const CustomerFavorites = [
     img: puffyPastry,
     title: 'Puffy Pastry',
     price: 6.50,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: false,
     type: 2
   },
@@ -75,7 +75,7 @@ const CustomerFavorites = [
     img: puffyPastry,
     title: 'Puffy Pastry',
     price: 6.50,
-    description: '',
+    description: 'Some information about the products ingredients...',
     isNew: false,
     type: 2
   }
