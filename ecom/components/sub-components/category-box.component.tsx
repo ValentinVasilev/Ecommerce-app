@@ -2,7 +2,8 @@ import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
 import styles from '../../styles/sub-components/category-box.module.scss';
 
-type CategoryBoxProps = {
+export type CategoryBoxProps = {
+  id?: number,
   text: string,
   image: StaticImageData,
   link: string,
@@ -31,4 +32,4 @@ const CategoryBox = (props: CategoryBoxProps) => {
   )
 }
 
-export default CategoryBox
+export default CategoryBox;

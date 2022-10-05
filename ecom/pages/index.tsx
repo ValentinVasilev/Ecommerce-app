@@ -22,8 +22,8 @@ import { Backdrop } from '@mui/material'
 // import Register from '../components/sub-components/register.component'
 import Login from '../components/sub-components/login.component'
 import Announce from '../components/sub-components/announce.component'
-import CategoryBox from '../components/sub-components/category-box.component'
-import FavoritesCard from '../components/sub-components/favorites-card.component'
+import CategoryBox, { CategoryBoxProps } from '../components/sub-components/category-box.component'
+import FavoritesCard, { FavoriteCardProps } from '../components/sub-components/favorites-card.component'
 import CustomerFavorites from '../assets/data/customer-favorites'
 import CategoryBoxData from '../assets/data/categoryBox';
 
@@ -32,19 +32,13 @@ import CategoryBoxData from '../assets/data/categoryBox';
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
 
-  const [filterType, setFilterType] = useState<number[]>([1])
+  const [filterType, setFilterType] = useState<number>(0)
 
 
-  const changeCategory = (category: number) => {
-    console.log('before', filterType)
-
-    filterType.pop()
-    filterType.push(category);
-    console.log(category)
-
-    console.log('after', filterType)
-
-  }
+  const filterFavorites =
+    filterType != 0
+      ? CustomerFavorites.filter((item: any) => item.type === filterType)
+      : CustomerFavorites.filter((item: any) => item.type === 1)
 
   const handleClose = () => {
     setOpen(false);
@@ -59,7 +53,7 @@ const Home: NextPage = () => {
         <Announce />
         <div className={styles.categoryBoxWrapper}>
           {
-            CategoryBoxData.map((item: any) => {
+            CategoryBoxData.map((item: CategoryBoxProps) => {
               return (
                 <CategoryBox
                   key={item.id}
@@ -79,14 +73,13 @@ const Home: NextPage = () => {
         <span style={{ backgroundColor: 'black', color: '#f19a4b', fontSize: '35px', fontFamily: 'cursive', textAlign: 'center', padding: '5vh 0vh' }}>Customers Favorites</span>
         <div>
           <p>Order by:</p>
-          <button onClick={() => changeCategory(1)}>Bakery</button>
-          <button onClick={() => changeCategory(2)}>Any</button>
+          <button onClick={() => setFilterType(1)}>Bakery</button>
+          <button onClick={() => setFilterType(2)}>Any</button>
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {
-            CustomerFavorites
-              .filter((items: any) => items.type === 2)
-              .map((item: any) => {
+            filterFavorites
+              .map((item: FavoriteCardProps) => {
                 return (
                   <FavoritesCard
                     key={item.title}

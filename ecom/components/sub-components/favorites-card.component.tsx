@@ -1,7 +1,7 @@
 import styles from '../../styles/favorites-card.module.scss';
 import Image, { StaticImageData } from 'next/image'
 
-type FavoriteCardProps = {
+export type FavoriteCardProps = {
   isNew?: boolean,
   img: StaticImageData,
   price?: number,
