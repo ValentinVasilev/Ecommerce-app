@@ -7,7 +7,7 @@ export type FavoriteCardProps = {
   price?: number,
   title?: string,
   description?: string,
-
+  id: number,
 }
 
 const FavoritesCard = (props: FavoriteCardProps) => {

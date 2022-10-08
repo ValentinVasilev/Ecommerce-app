@@ -32,7 +32,7 @@ import CategoryBoxData from '../assets/data/categoryBox';
 const Home: NextPage = () => {
   const [open, setOpen] = useState<boolean>(false)
 
-  const [filterType, setFilterType] = useState<number>(0)
+  const [filterType, setFilterType] = useState<number>(1)
 
 
   const filterFavorites =
@@ -78,11 +78,12 @@ const Home: NextPage = () => {
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {
-            filterFavorites
+            CustomerFavorites.filter((item: any) => item.type === filterType)
               .map((item: FavoriteCardProps) => {
                 return (
                   <FavoritesCard
-                    key={item.title}
+                    id={item.id}
+                    key={item.id}
                     img={item.img}
                     title={item.title}
                     price={item.price}
