@@ -6,6 +6,7 @@
 .headerWrapper {
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 .categoryBoxWrapper {
   display: flex;
@@ -193,6 +194,37 @@
   display: flex;
   justify-content: space-between;
 }
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding-bottom: 10vh;
+}
+.filterTitle {
+  font-size: 30px;
+  color: #f19a4b;
+}
+.filterBtn {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  // border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+  margin: 5px 0px;
+  border-radius: 10px;
+  padding: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.active {
+  background-color: #f19a4b;
+  font-weight: bold;
+}
+.unactive {
+  background-color: white;
+}
+
 @media only screen and (max-width: 800px) {
   .discountSection {
     flex-direction: column;

@@ -71,10 +71,10 @@ const Home: NextPage = () => {
           </Link>
         </div>
         <span style={{ backgroundColor: 'black', color: '#f19a4b', fontSize: '35px', fontFamily: 'cursive', textAlign: 'center', padding: '5vh 0vh' }}>Customers Favorites</span>
-        <div>
-          <p>Order by:</p>
-          <button onClick={() => setFilterType(1)}>Bakery</button>
-          <button onClick={() => setFilterType(2)}>Any</button>
+        <div className={styles.filterContainer}>
+          <p className={styles.filterTitle}>Order by:</p>
+          <button className={`${styles.filterBtn} ${filterType === 1 ? styles.active : styles.unactive}`} onClick={() => setFilterType(1)}>Bakery</button>
+          <button className={`${styles.filterBtn} ${filterType === 2 ? styles.active : styles.unactive}`} onClick={() => setFilterType(2)}>Any</button>
         </div>
         <div style={{ backgroundColor: 'black', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {
