@@ -32,7 +32,7 @@ const Cart = () => {
   return (
     <div className={styles.cartContainer}>
       <div className={styles.itemsContainer}>
-        {userCart.map((item: any) => {
+        {userCart?.map((item: any) => {
           return (
             <div key={item} >
               <ItemCard

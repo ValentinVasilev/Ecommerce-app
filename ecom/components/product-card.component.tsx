@@ -16,13 +16,14 @@ type ProductCardProps = {
   thumbnail: StaticImageData | string
   category?: string,
   productId?: any,
-  count?: any
+  count?: any,
+  isRelatedPoducts?: boolean,
 }
 
 
 const ProductCard = (props: ProductCardProps) => {
 
-  const { title, description, price, rating, brand, thumbnail, category, productId, count } = props;
+  const { title, description, price, rating, brand, thumbnail, category, productId, count, isRelatedPoducts } = props;
 
   const [productRating, setProductRating] = useState<number | undefined>(rating)
 
@@ -42,22 +43,39 @@ const ProductCard = (props: ProductCardProps) => {
   }
 
 
+
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.cardContainer}>
-        <Link href={
-          {
-            pathname: "[category]/[id]",
-            query: {
-              category: category,
-              id: productId,
-            }
-          }
-        } as={`${category}/${productId}`}
-          passHref
-        >
-          <button className={styles.viewMore}>View More</button>
-        </Link>
+        {
+          isRelatedPoducts
+            ? (<Link
+              href={
+                {
+                  pathname: "/products/[productCategory]/[id]",
+                  query: {
+                    productCategory: category,
+                    id: productId,
+                  }
+                }
+              } as={`/products/${category}/${productId}`} key={productId}
+              passHref>
+              <button className={styles.viewMore}>View More</button>
+            </Link>)
+            : (<Link href={
+              {
+                pathname: "[category]/[id]",
+                query: {
+                  category: category,
+                  id: productId,
+                }
+              }
+            } as={`${category}/${productId}`}
+              passHref
+            >
+              <button className={styles.viewMore}>View More</button>
+            </Link>)
+        }
         <div>
           <Image src={thumbnail} width={300} height={200} alt="product image" />
         </div>
@@ -76,7 +94,7 @@ const ProductCard = (props: ProductCardProps) => {
           onClick={() => addProductToCart(cardProps)}
         >Add to cart</Button>
       </div>
-    </div>
+    </div >
 
   )
 }

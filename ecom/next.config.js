@@ -4,10 +4,10 @@ const nextConfig = {
   images: {
     domains: ['dummyjson.com'],
   },
-  webpack(config) {
-    config.infrastructureLogging = { debug: /PackFileCache/ }
-    return config;
-  },
+  // webpack(config) {
+  //   config.infrastructureLogging = { debug: /PackFileCache/ }
+  //   return config;
+  // },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

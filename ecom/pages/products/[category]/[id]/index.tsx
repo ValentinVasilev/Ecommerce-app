@@ -43,7 +43,7 @@ const Product = () => {
   const product = getProductById;
 
   const [productRating, setProductRating] = useState<number | undefined>(product?.rating);
-  const [relatedProducts, setRelatedProducts] = useState<string | undefined>();
+  const [relatedProducts, setRelatedProducts] = useState<any>();
 
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectAccount)
@@ -233,6 +233,9 @@ const Product = () => {
                   description={item.description}
                   brand={item.brand}
                   rating={item.rating}
+                  category={item.category}
+                  productId={item.id}
+                  isRelatedPoducts={true}
                 />
               )
             })
