@@ -14,9 +14,9 @@ type ProductCardProps = {
   rating?: number,
   brand?: string,
   thumbnail: StaticImageData | string
-  category: string,
-  productId: any,
-  count: any
+  category?: string,
+  productId?: any,
+  count?: any
 }
 
 

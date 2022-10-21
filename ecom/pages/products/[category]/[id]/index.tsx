@@ -13,11 +13,10 @@ import ShieldIcon from '../../../../assets/icons/shield2.png';
 import AddedToWishlist from '../../../../assets/icons/added-to-wishlist.png'
 import AddToWishlist from '../../../../assets/icons/add-to-favorites.png'
 import CompareIcon from '../../../../assets/icons/compare.png';
-import RelatedProductsCard from "../../../../components/related-products-card.component";
 import AllProducts from '../../../../assets/data/products';
 import { useAppDispatch, useAppSelector } from "../../../../utils/app/hooks";
 import { selectAccount, addToCart } from '../../../../utils/app/features/account/accountSlice';
-
+import ProductCard from '../../../../components/product-card.component'
 
 
 type ProductType = {
@@ -32,14 +31,6 @@ type ProductType = {
   category: string,
   thumbnail: string,
   images: string[]
-}
-
-type RelatedProductsCardProps = {
-  image?: StaticImageData,
-  title?: string,
-  info?: string,
-  price?: number,
-  isLiked?: boolean
 }
 
 
@@ -232,24 +223,16 @@ const Product = () => {
       <div className={styles.relatedCardsContainer}>
         <div className={styles.cardsWrapper}>
           {
-            // AllProducts?.filter.map(pr => pr.category === product?.category) => {
-            // return (<RelatedProductsCard />)
-
-            // }
-            //   AllProducts.filter(pr => pr.category === product?.category)
-            //     .map(item => item.category) => {
-            //  return <RelatedProductsCard />
-            //   }
             relatedProducts?.map((item: any) => {
               return (
-                <RelatedProductsCard
+                <ProductCard
                   key={item.id}
+                  thumbnail={item.thumbnail}
                   title={item.title}
                   price={item.price}
-                  info={item.description}
-                  image={item.thumbnail}
-                  category={item.category}
-                  productId={item.id}
+                  description={item.description}
+                  brand={item.brand}
+                  rating={item.rating}
                 />
               )
             })
